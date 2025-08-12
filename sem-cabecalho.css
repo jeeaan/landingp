@@ -1,0 +1,6 @@
+.ast-primary-header-bar,
+.ast-primary-header,
+.main-header-bar,
+.site-header-focus-item {
+  display: none !important;
+}

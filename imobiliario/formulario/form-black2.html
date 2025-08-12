@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simulação de Financiamento - HorizonCred</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background-color: #0f0f0f;
+      color: #fff;
+    }
+    h2 {
+      font-weight: bold;
+      margin: 0 0 15px;
+      text-transform: none;
+    }
+    .highlight {
+      color: #ffbc00;
+    }
+    .form-section {
+      background-image: url('https://horizoncred.com/wp-content/uploads/2025/08/edificio.jpeg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      padding: 100px 5%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      align-items: center;
+    }
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0,0,0,0.65);
+      z-index: 1;
+    }
+    .left-content, .form-container {
+      position: relative;
+      z-index: 2;
+      flex: 1;
+      min-width: 300px;
+      max-width: 600px;
+    }
+    .left-content h2 {
+      font-size: 2.5em;
+    }
+    .left-content p {
+      font-size: 1.2em;
+      color: #ddd;
+      line-height: 1.8;
+    }
+    .benefits {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 20px;
+    }
+    .benefits li {
+      margin-bottom: 15px;
+      font-size: 1.1em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .benefits i {
+      color: #ffbc00;
+      font-size: 1.2em;
+      min-width: 20px;
+    }
+    .form-container {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 40px 50px;
+      border-radius: 20px;
+    }
+    .form-container h2 {
+      text-align: center;
+      font-size: 2em;
+      color: #ffbc00;
+    }
+    .form-container p {
+      font-size: 1.1em;
+      color: #ddd;
+      margin-bottom: 30px;
+    }
+    .form-container label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+    .form-container input {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.1em;
+    }
+    .form-container a.elementor-button {
+      width: 100%;
+      padding: 15px;
+      background-color: #ffbc00;
+      color: #000;
+      border-radius: 5px;
+      font-size: 1.2em;
+      font-weight: bold;
+      text-align: center;
+      display: inline-block;
+      text-decoration: none;
+    }
+    .form-container small {
+      font-size: 0.9em;
+      color: #ccc;
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+    }
+    .bank-logos {
+      background:#0f0f0f;
+      padding:18px 0;
+    }
+    .bank-logos p {
+      margin:0 0 10px;
+      text-align:center;
+      font:600 13px/1.2 'Roboto', Arial, sans-serif;
+      color:#cfcfcf;
+      letter-spacing:.3px;
+    }
+    .bank-logos div {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:28px;
+      flex-wrap:wrap;
+    }
+    .bank-logos img {
+      height:28px;
+      filter:grayscale(100%);
+      opacity:.9;
+    }
+  </style>
+</head>
+<body>
+
+<section id="simulacao" class="form-section">
+  <div class="overlay"></div>
+
+  <!-- Texto lateral -->
+  <div class="left-content">
+    <h2 class="highlight">Financie seu imóvel</h2>
+    <p>
+      Simule agora e descubra como conquistar seu imóvel com condições exclusivas, atendimento humano via WhatsApp e sem sair de casa.
+    </p>
+    <ul class="benefits">
+      <li><i class="fa-solid fa-headset"></i> Atendimento 100% online</li>
+      <li><i class="fa-solid fa-percent"></i> Menores taxas</li>
+      <li><i class="fa-solid fa-bolt"></i> Aprovação rápida</li>
+      <li><i class="fa-solid fa-university"></i> Parceria com todos os bancos</li>
+    </ul>
+  </div>
+
+  <!-- Formulário -->
+  <div class="form-container">
+    <h2>Quero minha simulação gratuita</h2>
+    <p>Preencha os dados abaixo e entraremos em contato rapidamente.</p>
+
+    <label for="nome">Nome Completo</label>
+    <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
+
+    <label for="cidade">Cidade</label>
+    <input type="text" id="cidade" name="cidade" placeholder="Digite a cidade do imóvel">
+
+    <label for="valor_imovel">Valor do Imóvel (estimado)</label>
+    <input type="text" id="valor_imovel" name="valor_imovel" placeholder="R$ 300.000">
+
+    <a href="#whatsapp" id="whatsapp-button" class="elementor-button">
+      Simular Agora!
+    </a>
+    <small>🔒 Seus dados estão protegidos — atendimento sem compromisso</small>
+  </div>
+</section>
+
+<section class="bank-logos" aria-label="Bancos conveniados">
+  <div>
+    <p>Bancos conveniados:</p>
+    <div>
+      <img src="uploads/logo-caixa.png" alt="Caixa Econômica Federal">
+      <img src="uploads/logo-brb.png" alt="BRB Banco de Brasília">
+      <img src="uploads/logo-santander.png" alt="Banco Santander">
+      <img src="uploads/logo-bradesco.png" alt="Banco Bradesco">
+      <img src="uploads/logo-itau.png" alt="Banco Itaú">
+    </div>
+  </div>
+</section>
+
+<script>
+  document.getElementById('whatsapp-button').addEventListener('click', function (event) {
+    event.preventDefault();
+
+    const nome = document.getElementById('nome').value;
+    const valorImovel = document.getElementById('valor_imovel').value;
+    const cidade = document.getElementById('cidade').value;
+
+    if (!nome || !valorImovel || valorImovel === 'R$ 0,00' || !cidade) {
+      alert('Por favor, preencha os campos obrigatórios para continuar.');
+      return;
+    }
+
+    const whatsappNumber = '5561991116565';
+    const message = `Olá, HorizonCred! 👋\n\nDesejo uma simulação de financiamento imobiliário.\n\n*Nome:* ${nome}\n*Valor do Imóvel:* ${valorImovel}\n*Localização:* ${cidade}\n\nAguardo retorno. Obrigado!`;
+    const encodedMessage = encodeURIComponent(message);
+    const url = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    window.open(url, '_blank');
+  });
+
+  const currencyInput = document.getElementById('valor_imovel');
+  currencyInput.addEventListener('input', function (e) {
+    let value = e.target.value.replace(/\D/g, '');
+    if (!value) {
+      e.target.value = '';
+      return;
+    }
+    const numberValue = parseFloat(value) / 100;
+    const formattedValue = new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+      minimumFractionDigits: 2
+    }).format(numberValue);
+
+    e.target.value = formattedValue;
+  });
+</script>
+
+</body>
+</html>
