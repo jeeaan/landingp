@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página com Fundo de Tela Cheia</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+    <body>
+        <section id="simulacao" class="form-section">
+          <!-- Texto lateral -->
+          <div class="left-content">
+            <h2 class="highlight">Financie seu imóvel</h2>
+            <p>
+              Simule agora e descubra como conquistar seu imóvel com condições exclusivas, atendimento humano via WhatsApp e sem sair de casa.
+            </p>
+            
+            <div class="benefits-container">
+                <ul class="benefits">
+                    <li>
+                        <i class="fa-solid fa-headset"></i>
+                        <span>Atendimento 100% online</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-percent"></i>
+                        <span>Menores taxas</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-bolt"></i>
+                        <span>Aprovação rápida</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-university"></i>
+                        <span>Parceria com todos os bancos</span>
+                    </li>
+                </ul>
+            </div>
+            </ul>
+          </div>
+
+          <!-- Formulário -->
+          <div class="form-container">
+            <h2>Quero minha simulação gratuita</h2>
+            <p>Preencha os dados abaixo e entraremos em contato rapidamente.</p>
+
+            <label for="nome">Nome Completo</label>
+            <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
+
+            <label for="cidade">Cidade</label>
+            <input type="text" id="cidade" name="cidade" placeholder="Digite a cidade do imóvel">
+
+            <label for="valor_imovel">Valor do Imóvel (estimado)</label>
+            <input type="text" id="valor_imovel" name="valor_imovel" placeholder="R$ 300.000">
+
+            <a href="#whatsapp" id="whatsapp-button" class="elementor-button">
+              Simular Agora!
+            </a>
+            <small>🔒 Seus dados estão protegidos — atendimento sem compromisso</small>
+          </div>
+        </section>
+
+        <section class="bank-logos" aria-label="Bancos conveniados">
+          <div>
+            <p>Bancos conveniados:</p>
+            <div>
+              <img src="uploads/logo-caixa.png" alt="Caixa Econômica Federal">
+              <img src="uploads/logo-brb.png" alt="BRB Banco de Brasília">
+              <img src="uploads/logo-santander.png" alt="Banco Santander">
+              <img src="uploads/logo-bradesco.png" alt="Banco Bradesco">
+              <img src="uploads/logo-itau.png" alt="Banco Itaú">
+            </div>
+          </div>
+        </section>
+
+        <script>
+          document.getElementById('whatsapp-button').addEventListener('click', function (event) {
+            event.preventDefault();
+
+            const nome = document.getElementById('nome').value;
+            const valorImovel = document.getElementById('valor_imovel').value;
+            const cidade = document.getElementById('cidade').value;
+
+            if (!nome || !valorImovel || valorImovel === 'R$ 0,00' || !cidade) {
+              alert('Por favor, preencha os campos obrigatórios para continuar.');
+              return;
+            }
+
+            const whatsappNumber = '5561991116565';
+            const message = `Olá, HorizonCred! 👋\n\nDesejo uma simulação de financiamento imobiliário.\n\n*Nome:* ${nome}\n*Valor do Imóvel:* ${valorImovel}\n*Localização:* ${cidade}\n\nAguardo retorno. Obrigado!`;
+            const encodedMessage = encodeURIComponent(message);
+            const url = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+            window.open(url, '_blank');
+          });
+
+          const currencyInput = document.getElementById('valor_imovel');
+          currencyInput.addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (!value) {
+              e.target.value = '';
+              return;
+            }
+            const numberValue = parseFloat(value) / 100;
+            const formattedValue = new Intl.NumberFormat('pt-BR', {
+              style: 'currency',
+              currency: 'BRL',
+              minimumFractionDigits: 2
+            }).format(numberValue);
+
+            e.target.value = formattedValue;
+          });
+        </script>
+
+    </body>
+</html>

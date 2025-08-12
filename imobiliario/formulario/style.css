@@ -1,0 +1,268 @@
+/*
+  Remove margens e preenchimentos padrão do navegador para que a imagem
+  ocupe 100% da tela, sem bordas brancas.
+*/
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
+
+}
+
+body {
+    /* ----- IMAGEM DE FUNDO COM GRADIENTE SOBREPOSTO ----- */
+    
+    /* A mágica acontece aqui:
+       1. A primeira camada é o gradiente.
+       2. A segunda camada, separada por vírgula, é a sua imagem. */
+    background-image: linear-gradient(to bottom, rgba(72, 72, 72, 0.4), rgba(32, 30, 31, 0.8)), url('https://horizoncred.com/wp-content/uploads/2025/08/edificio.jpeg');
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    
+    /* ----- CONTEXTO PARA A FAIXA ----- */
+    /* Essencial para que a faixa se posicione em relação à tela inteira */
+    position: relative; 
+}
+
+/* ----- FAIXA AMARELA DIAGONAL ----- */
+/* Usamos o pseudo-elemento ::before para criar a faixa sem precisar de mais HTML */
+body::before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+
+    /* Cor amarela com transparência (70% de opacidade) */
+    background-color: rgba(255, 193, 7, 0.7);
+
+    /* Sombreamento sutil */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+    width: 150%;
+    height: 120px;
+    top: 45%;
+    left: -25%;
+    transform: rotate(-30deg);
+}
+
+/* ----- LINHA VERTICAL CENTRAL ----- */
+body::after {
+    content: ''; /* Obrigatório para o pseudo-elemento aparecer */
+    position: absolute; /* Posicionamento "solto" dentro do body */
+    
+    background-color: #ffc107; /* O mesmo tom de amarelo da faixa */
+    
+    /* Posição e Dimensões */
+    bottom: 0; /* Começa no topo da página */
+    left: 80%; /* Posiciona a borda esquerda da linha na metade da tela */
+    height: 60%; /* Ocupa a altura inteira da tela */
+    width: 2px; /* A espessura da linha. Ajuste se quiser mais fina ou grossa. */
+
+    /* O truque para a centralização perfeita: 
+       Move a linha para a esquerda em 50% da sua própria largura (metade de 2px),
+       colocando o centro da linha exatamente no centro da tela. */
+    transform: translateX(-50%);
+
+    z-index: 1; /* Define a mesma "camada" da faixa diagonal */
+}
+
+
+    p {
+        text-align: justify;
+    }
+
+
+    .highlight {
+      color: #ffbc00;
+      text-align: center;
+    }
+
+    .form-section {
+      padding: 100px 5%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      align-items: center;
+    }
+
+   .left-content, .form-container {
+      position: relative;
+      z-index: 2;
+      flex: 1;
+      min-width: 300px;
+      max-width: 600px;
+    }
+    .left-content h2 {
+      font-size: 2.5em;
+    }
+    .left-content p {
+      font-size: 1.2em;
+      color: #ddd;
+      line-height: 1.8;
+    }
+    .benefits {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 20px;
+    }
+    .benefits li {
+      margin-bottom: 15px;
+      font-size: 1.1em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .benefits i {
+      color: #ffbc00;
+      font-size: 1.2em;
+      min-width: 20px;
+    }
+    .form-container {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 40px 50px;
+      border-radius: 20px;
+    }
+    .form-container h2 {
+      text-align: center;
+      font-size: 2em;
+      color: #ffbc00;
+    }
+    .form-container p {
+      font-size: 1.1em;
+      color: #ddd;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .form-container label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 500;
+      color: white;
+    }
+    .form-container input {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.1em;
+    }
+    .form-container a.elementor-button {
+      width: 100%;
+      padding: 15px;
+      background-color: #ffbc00;
+      color: #000;
+      border-radius: 5px;
+      font-size: 1.2em;
+      font-weight: bold;
+      text-align: center;
+      display: inline-block;
+      text-decoration: none;
+    }
+    .form-container small {
+      font-size: 0.9em;
+      color: #ccc;
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .bank-logos {
+      padding:18px 0;
+    }
+    .bank-logos p {
+      margin:0 0 10px;
+      font:600 13px/1.2 'Roboto', Arial, sans-serif;
+      color:#cfcfcf;
+      letter-spacing:.3px;
+    }
+    .bank-logos div {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:28px;
+      flex-wrap:wrap;
+    }
+    .bank-logos img {
+        height: 50px;
+        width: 50px; /* Corrigido o typo (de "witdh" para "width") */
+        object-fit: cover; 
+        border-radius: 4px; /* Opcional: cantos levemente arredondados */
+    }
+
+
+
+
+
+
+
+    .benefits-container {
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+}
+
+.benefits-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #2c3e50;
+}
+
+/* O contêiner da nossa grade de cards (a tag <ul>) */
+.benefits {
+    list-style-type: none; /* Remove os pontos da lista */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Ativa o Flexbox */
+    flex-wrap: wrap; /* Permite que os cards quebrem para a próxima linha */
+    justify-content: center; /* Centraliza os cards no contêiner */
+    gap: 30px; /* Espaçamento moderno entre os cards */
+}
+
+/* O estilo de cada card (a tag <li>) */
+.benefits li {
+    background-color: #ffffff;
+    border-radius: 8px; /* <-- ALTERADO */
+    box-shadow: 0px 40px 120px -40px rgba(0, 0, 0, 0.24); /* <-- ALTERADO */
+    
+    /* Layout interno do card */
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    
+    padding: 40px 25px;
+    text-align: center;
+    
+    /* Tamanho e flexibilidade do card */
+    flex-basis: 220px; 
+    flex-grow: 1;
+    
+    /* Efeito suave de transição */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito de "elevar" o card ao passar o mouse */
+.benefits li:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo do ícone */
+.benefits i {
+    font-size: 2.8rem; /* Tamanho do ícone */
+    color: #ffbc00;
+    margin-bottom: 20px; /* Espaço entre o ícone e o texto */
+}
+
+/* Estilo do texto do benefício */
+.benefits span {
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.4;
+}
