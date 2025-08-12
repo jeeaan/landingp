@@ -12,18 +12,13 @@ body, html {
 }
 
 body {
-    /* ----- IMAGEM DE FUNDO COM GRADIENTE SOBREPOSTO ----- */
-    
-    /* A mágica acontece aqui:
-       1. A primeira camada é o gradiente.
-       2. A segunda camada, separada por vírgula, é a sua imagem. */
     background-image: linear-gradient(to bottom, rgba(72, 72, 72, 0.4), rgba(32, 30, 31, 0.8)), url('https://horizoncred.com/wp-content/uploads/2025/08/edificio.jpeg');
 
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
-    
+    overflow: hidden;
     /* ----- CONTEXTO PARA A FAIXA ----- */
     /* Essencial para que a faixa se posicione em relação à tela inteira */
     position: relative; 
@@ -105,23 +100,10 @@ body::after {
       color: #ddd;
       line-height: 1.8;
     }
-    .benefits {
-      list-style: none;
-      padding-left: 0;
-      margin-top: 20px;
-    }
-    .benefits li {
-      margin-bottom: 15px;
-      font-size: 1.1em;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .benefits i {
-      color: #ffbc00;
-      font-size: 1.2em;
-      min-width: 20px;
-    }
+
+
+
+
     .form-container {
       background-color: rgba(0, 0, 0, 0.6);
       padding: 40px 50px;
@@ -192,7 +174,7 @@ body::after {
         height: 50px;
         width: 50px; /* Corrigido o typo (de "witdh" para "width") */
         object-fit: cover; 
-        border-radius: 4px; /* Opcional: cantos levemente arredondados */
+        border-radius: 8px; /* Opcional: cantos levemente arredondados */
     }
 
 
@@ -201,17 +183,9 @@ body::after {
 
 
 
-    .benefits-container {
-    width: 100%;
-    max-width: 1200px;
-    text-align: center;
-}
 
-.benefits-container h2 {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    color: #2c3e50;
-}
+
+
 
 /* O contêiner da nossa grade de cards (a tag <ul>) */
 .benefits {
@@ -226,24 +200,24 @@ body::after {
 
 /* O estilo de cada card (a tag <li>) */
 .benefits li {
-    background-color: #ffffff;
-    border-radius: 8px; /* <-- ALTERADO */
-    box-shadow: 0px 40px 120px -40px rgba(0, 0, 0, 0.24); /* <-- ALTERADO */
+    background-color: rgba(198, 198, 198, 0.5);
+    border-radius: 8px;
+    box-shadow: 0px 40px 120px -40px rgba(0, 0, 0, 0.24);
     
-    /* Layout interno do card */
     display: flex;
     flex-direction: column; 
     align-items: center; 
     justify-content: center; 
     
-    padding: 40px 25px;
+    padding: 20px 15px;
     text-align: center;
     
-    /* Tamanho e flexibilidade do card */
     flex-basis: 220px; 
     flex-grow: 1;
+
+        min-width: 150px; /* Evita que fiquem muito estreitos */
+    max-width: 250px; /* Limita a expansão máxima */
     
-    /* Efeito suave de transição */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -255,9 +229,9 @@ body::after {
 
 /* Estilo do ícone */
 .benefits i {
-    font-size: 2.8rem; /* Tamanho do ícone */
+    font-size: 1.8rem; /* Tamanho do ícone */
     color: #ffbc00;
-    margin-bottom: 20px; /* Espaço entre o ícone e o texto */
+    margin-bottom: 10px; /* Espaço entre o ícone e o texto */
 }
 
 /* Estilo do texto do benefício */
