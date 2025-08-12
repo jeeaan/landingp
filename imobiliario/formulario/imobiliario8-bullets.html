@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como Financiar - HorizonCred</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --hc-blue: #0D2C6B;      
+            --hc-yellow: #FFC700;    
+            --text-dark: #000;
+            --bg-light: #f7f7f7;
+            --font-heading: 'Poppins', sans-serif;
+            --font-body: 'Roboto', sans-serif;
+        }
+        body {
+            font-family: var(--font-body);
+            margin: 0;
+            background-color: #fff;
+        }
+        /* --- Container Principal da Seção --- */
+        .how-it-works-section {
+            padding: 80px 20px;
+            background-color: var(--bg-light);
+            border-radius: 120px 12px 120px 12px;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+        
+        /* --- Colunas de Imagem e Texto --- */
+        .image-column,
+        .text-column {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+        .image-column img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(13, 44, 107, 0.15);
+        }
+
+        /* --- Imagem de sobreposição (decorativa) --- */
+        .image-column::after {
+            content: "";
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://horizoncred.com/wp-content/uploads/2025/08/black-linen-2.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            opacity: 0.2;
+            border-radius: 12px;
+            z-index: 1;
+        }
+
+        /* --- Estilos do Conteúdo de Texto --- */
+        .text-column h2 {
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            font-family: var(--font-heading);
+            color: var(--text-dark);
+            text-align: center;
+        }
+        .text-column {
+            font-size: 1.1em;
+            color: var(--text-dark);
+            margin-bottom: 40px;
+        }
+
+        /* --- Lista de Passos --- */
+        .steps-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        p {
+            font-size: 1.1em;
+            margin-bottom: 25px;
+            font-family: 'Roboto', sans-serif;
+            color: #555 !important;
+            line-height: 1.6;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+/* --- Estilo dos Bullets Numerados --- */
+.step-bullet {
+    flex-shrink: 0;
+    width: 45px;
+    height: 45px;
+    background-color: var(--hc-yellow); /* Amarelo para o círculo */
+    color: #000; /* Preto para o número */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    margin-right: 20px;
+}
+
+        .step-content h3 {
+            font-family: var(--font-heading);
+            margin: 0 0 5px 0;
+            color: var(--text-dark);
+            font-size: 1.2em;
+        }
+        .step-content p {
+            margin: 0;
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        /* --- Responsividade --- */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .text-column h2, .text-column .intro-text {
+                text-align: center;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+
+<section class="how-it-works-section">
+    <div class="container">
+        <div class="image-column">
+            <img src="https://horizoncred.com/wp-content/uploads/2025/06/IIMG5573-scaled.jpg" alt="Casal feliz assinando contrato de financiamento imobiliário">
+        </div>
+
+        <div class="text-column">
+                 <h2 style="color: #000; font-size: 2em; margin-bottom: 15px; text-transform: none;">
+Como financiar seu imóvel na Horizon</h2>
+            <p class="intro-text">
+                O processo é rápido, simples e sem complicação. São apenas 5 etapas para você realizar o sonho da casa própria!
+            </p>
+            <ul class="steps-list">
+                <li class="step-item">
+                    <div class="step-bullet">1</div>
+                    <div class="step-content">
+                        <h3>Faça uma simulação</h3>
+                        <p>Preencha as informações do imóvel, seus dados de contato e envie os documentos necessários.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-bullet">2</div>
+                    <div class="step-content">
+                        <h3>Análise de crédito</h3>
+                        <p>Nosso time de especialistas analisa a documentação e prepara a proposta de financiamento ideal para você.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-bullet">3</div>
+                    <div class="step-content">
+                        <h3>Avaliação do imóvel</h3>
+                        <p>Um engenheiro realiza uma avaliação presencial do imóvel para definir seu valor e as condições de financiamento.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-bullet">4</div>
+                    <div class="step-content">
+                        <h3>Assinatura do contrato</h3>
+                        <p>Na assinatura, você confere as taxas, seguros obrigatórios, condições de amortização e outros detalhes.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-bullet">5</div>
+                    <div class="step-content">
+                        <h3>Entrega das chaves</h3>
+                        <p>Com o pagamento do ITBI e o registro do imóvel concluídos, é só se mudar para sua nova casa!</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
