@@ -1,88 +1,81 @@
 <div id="timeline-widget-customizada">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-
- <style>
-  #timeline-widget-customizada {
-   font-family: 'Roboto', sans-serif;
-   box-sizing: border-box;
-  }
-  #timeline-widget-customizada *,
-  #timeline-widget-customizada *:before,
-  #timeline-widget-customizada *:after {
-   box-sizing: inherit;
-  }
-#timeline-widget-customizada img {
- max-width: 100%;
- height: auto;
- display: block;
- box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra sutil */
- border-radius: 8px 8px 0 0; /* Mantém os cantos superiores arredondados */
-}
-  #timeline-widget-customizada .container {
-   max-width: 1140px;
-   margin: 0 auto;
-   padding: 0 20px;
-  }
-  #timeline-widget-customizada .timeline-section {    
-   padding: 80px 0;
-   background-color: #fff;
-   border-radius: 120px 12px 120px 12px;
-  }
-  #timeline-widget-customizada .section-title {
-   text-align: center;
-   margin-bottom: 50px;
-   font-size: 2.5em;
-   color: #000;
-  }
-
-  /* Timeline central */
-  #timeline-widget-customizada .timeline-wrapper {
-   position: relative;
-   max-width: 900px;
-   margin: 0 auto;
-  }
-  #timeline-widget-customizada .timeline-wrapper::after {
-   content: '';
-   position: absolute;
-   width: 2px;
-   background-color: #d1d7dc;
-   top: 0;
-   bottom: 0;
-   left: 50%;
-   transform: translateX(-50%);
-   z-index: 0;
-  }
-  /* Linha de preenchimento */
-  #timeline-widget-customizada .timeline-line-fill {
-   position: absolute;
-   width: 2px;
-   background-color: #ffbc00;
-   top: 0;
-   left: 50%;
-   transform: translateX(-50%);
-   height: 0;
-   z-index: 1;
-   transition: height 0.3s ease-out;
-  }
-
-  /* Itens */
-  #timeline-widget-customizada .timeline-item {
-   display: flex;
-   justify-content: space-between;
-   align-items: center; /* Esta propriedade é a chave para o alinhamento! */
-   margin-bottom: 60px;
-   position: relative;
-  }
-  /* Bolinha */
+  <style>
+    #timeline-widget-customizada {
+      font-family: 'Roboto', sans-serif;
+      box-sizing: border-box;
+    }
+    #timeline-widget-customizada *,
+    #timeline-widget-customizada *:before,
+    #timeline-widget-customizada *:after {
+      box-sizing: inherit;
+    }
+    #timeline-widget-customizada img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      border-radius: 8px 8px 0 0;
+    }
+    #timeline-widget-customizada .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    #timeline-widget-customizada .timeline-section {    
+      padding: 80px 0;
+      background-color: #fff;
+      border-radius: 120px 12px 120px 12px;
+    }
+    #timeline-widget-customizada .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+      font-size: 2.5em;
+      color: #000;
+    }
+    #timeline-widget-customizada .timeline-wrapper {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    #timeline-widget-customizada .timeline-wrapper::after {
+      content: '';
+      position: absolute;
+      width: 2px;
+      background-color: #d1d7dc;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 0;
+    }
+    #timeline-widget-customizada .timeline-line-fill {
+      position: absolute;
+      width: 2px;
+      background-color: #ffbc00;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 0;
+      z-index: 1;
+      transition: height 0.3s ease-out;
+    }
+    #timeline-widget-customizada .timeline-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 60px;
+      position: relative;
+    }
     #timeline-widget-customizada .timeline-item::before {
       content: '';
       position: absolute;
       left: 50%;
-      top: 50%; /* MODIFICADO */
-      transform: translate(-50%, -50%); /* MODIFICADO */
+      top: 50%;
+      transform: translate(-50%, -50%);
       width: 40px;
       height: 40px;
       background-color: #fff;
@@ -90,198 +83,183 @@
       border-radius: 50%;
       z-index: 2;
     }
-
-    /* Checkmark dentro da bolinha */
     #timeline-widget-customizada .timeline-item::after {
       content: '✔';
       position: absolute;
       left: 50%;
-      top: 50%; /* MODIFICADO */
-      transform: translate(-50%, -50%); /* MODIFICADO */
+      top: 50%;
+      transform: translate(-50%, -50%);
       color: #000;
       font-size: 20px;
       z-index: 3;
-      /* O alinhamento vertical exato do check pode precisar de um ajuste fino */
-      padding-top: 2px; /* Ajuste opcional para o checkmark */
+      padding-top: 2px;
     }
-
     #timeline-widget-customizada .timeline-item .timeline-side:first-child {
       display: flex;
-      justify-content: flex-end; /* Alinha o conteúdo à direita */
-      padding-right: 30px; /* MODIFICADO: Aumenta o espaço da bolinha */
-      text-align: right; /* Alinha o texto à direita */
+      justify-content: flex-end;
+      padding-right: 30px;
+      text-align: right;
     }
-
-    /* Adicionado para o lado direito */
     #timeline-widget-customizada .timeline-item .timeline-side:last-child {
-        padding-left: 30px; /* MODIFICADO: Aumenta o espaço da bolinha */
+      padding-left: 30px;
     }
-
-
-  /* Passo */
-  #timeline-widget-customizada .timeline-step {
-   font-weight: bold;
-   color: #000;
-   font-size: 1.2em;
-  }
-
-  /* Lado esquerdo e direito */
-  #timeline-widget-customizada .timeline-side {
-   width: 50%; /* MODIFICADO: Leve ajuste para compensar o padding */
-        box-sizing: border-box;
-  }
-  #timeline-widget-customizada .timeline-card {
-   padding: 20px;
-   background: #fff;
-   border-radius: 8px;
-   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-  }
-  #timeline-widget-customizada .timeline-card.hidden {
-   opacity: 0;
-   transform: translateY(15px);
-  }
-  #timeline-widget-customizada .timeline-card.visible {
-   opacity: 1;
-   transform: translateY(0);
-  }
-  #timeline-widget-customizada .timeline-card-title {
-   font-size: 1.4em;
-   font-weight: bold;
-   color: #1c3959;
-   margin: 0 0 10px 0;
-   text-align: center;
-  }
-  #timeline-widget-customizada .timeline-card-desc {
-   font-size: 1em;
-   line-height: 1.6;
-   color: #5a697d;
-   text-align: justify;
-  }
-
-  /* Responsivo */
-  @media (max-width: 768px) {
-   #timeline-widget-customizada .timeline-wrapper::after,
-   #timeline-widget-customizada .timeline-line-fill {
-    left: 20px;
-    transform: none;
-   }
-   #timeline-widget-customizada .timeline-item {
-    flex-direction: column;
-    align-items: flex-start;
-    padding-left: 50px; /* Adiciona espaço para a bolinha */
-   }
-   #timeline-widget-customizada .timeline-side {
-    width: 100%;
-        padding: 0 !important; /* Remove paddings laterais */
-        text-align: left !important; /* Força alinhamento à esquerda */
-   }
+    #timeline-widget-customizada .timeline-step {
+      font-weight: bold;
+      color: #000;
+      font-size: 1.2em;
+    }
+    #timeline-widget-customizada .timeline-side {
+      width: 50%;
+      box-sizing: border-box;
+    }
+    #timeline-widget-customizada .timeline-card {
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    #timeline-widget-customizada .timeline-card.hidden {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    #timeline-widget-customizada .timeline-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    #timeline-widget-customizada .timeline-card-title {
+      font-size: 1.4em;
+      font-weight: bold;
+      color: #1c3959;
+      margin: 0 0 10px 0;
+      text-align: center;
+    }
+    #timeline-widget-customizada .timeline-card-desc {
+      font-size: 1em;
+      line-height: 1.6;
+      color: #5a697d;
+      text-align: justify;
+    }
+    @media (max-width: 768px) {
+      #timeline-widget-customizada .timeline-wrapper::after,
+      #timeline-widget-customizada .timeline-line-fill {
+        left: 20px;
+        transform: none;
+      }
+      #timeline-widget-customizada .timeline-item {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 50px;
+      }
+      #timeline-widget-customizada .timeline-side {
+        width: 100%;
+        padding: 0 !important;
+        text-align: left !important;
+      }
       #timeline-widget-customizada .timeline-item::before,
       #timeline-widget-customizada .timeline-item::after {
-          top: 0;
-          left: 0;
-          transform: none;
+        top: 0;
+        left: 0;
+        transform: none;
       }
       #timeline-widget-customizada .timeline-item::after {
-          top: 10px; /* Reajusta o checkmark */
-          left: 10px;
+        top: 10px;
+        left: 10px;
       }
       #timeline-widget-customizada .timeline-step {
-          margin-bottom: 10px;
+        margin-bottom: 10px;
       }
-  }
- </style>
+    }
+  </style>
 
- <main id="content" class="site-main">
-  <section class="timeline-section">
-   <div class="container">
-    <h2 class="section-title">Quais são os Passos do Financiamento Habitacional?</h2>
-    <div class="timeline-wrapper">
-     <div class="timeline-line-fill"></div>
-
-          <div class="timeline-item">
-      <div class="timeline-side">
-       <div class="timeline-step">Passo 1</div>
-      </div>
-      <div class="timeline-side">
-       <div class="timeline-card">
-        <img src="https://lealcred.com.br/wp-content/uploads/2022/03/documentos_01.jpg" alt="Documentação">
-        <h5 class="timeline-card-title">Faça uma simulação</h5>
-        <div class="timeline-card-desc">Preencha as informações do imóvel, seus dados de contato e envie os documentos necessários.</div>
-       </div>
-      </div>
-     </div>
+  <main id="content" class="site-main">
+    <section class="timeline-section">
+      <div class="container">
+        <h2 class="section-title">Quais são os Passos do Financiamento Habitacional?</h2>
+        <div class="timeline-wrapper">
+          <div class="timeline-line-fill"></div>
 
           <div class="timeline-item">
-      <div class="timeline-side">
-       <div class="timeline-card">
-        <img src="https://horizoncred.com/wp-content/uploads/2025/06/IIMG5573-scaled.jpg" alt="Nossa Equipe">
-        <h5 class="timeline-card-title">Análise de crédito</h5>
-        <div class="timeline-card-desc">Nosso time de especialistas analisa a documentação e prepara a proposta de financiamento ideal para você.</div>
-       </div>
-      </div>
-      <div class="timeline-side">
-       <div class="timeline-step">Passo 2</div>
-      </div>
-     </div>
+            <div class="timeline-side">
+              <div class="timeline-step">Passo 1</div>
+            </div>
+            <div class="timeline-side">
+              <div class="timeline-card">
+                <img src="https://lealcred.com.br/wp-content/uploads/2022/03/documentos_01.jpg" alt="Documentação">
+                <h5 class="timeline-card-title">Faça uma simulação</h5>
+                <div class="timeline-card-desc">Preencha as informações do imóvel, seus dados de contato e envie os documentos necessários.</div>
+              </div>
+            </div>
+          </div>
 
           <div class="timeline-item">
-      <div class="timeline-side">
-       <div class="timeline-step">Passo 3</div>
-      </div>
-      <div class="timeline-side">
-       <div class="timeline-card">
-        <img src="https://lealcred.com.br/wp-content/uploads/2022/03/foto_avaliacao.jpg" alt="Vistoria">
-        <h5 class="timeline-card-title">Vistoria</h5>
-        <div class="timeline-card-desc">Pagar a taxa de engenharia do banco para análise de viabilidade de construção.</div>
-       </div>
-      </div>
-     </div>
+            <div class="timeline-side">
+              <div class="timeline-card">
+                <img src="https://horizoncred.com/wp-content/uploads/2025/06/IIMG5573-scaled.jpg" alt="Nossa Equipe">
+                <h5 class="timeline-card-title">Análise de crédito</h5>
+                <div class="timeline-card-desc">Nosso time de especialistas analisa a documentação e prepara a proposta de financiamento ideal para você.</div>
+              </div>
+            </div>
+            <div class="timeline-side">
+              <div class="timeline-step">Passo 2</div>
+            </div>
+          </div>
 
           <div class="timeline-item">
-      <div class="timeline-side">
-       <div class="timeline-card">
-        <img src="https://lealcred.com.br/wp-content/uploads/2022/03/foto_escritura.jpg" alt="Minuta do Contrato">
-        <h5 class="timeline-card-title">Avaliação do imóvel</h5>
-        <div class="timeline-card-desc">Um engenheiro realiza uma avaliação presencial do imóvel para definir seu valor e as condições de financiamento.</div>
-       </div>
-      </div>
-      <div class="timeline-side">
-       <div class="timeline-step">Passo 4</div>
-      </div>
-     </div>
+            <div class="timeline-side">
+              <div class="timeline-step">Passo 3</div>
+            </div>
+            <div class="timeline-side">
+              <div class="timeline-card">
+                <img src="https://lealcred.com.br/wp-content/uploads/2022/03/foto_avaliacao.jpg" alt="Vistoria">
+                <h5 class="timeline-card-title">Vistoria</h5>
+                <div class="timeline-card-desc">Pagar a taxa de engenharia do banco para análise de viabilidade de construção.</div>
+              </div>
+            </div>
+          </div>
 
           <div class="timeline-item">
-      <div class="timeline-side">
-       <div class="timeline-step">Passo 5</div>
-      </div>
-      <div class="timeline-side">
-       <div class="timeline-card">
-        <img src="https://lealcred.com.br/wp-content/uploads/2022/03/foto_registro.jpg" alt="Registro da Escritura">
-        <h5 class="timeline-card-title">Assinatura do contrato</h5>
-        <div class="timeline-card-desc">Na assinatura, você confere as taxas, seguros obrigatórios, condições de amortização e outros detalhes.</div>
-       </div>
-      </div>
-     </div>
+            <div class="timeline-side">
+              <div class="timeline-card">
+                <img src="https://lealcred.com.br/wp-content/uploads/2022/03/foto_escritura.jpg" alt="Minuta do Contrato">
+                <h5 class="timeline-card-title">Avaliação do imóvel</h5>
+                <div class="timeline-card-desc">Um engenheiro realiza uma avaliação presencial do imóvel para definir seu valor e as condições de financiamento.</div>
+              </div>
+            </div>
+            <div class="timeline-side">
+              <div class="timeline-step">Passo 4</div>
+            </div>
+          </div>
 
           <div class="timeline-item">
-      <div class="timeline-side">
-       <div class="timeline-card">
-        <img src="https://lealcred.com.br/wp-content/uploads/2022/03/banner_construcao_06.jpg" alt="Obra">
-        <h5 class="timeline-card-title">Entrega das chaves</h5>
-        <div class="timeline-card-desc">Com o pagamento do ITBI e o registro do imóvel concluídos, é só se mudar para sua nova casa!</div>
-       </div>
-      </div>
-      <div class="timeline-side">
-       <div class="timeline-step">Passo 6</div>
-      </div>
-     </div>
+            <div class="timeline-side">
+              <div class="timeline-step">Passo 5</div>
+            </div>
+            <div class="timeline-side">
+              <div class="timeline-card">
+                <img src="https://lealcred.com.br/wp-content/uploads/2022/03/foto_registro.jpg" alt="Registro da Escritura">
+                <h5 class="timeline-card-title">Assinatura do contrato</h5>
+                <div class="timeline-card-desc">Na assinatura, você confere as taxas, seguros obrigatórios, condições de amortização e outros detalhes.</div>
+              </div>
+            </div>
+          </div>
 
-    </div>
-   </div>
-  </section>
- </main>
-
+          <div class="timeline-item">
+            <div class="timeline-side">
+              <div class="timeline-card">
+                <img src="https://lealcred.com.br/wp-content/uploads/2022/03/banner_construcao_06.jpg" alt="Obra">
+                <h5 class="timeline-card-title">Entrega das chaves</h5>
+                <div class="timeline-card-desc">Com o pagamento do ITBI e o registro do imóvel concluídos, é só se mudar para sua nova casa!</div>
+              </div>
+            </div>
+            <div class="timeline-side">
+              <div class="timeline-step">Passo 6</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -292,7 +270,6 @@
       const lineFill = widgetWrapper.querySelector('.timeline-line-fill');
       const timelineWrapper = widgetWrapper.querySelector('.timeline-wrapper');
 
-      // Animação de entrada dos cards
       timelineCards.forEach((card, index) => {
         card.style.transitionDelay = `${index * 150}ms`;
         card.classList.add('hidden');
@@ -310,15 +287,26 @@
 
       timelineCards.forEach(card => observer.observe(card));
 
-      // Preenchimento da linha no scroll
-      window.addEventListener('scroll', () => {
-        const rect = timelineWrapper.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-        const start = Math.max(0, windowHeight - rect.top);
-        const total = rect.height;
-        const progress = Math.min(total, Math.max(0, start));
-        lineFill.style.height = `${progress}px`;
-      });
+		window.addEventListener('scroll', () => {
+		  const rect = timelineWrapper.getBoundingClientRect();
+		  const windowHeight = window.innerHeight;
+		  const start = Math.max(0, windowHeight - rect.top);
+		  const total = rect.height;
+		  
+		  // Calcula a diferença para o final
+		  const distanceToEnd = total - start;
+		  
+		  // Se estiver a menos de 200px do final, preenche completamente
+		  if (distanceToEnd <= 200) {
+		    lineFill.style.height = `${total}px`;
+		  } else {
+		    // Preenche mais devagar (dividindo por um fator maior)
+		    const adjustedProgress = start / 1.5; // Ajuste este valor para controlar a velocidade
+		    lineFill.style.height = `${Math.min(adjustedProgress, total)}px`;
+		  }
+		  
+		  console.log("fill", lineFill.style.height, total, "distanceToEnd:", distanceToEnd);
+		});
     });
   </script>
 </div>
