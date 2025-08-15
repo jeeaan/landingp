@@ -1,0 +1,340 @@
+<div id="timeline-widget-customizada">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+ <style>
+  #timeline-widget-customizada {
+   font-family: 'Roboto', sans-serif;
+   box-sizing: border-box;
+  }
+  #timeline-widget-customizada *,
+  #timeline-widget-customizada *:before,
+  #timeline-widget-customizada *:after {
+   box-sizing: inherit;
+  }
+  #timeline-widget-customizada img {
+   max-width: 100%;
+   height: auto;
+   display: block;
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+   border-radius: 8px 8px 0 0;
+  }
+  #timeline-widget-customizada .container {
+   max-width: 1140px;
+   margin: 0 auto;
+   padding: 0 20px;
+  }
+  #timeline-widget-customizada .timeline-section {  
+   padding: 80px 0;
+   border-radius: 120px 12px 120px 12px;
+   overflow: hidden;
+   background-color: #f7f7f7;
+  }
+  #timeline-widget-customizada .section-title {
+   text-align: center;
+   margin-bottom: 50px;
+   font-size: 2.5em;
+   color: #000;
+  }
+  #timeline-widget-customizada .timeline-wrapper {
+   position: relative;
+   max-width: 900px;
+   margin: 0 auto;
+  }
+  /* Linha de fundo */
+  #timeline-widget-customizada .timeline-wrapper::after {
+   content: '';
+   position: absolute;
+   width: 2px;
+   background-color: #d1d7dc;
+   top: 0;
+   bottom: 0;
+   left: 50%;
+   transform: translateX(-50%);
+   z-index: 0;
+  }
+  /* Linha de preenchimento */
+  #timeline-widget-customizada .timeline-line-fill {
+   position: absolute;
+   width: 2px;
+   background-color: #ffbc00;
+   top: 0;
+   left: 50%;
+   transform: translateX(-50%);
+   height: 0;
+   z-index: 1;
+   transition: height 0.3s ease-out;
+  }
+  /* Itens da timeline */
+  #timeline-widget-customizada .timeline-item {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-bottom: 60px;
+   position: relative;
+  }
+  /* Círculo central (Bolinha) */
+  #timeline-widget-customizada .timeline-item::before {
+   content: '';
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%, -50%);
+   width: 40px;
+   height: 40px;
+   background-color: #fff;
+   border: 2px solid #ffbc00;
+   border-radius: 50%;
+   z-index: 2;
+  }
+    /* Checkmark dentro do círculo */
+  #timeline-widget-customizada .timeline-item::after {
+   content: '✔';
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%, -50%);
+   color: #000;
+   font-size: 20px;
+   z-index: 3;
+   padding-top: 2px;
+  }
+  #timeline-widget-customizada .timeline-item .timeline-side {
+   width: 50%;
+   box-sizing: border-box;
+  }
+    /* Lado com conteúdo à esquerda */
+  #timeline-widget-customizada .timeline-item .timeline-side:first-child {
+   padding-right: 30px;
+   text-align: right;
+  }
+    /* Lado com conteúdo à direita */
+  #timeline-widget-customizada .timeline-item .timeline-side:last-child {
+   padding-left: 30px;
+  }
+  #timeline-widget-customizada .timeline-step {
+   font-weight: bold;
+   color: #000;
+   font-size: 1.2em;
+  }
+    #timeline-widget-customizada .timeline-card {
+       padding: 1.5rem; /* 20px em rem (base 16px) */
+       background: #fff;
+       border-radius: 8px;
+       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+       transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+       width: 100%; /* Ocupa 100% do container pai */
+       max-width: 600px; /* Limite máximo para telas grandes */
+       margin: 0 auto; /* Centraliza horizontalmente */
+    }
+  #timeline-widget-customizada .timeline-card.hidden {
+   opacity: 0;
+   transform: translateY(15px);
+  }
+  #timeline-widget-customizada .timeline-card.visible {
+   opacity: 1;
+   transform: translateY(0);
+  }
+  #timeline-widget-customizada .timeline-card-title {
+   font-size: 1.4em;
+   font-weight: bold;
+   color: #1c3959;
+   margin: 15px 0 10px 0;
+   text-align: center;
+  }
+  #timeline-widget-customizada .timeline-card-desc {
+   font-size: 1em;
+   line-height: 1.6;
+   color: #5a697d;
+   text-align: justify;
+  }
+
+    /* === REGRAS RESPONSIVAS COMPLETAS E CORRIGIDAS === */
+  @media (max-width: 768px) {
+        #timeline-widget-customizada .timeline-step {
+            text-align: left;
+        }
+
+      #timeline-widget-customizada .timeline-item .timeline-side:last-child {
+       padding-left: 0;
+       width: 100%;
+      }
+
+      #timeline-widget-customizada .timeline-item .timeline-side:first-child {
+       padding-right: 0;
+      }
+
+       /* Move a linha da timeline para a esquerda */
+       #timeline-widget-customizada .timeline-wrapper::after,
+       #timeline-widget-customizada .timeline-line-fill {
+        left: 20px;
+        transform: none;
+       }
+
+      /* Empilha os itens verticalmente e adiciona espaço para a linha */
+       #timeline-widget-customizada .timeline-item {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 60px; /* Espaço para a linha e a bolinha */
+       }
+
+        /* Bolinha e o check */
+       #timeline-widget-customizada .timeline-item::before {
+        left: 20px;
+        top: 0;
+       }
+       #timeline-widget-customizada .timeline-item::after {
+        left: 20px;
+        top: -20px;
+        transform: translateX(-50%);
+       }
+
+       #timeline-widget-customizada .timeline-card {
+          padding: 1rem; /* Reduz o padding */
+       }
+
+          /* Garante que os lados ocupem 100% da largura e reseta estilos de desktop */
+       #timeline-widget-customizada .timeline-side {
+        width: 100%;
+        padding: 0;
+        text-align: left;
+       }
+
+        #timeline-widget-customizada .timeline-item .timeline-side {
+         padding-right: 0;
+         width: 100%
+        }
+
+          /* Garante a ordem correta: Passo, depois Card */
+        #timeline-widget-customizada .timeline-step {
+         margin-bottom: 15px; /* Adiciona espaço entre o passo e o card */
+        }
+
+          /* Inverte a ordem visual nos itens pares para manter a consistência */
+        #timeline-widget-customizada .timeline-item:nth-child(even) .timeline-side:first-child {
+         order: 2; /* O card (primeiro no HTML) vai para a segunda posição */
+        }
+
+        #timeline-widget-customizada .timeline-item:nth-child(even) .timeline-side:last-child {
+         order: 1; /* O passo (último no HTML) vai para a primeira posição */
+        }
+  }
+ </style>
+
+<main id="content" class="site-main">
+  <section class="timeline-section">
+    <div class="container">
+      <h2 class="section-title">A Jornada para o Seu Novo Lar</h2>
+      <div class="timeline-wrapper">
+        <div class="timeline-line-fill"></div>
+
+        <div class="timeline-item">
+          <div class="timeline-side">
+            <div class="timeline-step">Passo 1</div>
+          </div>
+          <div class="timeline-side">
+            <div class="timeline-card">
+              <img src="https://img.freepik.com/vetores-premium/o-sonho-de-menina-feliz-visualize-um-futuro-feliz_198530-2816.jpg" alt="Simulação do Futuro">
+              <h5 class="timeline-card-title">Visualize o Futuro</h5>
+              <div class="timeline-card-desc">Simule agora e visualize o futuro. Um especialista do nosso time se conecta com você para traçar a melhor estratégia.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-side">
+            <div class="timeline-card">
+              <img src="https://www.ceres.org.br/wp-content/uploads/2022/03/audit-gcf6d335a6_640.png" alt="Nossa Equipe em Ação">
+              <h5 class="timeline-card-title">Organize e Avance</h5>
+              <div class="timeline-card-desc">Com o caminho traçado, é hora de organizar a documentação. Você envia o que for solicitado e nossa equipe acelera a análise, cuidando de toda a parte técnica para você.</div>
+            </div>
+          </div>
+          <div class="timeline-side">
+            <div class="timeline-step">Passo 2</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-side">
+            <div class="timeline-step">Passo 3</div>
+          </div>
+          <div class="timeline-side">
+            <div class="timeline-card">
+              <img src="https://img.freepik.com/vetores-premium/ilustracao-de-assinatura-de-contrato-de-aperto-de-mao-do-empresario_108231-1007.jpg" alt="Assinatura do Contrato">
+              <h5 class="timeline-card-title">Formalize a Conquista</h5>
+              <div class="timeline-card-desc">O contrato é seu passaporte para o novo lar. Um momento decisivo: sua assinatura e o registro do documento selam o compromisso e te aproximam do objetivo final.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-side">
+            <div class="timeline-card">
+              <img src="https://cacb.org.br/wp-content/uploads/2020/06/Cr%C3%A9dito-reprodu%C3%A7%C3%A3o.jpg" alt="Chaves do Imóvel">
+              <h5 class="timeline-card-title">Missão Cumprida!</h5>
+              <div class="timeline-card-desc">Com o processo finalizado, o crédito para a compra do seu imóvel é liberado em sua conta em até 3 dias úteis.</div>
+            </div>
+          </div>
+          <div class="timeline-side">
+            <div class="timeline-step">Passo 4</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+ <script>
+  document.addEventListener("DOMContentLoaded", function() {
+   const widgetWrapper = document.getElementById('timeline-widget-customizada');
+   if (!widgetWrapper) return;
+
+   const timelineCards = widgetWrapper.querySelectorAll('.timeline-card');
+   const lineFill = widgetWrapper.querySelector('.timeline-line-fill');
+   const timelineWrapper = widgetWrapper.querySelector('.timeline-wrapper');
+
+      // Animação de entrada dos cards
+   const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+     if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+     }
+    });
+   }, { threshold: 0.1 });
+
+   timelineCards.forEach((card) => {
+    card.classList.add('hidden');
+    observer.observe(card);
+   });
+
+      // Animação de preenchimento da linha no scroll
+// Variável para armazenar o progresso atual (para suavização)
+    let currentProgress = 0;
+    // Fator de suavização (quanto menor, mais lento - entre 0 e 1)
+    const smoothingFactor = 0.1;
+
+    window.addEventListener('scroll', () => {
+        const rect = timelineWrapper.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        
+        // Calcula a altura visível do wrapper da timeline na tela
+        const visibleHeight = Math.max(0, windowHeight - rect.top);
+        const totalHeight = rect.height;
+
+        // Garante que o preenchimento não ultrapasse a altura total
+        const targetProgress = Math.min(visibleHeight, totalHeight);
+        
+        // Aplica suavização (interpolação linear)
+        currentProgress = currentProgress + (targetProgress - currentProgress) * smoothingFactor;
+        
+        // Aplica um mínimo de 1px se houver algum progresso para evitar que desapareça completamente
+        if (targetProgress > 0 && currentProgress < 1) {
+            currentProgress = 1;
+        }
+        
+        lineFill.style.height = `${currentProgress}px`;
+    });
+  });
+ </script>
+</div>

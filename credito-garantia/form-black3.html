@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Página com Fundo de Tela Cheia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+    <body>
+        <section id="simulacao" class="form-section">
+          <!-- Texto lateral -->
+          <div class="left-content">
+            <h2 class="highlight">Crédito com garantia de imóvel Horizon</h2>
+            <p>
+             Use seu imóvel como garantia para ter menores taxas de juros.
+            </p>
+                <div class="benefits-container">
+                    <ul class="benefits">
+                        <li>
+                            <i class="fa-solid fa-piggy-bank"></i>
+                            <span>
+                                <strong>Taxa fixa mais barata</strong><br>
+                                Empréstimo acessível com taxas que cabem no seu bolso
+                            </span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-calendar-days"></i>
+                            <span>
+                                <strong>Prazo maior pra pagar</strong><br>
+                                Até 240 meses (20 anos) para pagar e quitar quando quiser
+                            </span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-star"></i>
+                            <span>
+                                <strong>Programa de benefícios</strong><br>
+                                Descontos exclusivos para clientes com contrato ativo
+                            </span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-forward-step"></i>
+                            <span>
+                                <strong>Pula parcela</strong><br>
+                                Até 2 parcelas seguidas do empréstimo por ano a cada 12 meses
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+          </div>
+
+          <!-- Formulário -->
+          <div class="form-container">
+            <h2>Vamos simular?</h2>
+            <p>Preencha os dados abaixo e entraremos em contato rapidamente.</p>
+
+            <label for="nome">Nome Completo</label>
+            <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
+
+            <label for="cidade">Cidade</label>
+            <input type="text" id="cidade" name="cidade" placeholder="Digite a cidade do imóvel">
+
+            <label for="valor_imovel">Valor do Imóvel (estimado)</label>
+            <input type="text" id="valor_imovel" name="valor_imovel" placeholder="R$ 300.000">
+
+            <a href="#whatsapp" id="whatsapp-button" class="elementor-button">
+              Simular Agora!
+            </a>
+            <small>🔒 Seus dados estão protegidos — atendimento sem compromisso</small>
+          </div>
+        </section>
+
+        <section class="bank-logos" aria-label="Bancos conveniados">
+          <p class="bank-logos-title">Bancos conveniados:</p>
+          <div class="bank-logos-container">
+              <img src="https://horizoncred.com/wp-content/uploads/2025/08/caixa2-scaled.png" alt="Caixa Econômica Federal">
+              <img src="https://horizoncred.com/wp-content/uploads/2025/08/brb2-scaled.png" alt="BRB Banco de Brasília">
+              <img src="https://horizoncred.com/wp-content/uploads/2025/08/santander2.png" alt="Banco Santander">
+              <img src="https://horizoncred.com/wp-content/uploads/2025/08/bradesco2.png" alt="Banco Bradesco">
+              <img src="https://horizoncred.com/wp-content/uploads/2025/08/itau2.png" alt="Banco Itaú">
+            </div>
+          </div>
+        </section>
+
+        <script>
+          document.getElementById('whatsapp-button').addEventListener('click', function (event) {
+            event.preventDefault();
+
+            const nome = document.getElementById('nome').value;
+            const valorImovel = document.getElementById('valor_imovel').value;
+            const cidade = document.getElementById('cidade').value;
+
+            if (!nome || !valorImovel || valorImovel === 'R$ 0,00' || !cidade) {
+              alert('Por favor, preencha os campos obrigatórios para continuar.');
+              return;
+            }
+
+            const whatsappNumber = '5561991116565';
+            const message = `Olá, HorizonCred! 👋\n\nDesejo uma simulação de financiamento imobiliário.\n\n*Nome:* ${nome}\n*Valor do Imóvel:* ${valorImovel}\n*Localização:* ${cidade}\n\nAguardo retorno. Obrigado!`;
+            const encodedMessage = encodeURIComponent(message);
+            const url = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+            window.open(url, '_blank');
+          });
+
+          const currencyInput = document.getElementById('valor_imovel');
+          currencyInput.addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (!value) {
+              e.target.value = '';
+              return;
+            }
+            const numberValue = parseFloat(value) / 100;
+            const formattedValue = new Intl.NumberFormat('pt-BR', {
+              style: 'currency',
+              currency: 'BRL',
+              minimumFractionDigits: 2
+            }).format(numberValue);
+
+            e.target.value = formattedValue;
+          });
+        </script>
+
+        <style>
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+body {
+    background-image: 
+        linear-gradient(to bottom, rgba(20, 20, 20, 0.7), rgba(0, 0, 0, 0.9)),
+        url('https://www.mouraleite.com.br/uploads/images/2022/12/financiamento-imobiliario-saiba-como-e-calculado-o-reajuste-das-parcelas-1670436491.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    overflow-x: hidden;
+    position: relative;
+}
+
+
+/* ========== RESPONSIVIDADE ========== */
+/* Tablet (768px ou menos) */
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll; /* Melhora performance */
+        background-size: cover;
+        background-position: top center; /* Evita espaços vazios */
+    }
+}
+
+/* Mobile (480px ou menos) */
+@media (max-width: 480px) {
+    body {
+        background-attachment: scroll;
+        background-size: cover;
+        background-repeat: repeat;
+        background-position: center center;
+        
+        /* Técnica avançada para evitar espaços vazios: */
+        min-height: 100vh;
+        
+        /* Otimização extra para dispositivos altos: */
+        background-image: 
+            url('https://horizoncred.com/wp-content/uploads/2025/08/gray-gradient-background.jpg');
+    }
+
+
+    body::after {
+        display: none; 
+    }
+}
+
+/* Telas muito pequenas (360px ou menos) */
+@media (max-width: 360px) {
+    body::before {
+        height: 40px;
+        top: 30%;
+    }
+}
+
+    p {
+        text-align: justify;
+    }
+
+    .highlight {
+      color: #ffbc00 !important;
+      text-align: center;
+    }
+
+    .form-section {
+      padding: 100px 5%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      align-items: center;
+    }
+
+   .left-content, .form-container {
+      position: relative;
+      z-index: 2;
+      flex: 1;
+      min-width: 300px;
+      max-width: 600px;
+    }
+    .left-content h2 {
+      font-size: 2.5em;
+    }
+    .left-content p {
+      font-size: 1.2em;
+      color: white !important;
+      line-height: 1.8;
+      text-align: center;
+    }
+
+
+
+
+    .form-container {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 40px 50px;
+      border-radius: 20px;
+    }
+    .form-container h2 {
+      text-align: center;
+      font-size: 2em;
+      color: #ffbc00;
+    }
+    .form-container p {
+      font-size: 1.1em;
+      color: white !important;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .form-container label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 500;
+      color: white;
+    }
+    .form-container input {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.1em;
+    }
+    .form-container a.elementor-button {
+      width: 100%;
+      padding: 15px;
+      background-color: #ffbc00;
+      color: #000;
+      border-radius: 5px;
+      font-size: 1.2em;
+      font-weight: bold;
+      text-align: center;
+      display: inline-block;
+      text-decoration: none;
+    }
+    .form-container small {
+      font-size: 0.9em;
+      color: #ccc;
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+.bank-logos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px; /* Espaço entre texto e imagens */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+    .bank-logos p {
+      margin:0 0 10px;
+      font:600 18px/1.2 'Roboto', Arial, sans-serif;
+      color:#cfcfcf !important;
+      letter-spacing:.3px;
+    }
+    .bank-logos div {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:28px;
+      flex-wrap:wrap;
+    }
+    .bank-logos img {
+        height: 70px;
+        width: 70px; /* Corrigido o typo (de "witdh" para "width") */
+        object-fit: cover; 
+        border-radius: 8px;
+        background-color: white;
+        padding: 4px;
+    }
+
+/* O contêiner da nossa grade de cards (a tag <ul>) */
+.benefits {
+    list-style-type: none; /* Remove os pontos da lista */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Ativa o Flexbox */
+    flex-wrap: wrap; /* Permite que os cards quebrem para a próxima linha */
+    justify-content: center; /* Centraliza os cards no contêiner */
+    gap: 30px; /* Espaçamento moderno entre os cards */
+    color: white;
+}
+
+/* O estilo de cada card (a tag <li>) */
+.benefits li {
+    background-color: rgba(198, 198, 198, 0.5);
+    border-radius: 8px;
+    box-shadow: 0px 40px 120px -40px rgba(0, 0, 0, 0.24);
+    
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    
+    padding: 20px 15px;
+    text-align: center;
+    
+    flex-basis: 220px; 
+    flex-grow: 1;
+
+        min-width: 150px; /* Evita que fiquem muito estreitos */
+    max-width: 250px; /* Limita a expansão máxima */
+    
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito de "elevar" o card ao passar o mouse */
+.benefits li:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo do ícone */
+.benefits i {
+    font-size: 1.8rem; /* Tamanho do ícone */
+    color: #ffbc00;
+    margin-bottom: 10px; /* Espaço entre o ícone e o texto */
+}
+
+/* Estilo do texto do benefício */
+.benefits span {
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .curved-lines {
+    transform: rotate(-45deg) translateY(-25%) scale(0.8);
+    top: 165px;
+  }
+}
+
+        </style>
+
+    </body>
+</html>
