@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>O que é Consórcio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* === INÍCIO DO TEMA DO SITE === */
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      box-sizing: border-box;
+      background-color: #1a1a1a; /* Cor de fundo para o corpo */
+       /* Fundo escuro com gradiente e imagem */
+      background-image: linear-gradient(to bottom, rgba(40, 40, 40, 0.9), rgba(0, 0, 0, 0.5)),
+                              url('https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=2070&auto=format&fit=crop');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+    }
+    *, *:before, *:after {
+      box-sizing: inherit;
+    }
+    .highlight {
+      color: #ffbc00 !important;
+    }
+    /* === FIM DO TEMA DO SITE === */
+
+    .section-wrapper {
+      padding: 80px 20px;
+    }
+    .side-by-side-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .image-column, .text-column {
+      flex: 1;
+      min-width: 300px;
+    }
+    .image-column img {
+      width: 100%;
+      height: 100%; /* Faz a imagem preencher a altura da coluna */
+      max-height: 550px; /* Limita a altura máxima da imagem */
+      object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    .side-by-side-section .image-column::after {
+      content: "";
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://horizoncred.com/wp-content/uploads/2025/08/black-linen-2.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      opacity: 0.2;
+      border-radius: 12px;
+      z-index: 0;
+    }
+    
+    .text-column {
+      color: #ccc;
+    }
+    .text-column h2 {
+      font-size: 2.5em;
+      color: #fff;
+      margin-bottom: 20px;
+      text-align: center; /* Título centralizado */
+    }
+    .text-column p {
+      font-size: 1.1em;
+      line-height: 1.7;
+      text-align: justify;
+    }
+    
+    @media (max-width: 768px) {
+      .text-column h2 {
+        font-size: 2em;
+      }
+      .section-wrapper {
+        padding: 40px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="section-wrapper">
+    <div class="side-by-side-section">
+      <div class="image-column">
+        <img src="https://horizoncred.com/wp-content/uploads/2025/06/IIMG5619-scaled.jpg" alt="Pessoas planejando o futuro" onerror="this.src='https://placehold.co/600x400/cccccc/000000?text=Planejamento'">
+      </div>
+      <div class="text-column">
+        <h2><span class="highlight">Consórcio Horizon</span>: A Forma Inteligente de Realizar Seus Sonhos</h2>
+        <p>
+          Imagine um grupo de pessoas com o mesmo objetivo que você: comprar um carro novo, a casa própria, uma moto ou até um caminhão para o seu negócio. O consórcio une essas pessoas em uma poupança conjunta e planejada, onde todos se ajudam a chegar lá.
+          <br><br>
+          O funcionamento é simples: todo mês, você e os outros participantes pagam uma parcela. Com o valor arrecadado, acontecem os sorteios e um ou mais membros são contemplados com a carta de crédito no valor total do bem, podendo fazer a compra à vista.
+          <br><br>
+          Quer acelerar sua conquista? Você também pode ofertar um lance para antecipar o recebimento da sua carta. E o melhor de tudo: com a garantia de que, até o final do plano, <strong>todos serão contemplados</strong>.
+          <br><br>
+          É a solução ideal para quem quer se planejar para uma grande conquista <strong class="highlight">sem pagar juros e sem precisar de entrada</strong>. Uma forma segura e econômica de transformar seus planos em realidade.
+        </p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

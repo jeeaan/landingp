@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipos de Consórcio</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome (Opcional, caso queira adicionar ícones) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <!-- Google Fonts: Roboto (para combinar com seu CSS) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS Fornecido com adaptações */
+        body {
+            font-family: 'Roboto', sans-serif;
+            /* Imagem de fundo de placeholder para visualização */
+            background-image: linear-gradient(to bottom, rgba(40, 40, 40, 0.9), rgba(0, 0, 0, 0.5)),
+                              url('https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=2070&auto=format&fit=crop');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Efeito de zoom na imagem ao passar o mouse */
+        .card-zoom {
+            transition: transform 0.3s ease-in-out;
+        }
+        .group:hover .card-zoom {
+            transform: scale(1.05);
+        }
+
+        /* Cor de destaque do seu tema */
+        .highlight {
+            color: #ffbc00 !important;
+        }
+
+        h2 {
+            color: #FFF !important;
+        }
+    </style>
+</head>
+<body class="bg-gray-900">
+
+    <section class="py-12 sm:py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Título da Seção -->
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                   A <span class="highlight">Horizon</span> tem um consórcio que faz seu tipo!
+                </h2>
+                <p class="mt-4 text-lg leading-8 text-gray-300">
+                    Conheça os tipos de Consórcio e escolha o melhor pra você.
+                </p>
+            </div>
+
+            <!-- Grid de Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                
+                <!-- Card 1: Veículos (Destaque) -->
+                <a href="#" class="group relative block overflow-hidden rounded-2xl md:col-span-2 lg:col-span-1 lg:row-span-2 shadow-lg">
+                    <div class="absolute inset-0 h-full w-full bg-cover bg-center card-zoom" 
+                         style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQjW0Fs0CTe8z7uL2fKZa9mxDXXfHT8mtRXFC6ScTb8fNyXpSAiXDOCoN64FuJ57UpT6pZeTdgbJT_VOQV1q1i2GF9uU9OYJoifyWyghqnWFQS0d473QjTQoZ2HFqu6AeI2hQM0ZflSm2bcOZAxNwyw44_K9GLeD6AaMtP_1RPxsQu0-trY0M27MZDlA/s2048/Honda-New-HRV-2023-Turbinado%20%284%29.jpg');"
+                         onerror="this.style.backgroundImage='url(https://placehold.co/600x800/2d3748/ffffff?text=Carro+Moderno)'">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
+                    <div class="relative flex flex-col justify-end h-full p-6 sm:p-8 text-white">
+                        <h3 class="text-2xl font-bold highlight">Veículos</h3>
+                        <p class="mt-2 text-base">Com parcelas que cabem no seu porta-luvas.</p>
+                    </div>
+                </a>
+
+                <!-- Card 2: Imóveis -->
+                <a href="#" class="group relative block overflow-hidden rounded-2xl shadow-lg h-60 lg:h-auto">
+                    <div class="absolute inset-0 h-full w-full bg-cover bg-center card-zoom" 
+                         style="background-image: url('https://cdn.uso.com.br/wimoveis/12465/2023/02/mini_c7bca839fc92905dd1df06b9ed37950c.jpg');"
+                         onerror="this.style.backgroundImage='url(https://placehold.co/600x400/4a5568/ffffff?text=Casa+dos+Sonhos)'">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
+                    <div class="relative flex flex-col justify-end h-full p-6 sm:p-8 text-white">
+                        <h3 class="text-2xl font-bold highlight">Imóveis</h3>
+                        <p class="mt-2 text-base">Garanta seu novo imóvel sem juros e sem entrada.</p>
+                    </div>
+                </a>
+
+                <!-- Card 3: Motos -->
+                <a href="#" class="group relative block overflow-hidden rounded-2xl shadow-lg h-60 lg:h-auto">
+                     <div class="absolute inset-0 h-full w-full bg-cover bg-center card-zoom" 
+                         style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiSanDnfdX_x0OCKSYs0Bc_pqGnZmXCu5ulr0RmDwcSCWdPcwrdNJE3wk-Lk2fIVNNV8yxtnbJdVz949Grj6LGh4HTlFaB-vJzRqQmhsoDVFhJHzUCyEw1ajwo4Tn4UHVy0YOCDmlQ-W8XUBtq_aSMEpDB6zIr1bh0w36LN2ELe3LOtaz3FhueaFUpsAVpQ/s2560/CBR-1000-R-2024%20%286%29.jpg');"
+                         onerror="this.style.backgroundImage='url(https://placehold.co/600x400/718096/ffffff?text=Moto+Esportiva)'">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
+                    <div class="relative flex flex-col justify-end h-full p-6 sm:p-8 text-white">
+                        <h3 class="text-2xl font-bold highlight">Motos</h3>
+                        <p class="mt-2 text-base">Sua liberdade sobre duas rodas está mais próxima.</p>
+                    </div>
+                </a>
+
+                <!-- Card 4: Veículos Pesados (IMAGEM CORRIGIDA) -->
+                <a href="#" class="group relative block overflow-hidden rounded-2xl shadow-lg h-60 lg:h-auto lg:col-span-2">
+                     <div class="absolute inset-0 h-full w-full bg-cover bg-center card-zoom" 
+                         style="background-image: url('https://www.autoindustria.com.br/wp-content/uploads/2018/12/20181220_1fb4688a26754557b98585943972fce5_atego-1725-fila.jpeg');"
+                         onerror="this.style.backgroundImage='url(https://placehold.co/800x400/a0aec0/ffffff?text=Caminhão+no+Campo)'">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
+                    <div class="relative flex flex-col justify-end h-full p-6 sm:p-8 text-white">
+                        <h3 class="text-2xl font-bold highlight">Veículos Pesados</h3>
+                        <p class="mt-2 text-base">Invista no crescimento do seu negócio.</p>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

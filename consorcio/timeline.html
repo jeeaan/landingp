@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeline de Simulação de Consórcio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+     /* === INÍCIO DO TEMA DO SITE === */
+     body {
+      margin: 0; /* Remove a borda branca */
+      font-family: 'Roboto', sans-serif;
+      box-sizing: border-box;
+      /* Fundo escuro com gradiente e imagem */
+      background-image: linear-gradient(to bottom, rgba(40, 40, 40, 0.9), rgba(0, 0, 0, 0.5)),
+                              url('https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=2070&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+     }
+     
+     #timeline-widget-customizada {
+      padding: 80px 0; /* Espaçamento da seção inteira */
+     }
+
+     #timeline-widget-customizada .highlight {
+       color: #ffbc00 !important;
+     }
+     /* === FIM DO TEMA DO SITE === */
+
+     #timeline-widget-customizada *,
+     #timeline-widget-customizada *:before,
+     #timeline-widget-customizada *:after {
+      box-sizing: inherit;
+     }
+     #timeline-widget-customizada img {
+      max-width: 100%;
+      height: 240px;
+      width: 100%;
+      object-fit: cover;
+      display: block;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      border-radius: 8px 8px 0 0;
+     }
+     #timeline-widget-customizada .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 20px;
+     }
+     #timeline-widget-customizada .timeline-section {  
+      background-color: transparent; /* Fundo da seção agora é transparente */
+      overflow: hidden;
+     }
+     #timeline-widget-customizada .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+      font-size: 2.5em;
+      color: #fff; /* Cor do título alterada para branco */
+     }
+      #timeline-widget-customizada .section-subtitle {
+      text-align: center;
+      margin-top: -30px;
+      margin-bottom: 50px;
+      font-size: 1.2em;
+      color: #ccc; /* Cor do subtítulo alterada para cinza claro */
+     }
+     #timeline-widget-customizada .timeline-wrapper {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+     }
+     #timeline-widget-customizada .timeline-wrapper::after {
+      content: '';
+      position: absolute;
+      width: 2px;
+      background-color: #5a697d; /* Linha de fundo mais escura */
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 0;
+     }
+     #timeline-widget-customizada .timeline-line-fill {
+      position: absolute;
+      width: 2px;
+      background-color: #ffbc00;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 0;
+      z-index: 1;
+      transition: height 0.3s ease-out;
+     }
+     #timeline-widget-customizada .timeline-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 60px;
+      position: relative;
+     }
+     #timeline-widget-customizada .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 40px;
+      height: 40px;
+      background-color: #fff;
+      border: 2px solid #ffbc00;
+      border-radius: 50%;
+      z-index: 2;
+     }
+     #timeline-widget-customizada .timeline-item::after {
+      content: '✔';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      color: #000;
+      font-size: 20px;
+      z-index: 3;
+      padding-top: 2px;
+     }
+     #timeline-widget-customizada .timeline-item .timeline-side {
+      width: 50%;
+      box-sizing: border-box;
+     }
+     #timeline-widget-customizada .timeline-item .timeline-side:first-child {
+      padding-right: 30px;
+      text-align: right;
+     }
+     #timeline-widget-customizada .timeline-item .timeline-side:last-child {
+      padding-left: 30px;
+     }
+     #timeline-widget-customizada .timeline-step {
+      font-weight: bold;
+      color: #ffbc00; /* Cor do passo alterada para a cor de destaque */
+      font-size: 1.2em;
+     }
+     #timeline-widget-customizada .timeline-card {
+      padding: 0;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      overflow: hidden;
+     }
+     #timeline-widget-customizada .timeline-card.hidden {
+      opacity: 0;
+      transform: translateY(15px);
+     }
+     #timeline-widget-customizada .timeline-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+     }
+     #timeline-widget-customizada .timeline-card-content {
+       padding: 1.5rem;
+     }
+     #timeline-widget-customizada .timeline-card-title {
+      font-size: 1.4em;
+      font-weight: bold;
+      color: #1c3959;
+      margin: 0 0 10px 0;
+      text-align: center;
+     }
+     #timeline-widget-customizada .timeline-card-desc {
+      font-size: 1em;
+      line-height: 1.6;
+      color: #5a697d;
+      text-align: justify;
+     }
+
+     @media (max-width: 768px) {
+      #timeline-widget-customizada {
+        padding: 40px 0;
+      }
+      #timeline-widget-customizada .timeline-section {
+        padding: 40px 10px;
+      }
+      #timeline-widget-customizada .timeline-step {
+       text-align: left;
+      }
+      #timeline-widget-customizada .timeline-item .timeline-side:last-child {
+       padding-left: 0;
+       width: 100%;
+      }
+      #timeline-widget-customizada .timeline-item .timeline-side:first-child {
+       padding-right: 0;
+      }
+      #timeline-widget-customizada .timeline-wrapper::after,
+      #timeline-widget-customizada .timeline-line-fill {
+       left: 20px;
+       transform: none;
+      }
+      #timeline-widget-customizada .timeline-item {
+       flex-direction: column;
+       align-items: flex-start;
+       padding-left: 60px;
+      }
+      #timeline-widget-customizada .timeline-item::before {
+       left: 20px;
+       top: 0;
+      }
+      #timeline-widget-customizada .timeline-item::after {
+       left: 20px;
+       top: -20px;
+       transform: translateX(-50%);
+      }
+      #timeline-widget-customizada .timeline-card-content {
+       padding: 1rem;
+      }
+      #timeline-widget-customizada .timeline-side {
+       width: 100%;
+       padding: 0;
+       text-align: left;
+      }
+      #timeline-widget-customizada .timeline-item .timeline-side {
+       padding-right: 0;
+       width: 100%
+      }
+      #timeline-widget-customizada .timeline-step {
+       margin-bottom: 15px;
+      }
+      #timeline-widget-customizada .timeline-item:nth-child(even) .timeline-side:first-child {
+       order: 2;
+      }
+      #timeline-widget-customizada .timeline-item:nth-child(even) .timeline-side:last-child {
+       order: 1;
+      }
+     }
+    </style>
+</head>
+<body>
+    <div id="timeline-widget-customizada">
+        <main id="content" class="site-main">
+         <section class="timeline-section">
+          <div class="container">
+           <h2 class="section-title">Simule seu Consórcio em <span class="highlight">6 Passos Simples</span></h2>
+           <p class="section-subtitle">É rápido, fácil e 100% online. Encontre o plano perfeito para você:</p>
+           <div class="timeline-wrapper">
+            <div class="timeline-line-fill"></div>
+       
+            <div class="timeline-item">
+             <div class="timeline-side">
+              <div class="timeline-step">Passo 1</div>
+             </div>
+             <div class="timeline-side">
+              <div class="timeline-card">
+               <img src="https://images.unsplash.com/photo-1554224155-1696413565d3?q=80&w=2070&auto=format&fit=crop" alt="Inicie a Simulação" onerror="this.src='https://placehold.co/400x200/cccccc/000000?text=Simular+Agora'">
+               <div class="timeline-card-content">
+                 <h5 class="timeline-card-title">Inicie a Simulação</h5>
+                 <div class="timeline-card-desc">Clique em "Simular Agora" para dar o primeiro passo em direção à sua conquista.</div>
+               </div>
+              </div>
+             </div>
+            </div>
+       
+            <div class="timeline-item">
+             <div class="timeline-side">
+              <div class="timeline-card">
+               <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=2070&auto=format&fit=crop" alt="Preencha seus Dados" onerror="this.src='https://placehold.co/400x200/cccccc/000000?text=Preencher+Dados'">
+               <div class="timeline-card-content">
+                 <h5 class="timeline-card-title">Preencha seus Dados</h5>
+                 <div class="timeline-card-desc">Precisamos de algumas informações básicas para encontrar e personalizar as melhores ofertas para você.</div>
+               </div>
+              </div>
+             </div>
+             <div class="timeline-side">
+              <div class="timeline-step">Passo 2</div>
+             </div>
+            </div>
+       
+            <div class="timeline-item">
+             <div class="timeline-side">
+              <div class="timeline-step">Passo 3</div>
+             </div>
+             <div class="timeline-side">
+              <div class="timeline-card">
+               <img src="https://horizoncred.com/wp-content/uploads/2025/08/escolha_seu_sonho.png" alt="Escolha seu Sonho" onerror="this.src='https://placehold.co/400x200/cccccc/000000?text=Escolher+Bem'">
+               <div class="timeline-card-content">
+                 <h5 class="timeline-card-title">Escolha seu Sonho</h5>
+                 <div class="timeline-card-desc">Selecione o que você deseja conquistar: um imóvel, veículo, moto ou outro bem.</div>
+               </div>
+              </div>
+             </div>
+            </div>
+       
+            <div class="timeline-item">
+             <div class="timeline-side">
+              <div class="timeline-card">
+               <img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?q=80&w=1926&auto=format&fit=crop" alt="Defina seu Plano" onerror="this.src='https://placehold.co/400x200/cccccc/000000?text=Definir+Plano'">
+               <div class="timeline-card-content">
+                 <h5 class="timeline-card-title">Defina seu Plano</h5>
+                 <div class="timeline-card-desc">Informe o valor total da carta de crédito que você precisa ou o quanto pode pagar por mês.</div>
+               </div>
+              </div>
+             </div>
+             <div class="timeline-side">
+              <div class="timeline-step">Passo 4</div>
+             </div>
+            </div>
+       
+            <div class="timeline-item">
+             <div class="timeline-side">
+              <div class="timeline-step">Passo 5</div>
+             </div>
+             <div class="timeline-side">
+              <div class="timeline-card">
+               <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop" alt="Compare as Opções" onerror="this.src='https://placehold.co/400x200/cccccc/000000?text=Comparar+Opções'">
+               <div class="timeline-card-content">
+                 <h5 class="timeline-card-title">Compare as Melhores Opções</h5>
+                 <div class="timeline-card-desc">Analise os planos que encontramos e escolha o que se encaixa perfeitamente no seu orçamento.</div>
+               </div>
+              </div>
+             </div>
+            </div>
+       
+            <div class="timeline-item">
+             <div class="timeline-side">
+              <div class="timeline-card">
+               <img src="https://horizoncred.com/wp-content/uploads/2025/08/envie_sua_proposta.png" alt="Envie sua Proposta" onerror="this.src='https://placehold.co/400x200/cccccc/000000?text=Enviar+Proposta'">
+               <div class="timeline-card-content">
+                 <h5 class="timeline-card-title">Envie sua Proposta</h5>
+                 <div class="timeline-card-desc">Pronto! Agora é só aguardar o contato de um de nossos especialistas para ajudar a concluir a contratação.</div>
+               </div>
+              </div>
+             </div>
+             <div class="timeline-side">
+              <div class="timeline-step">Passo 6</div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </section>
+        </main>
+    </div>
+    <script>
+     document.addEventListener("DOMContentLoaded", function() {
+      const widgetWrapper = document.getElementById('timeline-widget-customizada');
+      if (!widgetWrapper) return;
+   
+      const timelineCards = widgetWrapper.querySelectorAll('.timeline-card');
+      const lineFill = widgetWrapper.querySelector('.timeline-line-fill');
+      const timelineWrapper = widgetWrapper.querySelector('.timeline-wrapper');
+   
+      const observer = new IntersectionObserver((entries) => {
+       entries.forEach(entry => {
+        if (entry.isIntersecting) {
+         entry.target.classList.add('visible');
+        }
+       });
+      }, { threshold: 0.1 });
+   
+      timelineCards.forEach((card) => {
+       card.classList.add('hidden');
+       observer.observe(card);
+      });
+   
+      window.addEventListener('scroll', () => {
+       const rect = timelineWrapper.getBoundingClientRect();
+       const windowHeight = window.innerHeight;
+       
+       const visibleHeight = Math.max(0, windowHeight - rect.top);
+       const totalHeight = rect.height;
+   
+       const progress = Math.min(visibleHeight, totalHeight);
+       
+       lineFill.style.height = `${progress}px`;
+      });
+     });
+    </script>
+</body>
+</html>
