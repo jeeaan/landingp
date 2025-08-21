@@ -6,10 +6,10 @@
   <title>Document</title>
   <style>
     .section-wrapper {
-      background-color: #f7f7f7;
       padding: 60px 0;
       box-sizing: border-box;
-      border-radius: 120px 12px 120px 12px;
+      background-color: rgba(247, 247, 247, 0.75);
+      border-radius: 360px 120px 360px 120px;
     }
 
     .side-by-side-section {
@@ -128,6 +128,28 @@
       background-color: #e1a900;
     }
 
+    .timeline-main-title {
+      text-align: center;
+      margin-bottom: 50px;
+      font-size: 2.2rem;
+      color: #1c3959;
+      font-weight: 700;
+      position: relative;
+      padding-bottom: 15px;
+    }
+    
+    .timeline-main-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: #ffbc00;
+      border-radius: 2px;
+    }    
+
     @media (max-width: 1024px) {
       .side-by-side-section {
         flex-wrap: wrap;
@@ -180,10 +202,10 @@
   <div class="section-wrapper">
     <div class="side-by-side-section">
       <div class="image-column">
-        <img src="https://horizoncred.com/wp-content/uploads/2025/06/Amanda-21.jpg" alt="Banner Imóvel">
+        <img src="https://horizoncred.com/wp-content/uploads/2025/08/IIMG5643-2-scaled.jpg" alt="Banner Imóvel">
       </div>
       <div class="text-column">
-        <h2>O que é Financiamento Habitacional?</h2>
+        <h2 class="timeline-main-title">O que é Financiamento Habitacional?</h2>
         <p>
           O financiamento habitacional é uma forma de comprar um imóvel pagando de forma parcelada, com o apoio de um banco ou instituição financeira.<br>
           Funciona assim: o banco paga o valor à vista para o vendedor, e você devolve ao banco esse valor em parcelas mensais, acrescidas de juros e outros encargos.<br><br>

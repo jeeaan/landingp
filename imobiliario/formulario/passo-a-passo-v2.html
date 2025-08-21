@@ -27,16 +27,17 @@
   }
   #timeline-widget-customizada .timeline-section {  
    padding: 80px 0;
-   background-color: #fff;
-   border-radius: 120px 12px 120px 12px;
       overflow: hidden; /* Garante que os cantos arredondados sejam respeitados */
   }
   #timeline-widget-customizada .section-title {
    text-align: center;
    margin-bottom: 50px;
    font-size: 2.5em;
-   color: #000;
+   color: #FFF;
   }
+   #timeline-widget-customizada .highlight {
+    color: #ffbc00 !important;
+   }
   #timeline-widget-customizada .timeline-wrapper {
    position: relative;
    max-width: 900px;
@@ -115,7 +116,7 @@
   }
   #timeline-widget-customizada .timeline-step {
    font-weight: bold;
-   color: #000;
+   color: #ffbc00;
    font-size: 1.2em;
   }
     #timeline-widget-customizada .timeline-card {
@@ -153,7 +154,7 @@
     /* === REGRAS RESPONSIVAS COMPLETAS E CORRIGIDAS === */
   @media (max-width: 768px) {
         #timeline-widget-customizada .timeline-step {
-            text-align: left;
+            display: none;
         }
 
       #timeline-widget-customizada .timeline-item .timeline-side:last-child {
@@ -225,7 +226,7 @@
  <main id="content" class="site-main">
   <section class="timeline-section">
    <div class="container">
-    <h2 class="section-title">Quais são os Passos do Financiamento Habitacional?</h2>
+    <h2 class="section-title">Quais são os <span class="highlight">Passos do Financiamento</span> Habitacional?</h2>
     <div class="timeline-wrapper">
      <div class="timeline-line-fill"></div>
 
