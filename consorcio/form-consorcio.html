@@ -19,8 +19,8 @@
     <style>
         /* Define a fonte Inter como padrão */
         body {
-            background-image: linear-gradient(to bottom, rgba(40, 40, 40, 0.9), rgba(0, 0, 0, 0)),
-                              url('image/consorcio1.png');
+            background-image: linear-gradient(to bottom, rgba(40, 40, 40, 0.9), rgba(0, 0, 0, 0.5)),
+                              url('https://horizoncred.com/wp-content/uploads/2025/08/18-BAK24.jpg');
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center center;
@@ -80,8 +80,8 @@
           flex-wrap:wrap;
         }
         .bank-logos img {
-            height: 70px;
-            width: 70px; /* Corrigido o typo (de "witdh" para "width") */
+            height: 120px;
+            width: 120px;
             object-fit: cover; 
             border-radius: 8px;
             background-color: white;
@@ -195,7 +195,18 @@
         .highlight {
           color: #ffbc00 !important;
           text-align: center;
-        }        
+        }
+
+        @media (max-width: 768px) {
+        .bank-logos {
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 15px;
+        }
+        
+        .bank-logos img {
+            height: 70px;
+            width: 70px;
+        }
 
     </style>
 </head>
@@ -326,13 +337,6 @@
             e.target.value = formattedValue;
           });
         </script>
-
-
-
-
-
-
-
     </section>
 
 </body>
