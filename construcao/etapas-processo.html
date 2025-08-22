@@ -1,0 +1,263 @@
+<div id="timeline-widget-customizada">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+ <style>
+  #timeline-widget-customizada {
+    font-family: 'Roboto', sans-serif;
+    background-color: rgba(247, 247, 247, 0.75);
+    border-radius: 360px 120px 360px 120px;
+    padding: 40px 20px;
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-top: 5%;
+    padding-bottom: 8%;
+  }
+
+  /* Container da timeline - versão desktop */
+  #timeline-widget-customizada .timeline-diagonal {
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    min-height: 300px;
+    margin: 40px auto 0; /* Aumentado margin-top para afastar do título */
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start; /* Alterado para flex-start para alinhar no topo */
+    flex-wrap: wrap;
+    transform: scale(1.25);
+  }
+
+  /* Cada item - versão desktop */
+  #timeline-widget-customizada .timeline-step-item {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    position: relative;
+    padding: 8px;
+    width: 174px;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    transition: all 0.3s ease;
+  }
+
+  /* Garante que o conteúdo ocupe todo o espaço disponível */
+  #timeline-widget-customizada .timeline-step-item > *:last-child {
+    margin-top: auto;
+  }
+
+  #timeline-widget-customizada .timeline-step-item:hover {
+    transform: translateY(-5px) scale(1.02); /* Efeito mais suave */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  }
+
+  /* Círculo da etapa */
+  #timeline-widget-customizada .step-circle {
+    width: 50px;
+    height: 50px;
+    background: white;
+    border: 3px solid #ffbc00;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #000;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+
+  /* --- EFEITO ADICIONADO À IMAGEM --- */
+  /* Container da imagem para posicionar o overlay */
+  #timeline-widget-customizada .image-container {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden; /* Garante que o overlay não saia das bordas */
+    margin-bottom: 15px;
+    height: 120px; /* Altura fixa para imagens */
+  }
+
+  /* Estilo base da imagem */
+  #timeline-widget-customizada .image-container img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+    transition: opacity 0.3s ease;
+  }
+
+  /* Overlay para dar o tom uniforme */
+  #timeline-widget-customizada .image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(28, 57, 89, 0.3); /* Tom azulado/escuro semi-transparente */
+    border-radius: 8px; /* Mantém as bordas arredondadas */
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+
+  /* Efeito ao passar o mouse: o overlay fica um pouco mais sutil */
+  #timeline-widget-customizada .image-container:hover .image-overlay {
+    opacity: 0; /* Remove o overlay para revelar a cor original */
+  }
+  /* --- FIM DO EFEITO --- */
+
+  /* Título */
+  #timeline-widget-customizada .timeline-card-title {
+    font-size: 1.2em; /* Aumentado um pouco */
+    font-weight: bold;
+    color: #1c3959;
+    margin: 10px 0 15px;
+    min-height: 3em; /* Altura mínima para uniformizar */
+  }
+
+  .timeline-main-title {
+    text-align: center;
+    margin-bottom: 30px; /* Reduzido para menos espaço abaixo */
+    margin-top: 20px; /* Adicionado espaço acima */
+    font-size: 2.2rem; /* Aumentado um pouco */
+    color: #1c3959;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 25px;
+    margin-bottom: 2.7em !important;
+  }
+  
+  .timeline-main-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px; /* Aumentado */
+    height: 5px; /* Aumentado */
+    background: #ffbc00;
+    border-radius: 3px;
+  }
+
+  /* Versão mobile */
+  @media (max-width: 768px) {
+    #timeline-widget-customizada {
+      border-radius: 30px 3px 30px 3px;
+      padding: 30px 15px;
+    }
+    
+    #timeline-widget-customizada .timeline-diagonal {
+      min-height: auto;
+      position: static;
+      display: flex;
+      flex-direction: column;
+      gap: 80px; /* Aumentado espaçamento */
+      transform: none;
+      margin-top: 30px; /* Espaço do título */
+    }
+    
+    #timeline-widget-customizada .timeline-step-item {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      min-height: auto; /* Remove altura fixa no mobile */
+    }
+    
+    .timeline-main-title {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      margin-top: 10px;
+    }
+    
+    #timeline-widget-customizada .step-circle {
+      position: relative;
+      top: auto;
+      left: auto;
+      transform: none;
+      margin: -40px auto 25px;
+    }
+
+    #timeline-widget-customizada .image-container {
+      height: 150px; /* Maior no mobile */
+    }
+  }
+
+  /* Ajustes para telas médias */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    #timeline-widget-customizada .timeline-step-item {
+      width: 220px;
+    }
+    
+    .timeline-main-title {
+      font-size: 2rem;
+    }
+  }
+ </style>
+
+<section>
+   <h2 class="timeline-main-title">Etapas do Processo</h2>
+   <div class="timeline-diagonal">
+     <div class="timeline-step-item">
+       <div class="step-circle">1</div>
+       <div class="image-container">
+         <img src="https://img.freepik.com/fotos-premium/as-mulheres-calculam-contas-domesticas-em-casa-usando-a-calculadora-no-escritorio-moderno-e-verificando-o-saldo-e-os-custos-mulheres-fazendo-papelada-para-pagar-impostos_38391-855.jpg">
+         <div class="image-overlay"></div>
+       </div>
+       <h5 class="timeline-card-title">Análise de crédito</h5>
+     </div>
+
+     <div class="timeline-step-item">
+       <div class="step-circle">2</div>
+       <div class="image-container">
+         <img src="https://pellisistemas.com/2021/wp-content/uploads/2022/02/software-de-avaliacao-de-terreno-1.jpg">
+         <div class="image-overlay"></div>
+       </div>
+       <h5 class="timeline-card-title">Avaliação do terreno e obra</h5>
+     </div>
+
+     <div class="timeline-step-item">
+       <div class="step-circle">3</div>
+       <div class="image-container">
+         <img src="https://i.pinimg.com/originals/dc/75/6c/dc756c73a83a8d684124c7e462b7e56b.jpg">
+         <div class="image-overlay"></div>
+       </div>
+       <h5 class="timeline-card-title">Aprovação do projeto e da documentação</h5>
+     </div>
+
+     <div class="timeline-step-item">
+       <div class="step-circle">4</div>
+       <div class="image-container">
+         <img src="https://horizoncred.com/wp-content/uploads/2025/08/foto_registro.jpg">
+         <div class="image-overlay"></div>
+       </div>
+       <h5 class="timeline-card-title">Assinatura do contrato e registro no cartório</h5>
+     </div>
+
+     <div class="timeline-step-item">
+       <div class="step-circle">5</div>
+       <div class="image-container">
+         <img src="https://katedralimoveis.com.br/cms/imgs/659c56efdf8d4-terrenos.jpg">
+         <div class="image-overlay"></div>
+       </div>
+       <h5 class="timeline-card-title">Liberação do financiamento do terreno (caso haja)</h5>
+     </div>
+
+     <div class="timeline-step-item">
+       <div class="step-circle">6</div>
+       <div class="image-container">
+         <img src="https://imoveis.estadao.com.br/wp-content/uploads/2022/11/construir-casa-768x600.jpg">
+         <div class="image-overlay"></div>
+       </div>
+       <h5 class="timeline-card-title">Os recursos são liberados conforme o avanço da obra</h5>
+     </div>          
+   </div>
+ </section>
+</div>
