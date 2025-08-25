@@ -7,13 +7,11 @@
   #timeline-widget-customizada {
     font-family: 'Roboto', sans-serif;
     background-color: rgba(247, 247, 247, 0.75);
-    border-radius: 360px 120px 360px 120px;
+    border-radius: 360px 140px 180px 120px;
     padding: 40px 20px;
     width: 100%;
     overflow: hidden;
     box-sizing: border-box;
-    padding-top: 5%;
-    padding-bottom: 8%;
   }
 
   /* Container da timeline - versão desktop */
@@ -22,16 +20,16 @@
     max-width: 1200px;
     height: auto;
     min-height: 300px;
-    margin: 40px auto 0; /* Aumentado margin-top para afastar do título */
+    margin: 40px auto 0;
     position: relative;
     display: flex;
     justify-content: space-around;
-    align-items: flex-start; /* Alterado para flex-start para alinhar no topo */
+    align-items: flex-start;
     flex-wrap: wrap;
     transform: scale(1.25);
   }
 
-  /* Cada item - versão desktop */
+ 
   #timeline-widget-customizada .timeline-step-item {
     background: white;
     border-radius: 10px;
@@ -47,17 +45,15 @@
     transition: all 0.3s ease;
   }
 
-  /* Garante que o conteúdo ocupe todo o espaço disponível */
   #timeline-widget-customizada .timeline-step-item > *:last-child {
     margin-top: auto;
   }
 
   #timeline-widget-customizada .timeline-step-item:hover {
-    transform: translateY(-5px) scale(1.02); /* Efeito mais suave */
+    transform: translateY(-5px) scale(1.02);
     box-shadow: 0 8px 25px rgba(0,0,0,0.15);
   }
-
-  /* Círculo da etapa */
+ 
   #timeline-widget-customizada .step-circle {
     width: 50px;
     height: 50px;
@@ -76,14 +72,12 @@
     z-index: 2;
   }
 
-  /* --- EFEITO ADICIONADO À IMAGEM --- */
-  /* Container da imagem para posicionar o overlay */
   #timeline-widget-customizada .image-container {
     position: relative;
     border-radius: 8px;
-    overflow: hidden; /* Garante que o overlay não saia das bordas */
+    overflow: hidden;
     margin-bottom: 15px;
-    height: 120px; /* Altura fixa para imagens */
+    height: 120px;
   }
 
   /* Estilo base da imagem */
@@ -256,7 +250,7 @@
          <img src="https://imoveis.estadao.com.br/wp-content/uploads/2022/11/construir-casa-768x600.jpg">
          <div class="image-overlay"></div>
        </div>
-       <h5 class="timeline-card-title">Os recursos são liberados conforme o avanço da obra</h5>
+       <h5 class="timeline-card-title">Liberação de recursos conforme o avanço da obra</h5>
      </div>          
    </div>
  </section>

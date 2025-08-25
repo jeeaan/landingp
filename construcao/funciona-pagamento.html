@@ -1,0 +1,222 @@
+<div id="widget-pagamento">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+   <style>
+     /* Estilo base do widget - TOTALMENTE ISOLADO */
+     #widget-pagamento {
+         font-family: 'Roboto', sans-serif;
+         background-color: rgba(247, 247, 247, 0.75);
+         border-radius: 260px 120px 360px 60px;
+         padding: 40px 20px;
+         /* --- AJUSTE AQUI --- */
+         width: fit-content; /* Ocupa apenas o espaço do conteúdo */
+         margin: 0 auto; /* Mantém o widget centralizado na página */
+         overflow: hidden;
+         box-sizing: border-box;
+     }
+
+     /* Título Principal */
+     #widget-pagamento .twc-main-title {
+         text-align: center;
+         font-size: 2.2rem;
+         color: #1c3959;
+         font-weight: 700;
+         position: relative;
+         padding-bottom: 25px;
+         margin: 20px 0 80px 0;
+     }
+     
+     #widget-pagamento .twc-main-title::after {
+         content: '';
+         position: absolute;
+         bottom: 0;
+         left: 50%;
+         transform: translateX(-50%);
+         width: 100px;
+         height: 5px;
+         background: #ffbc00;
+         border-radius: 3px;
+     }
+
+     /* Container da timeline */
+     #widget-pagamento .twc-container {
+         width: 100%;
+         max-width: 1200px;
+         margin: 40px auto 0;
+         position: relative;
+         display: flex;
+         justify-content: center;
+         align-items: flex-start;
+         flex-wrap: wrap;
+         gap: 50px;
+     }
+
+     /* Card de cada etapa */
+     #widget-pagamento .twc-step-item {
+         background: white;
+         border-radius: 10px;
+         box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+         text-align: center;
+         position: relative;
+         padding: 20px;
+         width: 350px;
+         display: flex;
+         flex-direction: column;
+         z-index: 1;
+         transition: all 0.3s ease;
+         padding-top: 40px;
+     }
+
+     #widget-pagamento .twc-step-item:hover {
+         transform: translateY(-5px) scale(1.02);
+         box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+     }
+   
+     /* Círculo com o número */
+     #widget-pagamento .twc-step-circle {
+         width: 50px;
+         height: 50px;
+         background: white;
+         border: 3px solid #ffbc00;
+         border-radius: 50%;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         font-weight: bold;
+         font-size: 1.2rem;
+         color: #1c3959;
+         position: absolute;
+         top: -25px;
+         left: 50%;
+         transform: translateX(-50%);
+         z-index: 2;
+     }
+
+     /* Imagem e Overlay */
+     #widget-pagamento .twc-image-container {
+         position: relative;
+         border-radius: 8px;
+         overflow: hidden;
+         margin-bottom: 15px;
+         height: 120px;
+     }
+     #widget-pagamento .twc-image-container::after {
+         content: '';
+         position: absolute;
+         top: 0; left: 0;
+         width: 100%; height: 100%;
+         background-color: rgba(28, 57, 89, 0.3);
+         transition: opacity 0.3s ease;
+     }
+     #widget-pagamento .twc-step-item:hover .twc-image-container::after {
+         opacity: 0;
+  }
+     #widget-pagamento .twc-image-container img {
+         display: block;
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+     }
+
+     /* Conteúdo de texto do card */
+     #widget-pagamento .twc-card-title {
+         font-size: 1.3em;
+         font-weight: bold;
+         color: #1c3959;
+         margin: 15px 0;
+         min-height: 2.5em;
+     }
+
+     #widget-pagamento .twc-card-description {
+         font-size: 0.95em;
+         color: #5a697d;
+         line-height: 1.6;
+         text-align: left;
+         margin-top: auto;
+     }
+     #widget-pagamento .twc-card-description ul {
+         list-style-position: inside;
+         padding-left: 0;
+         text-indent: 0;
+     }
+     #widget-pagamento .twc-card-description li {
+         margin-bottom: 10px;
+     }
+     #widget-pagamento .twc-card-description strong {
+         color: #1c3959;
+     }
+
+     /* Versão mobile */
+     @media (max-width: 768px) {
+         #widget-pagamento {
+              border-radius: 30px 3px 30px 3px;
+              padding: 30px 15px;
+        /* Garante que ele não ultrapasse a tela em modo 'fit-content' */
+        width: auto;
+        margin-left: 10px;
+        margin-right: 10px;
+         }
+         
+         #widget-pagamento .twc-container {
+              flex-direction: column;
+              gap: 60px;
+              margin-top: 0;
+              align-items: center;
+         }
+         
+         #widget-pagamento .twc-step-item {
+              width: 100%;
+              max-width: 400px;
+         }
+         
+         #widget-pagamento .twc-main-title {
+              font-size: 1.8rem;
+              margin-bottom: 60px;
+         }
+         
+         #widget-pagamento .twc-image-container {
+              height: 150px;
+         }
+     }
+   </style>
+
+<section>
+        <h2 class="twc-main-title">Como funciona o pagamento?</h2>
+
+        <div class="twc-container">
+            <div class="twc-step-item">
+                 <div class="twc-step-circle">1</div>
+                 <div class="twc-image-container">
+                     <img src="https://horizoncred.com/wp-content/uploads/2025/08/construction_site-scaled.jpg">
+                 </div>
+                 <h5 class="twc-card-title">Fase 1: Durante a Construção</h5>
+                 <div class="twc-card-description">
+                     <p>Nesta fase, você <strong>paga apenas os juros</strong> sobre o valor que o banco libera a cada etapa da obra, não a parcela cheia do financiamento.</p>
+                     <ul>
+                          <li><strong>Liberação em Etapas:</strong> O dinheiro é liberado em parcelas, conforme a obra avança e as medições são feitas.</li>
+                          <li><strong>Duração:</strong> Esta fase pode durar até 24 meses.</li>
+                          <li><strong>Exemplo Prático:</strong> Se o banco liberou R$ 30 mil no primeiro mês, você pagará juros apenas sobre esses R$ 30 mil. Se no mês seguinte liberar mais R$ 30 mil, os juros serão calculados sobre o total acumulado de R$ 60 mil.</li>
+                  <li><strong>Adiantamento:</strong> O banco pode adiantar até 20% do valor para o início da obra.</li>
+                     </ul>
+                 </div>
+            </div>
+
+            <div class="twc-step-item">
+                 <div class="twc-step-circle">2</div>
+                 <div class="twc-image-container">
+                     <img src="https://horizoncred.com/wp-content/uploads/2025/08/x_casa_pronta.jpg">
+                 </div>
+                 <h5 class="twc-card-title">Fase 2: Após a Obra</h5>
+                 <div class="twc-card-description">
+               <p>Com a construção finalizada e o "Habite-se" emitido, a fase de amortização começa.</p>
+               <ul>
+                  <li><strong>Parcela Completa:</strong> Você começa a pagar a parcela cheia do financiamento, que inclui tanto os juros quanto a amortização do valor principal.</li>
+                  <li><strong>Prazo Total:</strong> O prazo total do seu financiamento (ex: 30 anos) começa a contar a partir deste momento.</li>
+               </ul>
+                 </div>
+            </div>
+        </div>
+   </section>
+</div>

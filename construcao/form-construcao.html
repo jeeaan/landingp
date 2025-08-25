@@ -18,7 +18,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Roboto', Arial, sans-serif;
-            background-color: #333; /* Fundo escuro para a página inteira */
+            background-color: #333;
         }
 
         /* Fundo da seção principal com imagem */
@@ -151,7 +151,7 @@
         .bank-logos img {
             height: 150px;
             width: 150px;
-            object-fit: contain; /* Alterado para contain para ver o logo inteiro */
+            object-fit: contain;
             border-radius: 8px;
             background-color: white;
             padding: 10px;
@@ -184,7 +184,7 @@
             min-width: 150px;
             max-width: 250px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            color: #fff; /* Cor do texto dos cards */
+            color: #fff;
         }
 
         .benefits li:hover {
@@ -203,6 +203,17 @@
             font-weight: 500;
             line-height: 1.4;
         }
+        @media (max-width: 768px) {
+          body {
+            background-image:
+             linear-gradient(to bottom, rgba(20, 20, 20, 0.7), rgba(0, 0, 0, 0.9)),
+             url('https://horizoncred.com/wp-content/uploads/2025/08/mao-construc-yy-final2-zap.jpeg');
+
+                    /* Mantém o deslocamento que você já tinha definido */
+            background-position: 43.5% center;
+          }
+        }
+
     </style>
     </head>
 <body>
