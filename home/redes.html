@@ -1,0 +1,72 @@
+<style>
+/* Container principal do menu de redes sociais */
+.menu-redes-sociais ul {
+  /* Alinha os ícones na horizontal */
+  display: flex;
+  justify-content: center; /* Centraliza os ícones no container */
+  align-items: center;
+  
+  /* Remove os marcadores de lista e paddings padrão */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: transparent !important;
+  
+  /* Espaçamento entre os ícones */
+  gap: 25px; 
+}
+
+/* Estilo para cada ícone de rede social */
+.menu-redes-sociais img {
+  width: 45px; /* Define um tamanho padrão */
+  height: 45px;
+  border-radius: 50%; /* Deixa os ícones circulares, combinando com os círculos da timeline */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra sutil, como nos cards */
+  
+  /* Transição suave para o efeito de hover */
+  transition: all 0.3s ease-out;
+}
+
+/* Efeito ao passar o mouse sobre o ícone */
+.menu-redes-sociais a:hover img {
+  transform: scale(1.05) translateY(-3px); /* Aumenta o ícone e o levanta um pouco */
+  box-shadow: 0 0 15px #ffbc00; /* Adiciona um brilho com a cor de destaque da sua timeline */
+}
+
+.ast-separate-container .ast-article-single:not(.ast-related-post), 
+.woocommerce.ast-separate-container .ast-woocommerce-container, 
+.ast-separate-container .error-404, 
+.ast-separate-container .no-results,
+.single.ast-separate-container .ast-author-meta, 
+.ast-separate-container .related-posts-title-wrapper, 
+.ast-separate-container .comments-count-wrapper, 
+.ast-box-layout.ast-plain-container .site-content, 
+.ast-padded-layout.ast-plain-container .site-content, 
+.ast-separate-container .ast-archive-description, 
+.ast-separate-container .comments-area .comment-respond, 
+.ast-separate-container .comments-area .ast-comment-list li, 
+.ast-separate-container .comments-area .comments-title {
+    background-color: transparent !important;
+}
+
+</style>
+
+<nav class="menu-redes-sociais" aria-label="Redes sociais">
+  <ul>
+    <li>
+      <a href="https://wa.me/5561991116565?text=Oi,%20estou%20entrando%20em%20contato%20a%20partir%20do%20portal%20horizoncred.com!" target="_blank" rel="noopener noreferrer" aria-label="Nosso Whatsapp">
+        <img src="https://static.wixstatic.com/media/11062b_708ed96dfeaf4cdb82d8a2299d7625dc~mv2.png" alt="Ícone do Whatsapp">
+      </a>
+    </li>
+    <li>
+      <a href="https://www.instagram.com/horizon.cred/" target="_blank" rel="noopener noreferrer" aria-label="Nosso Instagram">
+        <img src="https://static.wixstatic.com/media/11062b_94a6580a67244d17a4dc923b54b99fb4~mv2.png" alt="Ícone do Instagram">
+      </a>
+    </li>
+    <li>
+      <a href="https://www.facebook.com/horizon.cred" target="_blank" rel="noopener noreferrer" aria-label="Nosso Facebook">
+        <img src="https://static.wixstatic.com/media/11062b_e1117f9a7a1741ef955a84836121c4ad~mv2.png" alt="Ícone do Facebook">
+      </a>
+    </li>
+  </ul>
+</nav>
