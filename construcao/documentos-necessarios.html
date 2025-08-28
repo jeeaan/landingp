@@ -1,0 +1,278 @@
+<div id="documentos-completos-widget">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+        <style>
+              #documentos-completos-widget {
+                     font-family: 'Roboto', sans-serif;
+                     background-color: rgba(247, 247, 247, 0.75);
+                     border-radius: 360px 120px 399px 120px;
+                     padding: 40px 20px;
+                     width: fit-content;
+                     margin: 0 auto;
+                     overflow: hidden;
+                     box-sizing: border-box;
+              }
+
+              /* Títulos */
+              #documentos-completos-widget .widget-main-title,
+              #documentos-completos-widget .widget-section-title {
+                     text-align: center;
+                     color: #1c3959;
+                     font-weight: 700;
+                     position: relative;
+              }
+
+              #documentos-completos-widget .widget-main-title {
+                     font-size: 2.2rem;
+                     padding-bottom: 25px;
+                     margin: 20px 0 60px 0;
+              }
+              
+              #documentos-completos-widget .widget-main-title::after {
+                     content: '';
+                     position: absolute;
+                     bottom: 0;
+                     left: 50%;
+                     transform: translateX(-50%);
+                     width: 100px;
+                     height: 5px;
+                     background: #ffbc00;
+                     border-radius: 3px;
+              }
+
+              #documentos-completos-widget .widget-section-title {
+                           font-size: 1.8rem;
+                           margin: 50px 0 20px 0;
+                           display: flex;
+                           align-items: center;
+                           justify-content: center;
+                           gap: 15px;
+              }
+
+              #documentos-completos-widget .widget-section-title i {
+                           color: #ffbc00;
+              }
+
+              /* Cards */
+              #documentos-completos-widget .timeline-container {
+                     display: flex;
+                     justify-content: center;
+                     gap: 25px;
+                     flex-wrap: wrap;
+                     margin: 20px auto 0;
+                     max-width: 1200px;
+              }
+              
+              #documentos-completos-widget .document-card {
+                     background: white;
+                     border-radius: 10px;
+                     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                     padding: 8px;
+                     width: 220px;
+                     display: flex;
+                     flex-direction: column;
+                     transition: all 0.3s ease;
+              }
+
+              #documentos-completos-widget .document-card:hover {
+                     transform: translateY(-5px) scale(1.02);
+                     box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+              }
+
+              /* --- FILTRO DE IMAGEM ADICIONADO --- */
+              #documentos-completos-widget .image-container {
+                     position: relative;
+                     border-radius: 8px;
+                     overflow: hidden;
+                     margin-bottom: 15px;
+                     height: 120px;
+              }
+
+              #documentos-completos-widget .image-container::after {
+                     content: '';
+                     position: absolute;
+                     top: 0;
+                     left: 0;
+                     width: 100%;
+                     height: 100%;
+                     background-color: rgba(28, 57, 89, 0.3); /* Cor do filtro (azul do tema) */
+                     transition: opacity 0.3s ease;
+                     pointer-events: none; /* Garante que o hover funcione na imagem */
+              }
+
+              #documentos-completos-widget .document-card:hover .image-container::after {
+                     opacity: 0; /* Remove o filtro no hover */
+              }
+              /* --- FIM DO FILTRO --- */
+
+              #documentos-completos-widget .image-container img {
+                     display: block;
+                     width: 100%;
+                     height: 100%;
+                     object-fit: cover;
+              }
+
+              #documentos-completos-widget .card-content {
+                           padding: 10px;
+                           display: flex;
+                           flex-direction: column;
+                           flex-grow: 1;
+              }
+
+              #documentos-completos-widget .card-title {
+                     font-size: 1.2em;
+                     font-weight: bold;
+                     color: #1c3959;
+                     margin: 0 0 10px 0;
+                     min-height: 2.5em;
+              }
+
+              #documentos-completos-widget .card-description {
+                           font-size: 0.9em;
+                           color: #5a697d;
+                           line-height: 1.5;
+                           text-align: left;
+                           margin-top: auto;
+              }
+              #documentos-completos-widget .card-description ul {
+                           list-style: none;
+                           padding-left: 0;
+                           margin: 0;
+              }
+              #documentos-completos-widget .card-description li {
+                           margin-bottom: 5px;
+              }
+              #documentos-completos-widget .card-description strong {
+                           color: #1c3959;
+              }
+
+              /* Nota importante */
+              #documentos-completos-widget .important-note {
+                           max-width: 800px;
+                           margin: 60px auto 20px auto;
+                           padding: 20px;
+                           background-color: #fffbeb;
+                           border-left: 5px solid #ffbc00;
+                           border-radius: 8px;
+                           display: flex;
+                           align-items: center;
+                           gap: 20px;
+                           font-size: 1.1em;
+                           color: #5a697d;
+              }
+              #documentos-completos-widget .important-note i {
+                           font-size: 2em;
+                           color: #ffbc00;
+              }
+
+              /* Responsividade */
+              @media (max-width: 768px) {
+                     #documentos-completos-widget {
+                           border-radius: 30px 3px 30px 3px;
+                           padding: 30px 15px;
+                           width: auto;
+                     }
+                     #documentos-completos-widget .widget-main-title {
+                                   font-size: 1.8rem;
+                                   margin-bottom: 40px;
+                     }
+                     #documentos-completos-widget .widget-section-title {
+                                   font-size: 1.5rem;
+                     }
+                     #documentos-completos-widget .document-card {
+                                         width: 100%;
+                                         max-width: 350px;
+                     }
+              }
+        </style>
+
+<section>
+              <h2 class="widget-main-title">Documentação Necessária</h2>
+
+              <h3 class="widget-section-title"><i class="fa-solid fa-address-card"></i>Pessoais</h3>
+              <div class="timeline-container">
+                     <div class="document-card">
+                           <div class="image-container">
+                                   <img src="https://horizoncred.com/wp-content/uploads/2025/08/x_idt.jpg">
+                           </div>
+                           <div class="card-content">
+                                   <h5 class="card-title">Documento de Identidade</h5>
+                           </div>
+                     </div>
+                     <div class="document-card">
+                           <div class="image-container">
+                                   <img src="https://horizoncred.com/wp-content/uploads/2025/08/x_casamento.png">
+                           </div>
+                           <div class="card-content">
+                                   <h5 class="card-title">Comprovante de Estado Civil</h5>
+                           </div>
+                     </div>
+                     <div class="document-card">
+                           <div class="image-container">
+                                   <img src="https://horizoncred.com/wp-content/uploads/2025/08/x_residencia.webp">
+                           </div>
+                           <div class="card-content">
+                                   <h5 class="card-title">Comprovante de Residência</h5>
+                           </div>
+                     </div>
+                     <div class="document-card">
+                           <div class="image-container">
+                                   <img src="https://horizoncred.com/wp-content/uploads/2025/08/x_contracheque.jpg">
+                           </div>
+                           <div class="card-content">
+                                   <h5 class="card-title">Comprovação de Renda</h5>
+
+                           </div>
+                     </div>
+              </div>
+
+              <h3 class="widget-section-title"><i class="fa-solid fa-house-chimney"></i>Do Imóvel</h3>
+              <div class="timeline-container">
+                     <div class="document-card">
+                           <div class="image-container">
+                                   <img src="https://horizoncred.com/wp-content/uploads/2025/08/x_matricula_onus.jpg">
+                           </div>
+                           <div class="card-content">
+                                   <h5 class="card-title">Matrícula e Ônus do Terreno</h5>
+                           </div>
+                     </div>
+                     <div class="document-card">
+                           <div class="image-container">
+                                   <img src="https://horizoncred.com/wp-content/uploads/2025/08/x_iptu.png">
+                           </div>
+                           <div class="card-content">
+                                   <h5 class="card-title">IPTU</h5>
+                           </div>
+                     </div>
+
+                    <div class="document-card">
+                           <div class="image-container">
+                                   <img src="https://horizoncred.com/wp-content/uploads/2025/08/x_projeto_aprovado.webp">
+                           </div>
+                           <div class="card-content">
+                                   <h5 class="card-title">Projeto Aprovado</h5>
+                           </div>
+                     </div>
+
+                     <div class="document-card">
+                           <div class="image-container">
+                                   <img src="https://horizoncred.com/wp-content/uploads/2025/08/x_doc_tec_obra.jpeg">
+                           </div>
+                           <div class="card-content">
+                                   <h5 class="card-title">Documentação Técnica da Obra</h5>
+                           </div>
+                     </div>
+              </div>
+
+              <div class="important-note">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <div>
+                        <strong>Importante:</strong> O terreno deve estar regularizado e sem pendências de matrícula.
+                    </div>
+              </div>
+
+</section>
+</div>

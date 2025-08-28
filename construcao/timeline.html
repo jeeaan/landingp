@@ -1,0 +1,369 @@
+<!-- Copie e cole no widget de HTML Personalizado do WordPress -->
+<div id="timeline-widget-customizada">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+   #timeline-widget-customizada {
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    padding: 80px 0;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: scroll;
+    position: relative;
+   }
+   #timeline-widget-customizada .highlight {
+    color: #ffbc00 !important;
+   }
+   #timeline-widget-customizada *,
+   #timeline-widget-customizada *:before,
+   #timeline-widget-customizada *:after {
+    box-sizing: inherit;
+   }
+   #timeline-widget-customizada img {
+    max-width: 100%;
+    height: 240px;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 8px 8px 0 0;
+   }
+   #timeline-widget-customizada .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+   }
+   #timeline-widget-customizada .section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2.5em;
+    color: #fff;
+   }
+   #timeline-widget-customizada .section-subtitle {
+    text-align: center;
+    margin-top: -30px;
+    margin-bottom: 50px;
+    font-size: 1.2em;
+    color: #ccc;
+   }
+   #timeline-widget-customizada .timeline-wrapper {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+   }
+   /* Linha base */
+   #timeline-widget-customizada .timeline-wrapper::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: #5a697d;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+   }
+   /* Linha que preenche */
+   #timeline-widget-customizada .timeline-progress {
+    position: absolute;
+    width: 2px;
+    background-color: #ffbc00;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 0;
+    z-index: 1 !important;
+    transition: height 0.3s ease-out;
+   }
+   #timeline-widget-customizada .timeline-wrapper::after,
+    #timeline-widget-customizada .timeline-progress {
+      z-index: 0; /* linha e barra ficam no fundo */
+    }
+
+    #timeline-widget-customizada .timeline-item {
+      position: relative;
+      z-index: 2; /* itens ficam acima */
+    }
+
+   #timeline-widget-customizada .timeline-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 60px;
+    position: relative;
+    opacity: 0.3;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+   }
+   /* círculo */
+   #timeline-widget-customizada .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    border: 2px solid #ffbc00;
+    border-radius: 50%;
+    z-index: 2 !important;
+    transition: background-color 0.5s ease, border-color 0.5s ease;
+   }
+   /* check */
+   #timeline-widget-customizada .timeline-item::after {
+    content: '✔';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #000 !important;
+    font-size: 20px;
+    z-index: 3 !important;
+    padding-top: 2px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+   }
+   /* Quando ativo */
+   #timeline-widget-customizada .timeline-item.active {
+    opacity: 1;
+    transform: translateY(0);
+   }
+   #timeline-widget-customizada .timeline-item.active::before {
+    background-color: #FFF;
+    border-color: #ffbc00;
+   }
+   #timeline-widget-customizada .timeline-item.active::after {
+    opacity: 1;
+    color: #fff;
+   }
+   #timeline-widget-customizada .timeline-item .timeline-side {
+    width: 50%;
+    box-sizing: border-box;
+   }
+   #timeline-widget-customizada .timeline-item .timeline-side:first-child {
+    padding-right: 30px;
+    text-align: right;
+   }
+   #timeline-widget-customizada .timeline-item .timeline-side:last-child {
+    padding-left: 30px;
+   }
+   #timeline-widget-customizada .timeline-step {
+    font-weight: bold;
+    color: #ffbc00;
+    font-size: 1.2em;
+   }
+   #timeline-widget-customizada .timeline-card {
+    padding: 0;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+   }
+   #timeline-widget-customizada .timeline-card-content {
+     padding: 1.5rem;
+   }
+   #timeline-widget-customizada .timeline-card-title {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #1c3959;
+    margin: 0 0 10px 0;
+    text-align: center;
+   }
+   #timeline-widget-customizada .timeline-card-desc {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #5a697d;
+    text-align: justify;
+   }
+  /* --- MOBILE --- */
+  @media (max-width: 768px) {
+    .timeline-step {
+      display: none;
+    }
+
+    #timeline-widget-customizada .timeline-step {
+      text-align: left;
+    }
+
+    #timeline-widget-customizada .timeline-item .timeline-side:last-child {
+      padding-left: 0;
+      width: 100%;
+    }
+
+    #timeline-widget-customizada .timeline-item .timeline-side:first-child {
+      padding-right: 0;
+    }
+
+    /* Move a linha da timeline para a esquerda (linha base + progress bar) */
+    #timeline-widget-customizada .timeline-wrapper::after,
+    #timeline-widget-customizada .timeline-progress {
+      left: 20px;
+      transform: none;
+    }
+
+    /* Empilha os itens */
+    #timeline-widget-customizada .timeline-item {
+      flex-direction: column;
+      align-items: flex-start;
+      padding-left: 60px; /* Espaço para linha e bolinha */
+    }
+
+    /* Bolinha e check */
+    #timeline-widget-customizada .timeline-item::before {
+      left: 20px;
+      top: 0;
+    }
+    #timeline-widget-customizada .timeline-item::after {
+      left: 20px;
+      top: -20px;
+      transform: translateX(-50%);
+    }
+
+    #timeline-widget-customizada .timeline-card {
+      padding: 1rem; /* Reduz o padding */
+    }
+
+    /* Sides ocupam 100% */
+    #timeline-widget-customizada .timeline-side {
+      width: 100%;
+      padding: 0;
+      text-align: left;
+    }
+
+    #timeline-widget-customizada .timeline-item .timeline-side {
+      padding-right: 0;
+      width: 100%;
+    }
+
+    /* Ordem correta */
+    #timeline-widget-customizada .timeline-step {
+      margin-bottom: 15px;
+    }
+
+    /* Itens pares: inverte a ordem */
+    #timeline-widget-customizada .timeline-item:nth-child(even) .timeline-side:first-child {
+      order: 2;
+    }
+    #timeline-widget-customizada .timeline-item:nth-child(even) .timeline-side:last-child {
+      order: 1;
+    }
+  }
+
+  </style>
+
+  <div class="container">
+     <h2 class="section-title">Simule seu Consórcio em <span class="highlight">6 Passos Simples</span></h2>
+     <p class="section-subtitle">É rápido, fácil e 100% online. Encontre o plano perfeito para você:</p>
+     <div class="timeline-wrapper">
+       <div class="timeline-progress"></div>
+
+       <!-- Passos originais -->
+       <div class="timeline-item">
+         <div class="timeline-side"><div class="timeline-step">Passo 1</div></div>
+         <div class="timeline-side">
+           <div class="timeline-card">
+             <img src="https://images.unsplash.com/photo-1554224155-1696413565d3?q=80&w=2070&auto=format&fit=crop" alt="Inicie a Simulação">
+             <div class="timeline-card-content">
+               <h5 class="timeline-card-title">Inicie a Simulação</h5>
+               <div class="timeline-card-desc">Clique em "Simular Agora" para dar o primeiro passo em direção à sua conquista.</div>
+             </div>
+           </div>
+         </div>
+       </div>
+
+       <div class="timeline-item">
+         <div class="timeline-side">
+           <div class="timeline-card">
+             <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=2070&auto=format&fit=crop" alt="Preencha seus Dados">
+             <div class="timeline-card-content">
+               <h5 class="timeline-card-title">Preencha seus Dados</h5>
+               <div class="timeline-card-desc">Precisamos de algumas informações básicas para encontrar e personalizar as melhores ofertas para você.</div>
+             </div>
+           </div>
+         </div>
+         <div class="timeline-side"><div class="timeline-step">Passo 2</div></div>
+       </div>
+
+       <div class="timeline-item">
+         <div class="timeline-side"><div class="timeline-step">Passo 3</div></div>
+         <div class="timeline-side">
+           <div class="timeline-card">
+             <img src="https://horizoncred.com/wp-content/uploads/2025/08/escolha_seu_sonho.png" alt="Escolha seu Sonho">
+             <div class="timeline-card-content">
+               <h5 class="timeline-card-title">Escolha seu Sonho</h5>
+               <div class="timeline-card-desc">Selecione o que você deseja conquistar: um imóvel, veículo, moto ou outro bem.</div>
+             </div>
+           </div>
+         </div>
+       </div>
+
+       <div class="timeline-item">
+         <div class="timeline-side">
+           <div class="timeline-card">
+             <img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?q=80&w=1926&auto=format&fit=crop" alt="Defina seu Plano">
+             <div class="timeline-card-content">
+               <h5 class="timeline-card-title">Defina seu Plano</h5>
+               <div class="timeline-card-desc">Informe o valor total da carta de crédito que você precisa ou o quanto pode pagar por mês.</div>
+             </div>
+           </div>
+         </div>
+         <div class="timeline-side"><div class="timeline-step">Passo 4</div></div>
+       </div>
+
+       <div class="timeline-item">
+         <div class="timeline-side"><div class="timeline-step">Passo 5</div></div>
+         <div class="timeline-side">
+           <div class="timeline-card">
+             <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop" alt="Compare as Opções">
+             <div class="timeline-card-content">
+               <h5 class="timeline-card-title">Compare as Melhores Opções</h5>
+               <div class="timeline-card-desc">Analise os planos que encontramos e escolha o que se encaixa perfeitamente no seu orçamento.</div>
+             </div>
+           </div>
+         </div>
+       </div>
+
+       <div class="timeline-item">
+         <div class="timeline-side">
+           <div class="timeline-card">
+             <img src="https://horizoncred.com/wp-content/uploads/2025/08/envie_sua_proposta.png" alt="Envie sua Proposta">
+             <div class="timeline-card-content">
+               <h5 class="timeline-card-title">Envie sua Proposta</h5>
+               <div class="timeline-card-desc">Pronto! Agora é só aguardar o contato de um de nossos especialistas para ajudar a concluir a contratação.</div>
+             </div>
+           </div>
+         </div>
+         <div class="timeline-side"><div class="timeline-step">Passo 6</div></div>
+       </div>
+     </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  const items = document.querySelectorAll("#timeline-widget-customizada .timeline-item");
+  const progressBar = document.querySelector("#timeline-widget-customizada .timeline-progress");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add("active");
+
+        // Atualiza a barra de progresso
+        const lastActive = [...items].indexOf(entry.target) + 1;
+        const percent = lastActive / items.length;
+        progressBar.style.height = (percent * 100) + "%";
+      }
+    });
+  }, { threshold: 0.4 });
+
+  items.forEach(item => observer.observe(item));
+});
+</script>

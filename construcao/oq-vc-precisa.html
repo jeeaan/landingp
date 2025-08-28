@@ -1,0 +1,199 @@
+<div id="horizon-servicos-widget">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+       
+        #horizon-servicos-widget {
+            font-family: 'Roboto', sans-serif;
+            box-sizing: border-box;
+            background-color: transparent;
+            padding: 20px 0;
+        }
+
+        #horizon-servicos-widget *,
+        #horizon-servicos-widget *::before,
+        #horizon-servicos-widget *::after {
+            margin: 0;
+            padding: 0;
+        }
+        
+       
+        #horizon-servicos-widget .main-content {
+            background-color: rgba(247, 247, 247, 0.75);
+            border-radius: 40px 40px 40px 40px;
+            width: 100%;
+            max-width: 1400px;
+            overflow: hidden;
+            padding: 5% 40px 8%;
+            margin: 0 auto;
+        }
+        
+       
+        #horizon-servicos-widget .main-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.2rem;
+            color: #1c3959;
+            font-weight: 700;
+            position: relative;
+            padding: 0 0 25px 0;
+        }
+        
+        #horizon-servicos-widget .main-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: #ffbc00;
+            border-radius: 3px;
+        }
+
+       
+        #horizon-servicos-widget .servicos-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            width: 100%;
+        }
+
+       
+        #horizon-servicos-widget .card {
+            position: relative;
+            color: white;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            aspect-ratio: 4 / 3;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.4s ease-in-out;
+            cursor: pointer;
+            flex: 0 1 320px;
+        }
+
+        #horizon-servicos-widget .card:hover {
+            transform: scale(1.05);
+        }
+
+        #horizon-servicos-widget .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            transition: background-color 0.4s ease-in-out;
+        }
+
+        #horizon-servicos-widget .card:hover::before {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        #horizon-servicos-widget .card-content {
+            position: relative;
+            z-index: 1;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        #horizon-servicos-widget .card-content h2 {
+            margin: 0;
+            padding: 0;
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        #horizon-servicos-widget .card-content p {
+            margin: 0;
+            padding: 0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        #horizon-servicos-widget .card-content a {
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            padding: 8px 0;
+            position: relative;
+            align-self: center;
+        }
+
+        #horizon-servicos-widget .card-content a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: white;
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform 0.4s ease-in-out;
+        }
+
+        #horizon-servicos-widget .card:hover .card-content a::after {
+            transform: scaleX(1);
+        }
+        
+        #horizon-servicos-widget .highlight {
+             color: #ffbc00 !important;
+             text-align: center;
+        }
+    </style>
+
+    <div class="main-content">
+        <h2 class="main-title">A <span class="highlight">Horizon</span> tem o que<br>você precisa!</h2>
+        <div class="servicos-container">
+            <div class="card" style="background-image: url('https://horizoncred.com/wp-content/uploads/2025/08/architect_blueprint.jpg');"><div class="card-content"><h2><span class="highlight">Projeto</span></h2><p>Desenvolvimento de projetos arquitetônicos, estruturais e complementares para a sua obra.</p><a>Saiba Mais</a></div></div>
+            <div class="card" style="background-image: url('https://horizoncred.com/wp-content/uploads/2025/08/permit_document.png');"><div class="card-content"><h2><span class="highlight">Alvará</span></h2><p>Assessoria completa para a emissão do Alvará de Construção junto à prefeitura da sua cidade.</p><a>Saiba Mais</a></div></div>
+            <div class="card" style="background-image: url('https://horizoncred.com/wp-content/uploads/2025/08/fire_safety_plan.jpg');"><div class="card-content"><h2><span class="highlight">PCI</span></h2><p>Plano de Construção Individual
+Documento que apresenta o planejamento da obra, com cronograma físico-financeiro e etapas detalhadas, elaborado e assinado pelo responsável técnico.</p><a>Saiba Mais</a></div></div>
+            <div class="card" style="background-image: url('https://horizoncred.com/wp-content/uploads/2025/08/government_building.png');"><div class="card-content"><h2><span class="highlight">CNO</span></h2><p>Inscrição e regularização da sua obra no Cadastro Nacional de Obras da Receita Federal.</p><a>Saiba Mais</a></div></div>
+            <div class="card" style="background-image: url('https://horizoncred.com/wp-content/uploads/2025/08/construction_site.jpg');"><div class="card-content"><h2><span class="highlight">Construção</span></h2><p>Execução e gerenciamento de todas as etapas construtivas, do alicerce ao acabamento.</p><a>Saiba Mais</a></div></div>
+            <div class="card" style="background-image: url('https://horizoncred.com/wp-content/uploads/2025/08/safety_at_work.jpg');"><div class="card-content"><h2><span class="highlight">PLS</span></h2><p>Planilha de Levantamento de Serviços
+Planilha técnica com a discriminação de todos os serviços, quantidades e custos previstos para a obra, validando a viabilidade do orçamento.</p><a>Saiba Mais</a></div></div>
+            <div class="card" style="background-image: url('https://horizoncred.com/wp-content/uploads/2025/08/digital_construction_inspection.jpg');"><div class="card-content"><h2><span class="highlight">Sero</span></h2><p>Regularização e aferição de obras através do Serviço Eletrônico para Aferição de Obras.</p><a>Saiba Mais</a></div></div>
+            <div class="card" style="background-image: url('https://horizoncred.com/wp-content/uploads/2025/08/certificate_approval.jpg');"><div class="card-content"><h2><span class="highlight">CND</span></h2><p>Obtenção da Certidão Negativa de Débitos (CND) para averbação e regularização do imóvel.</p><a>Saiba Mais</a></div></div>
+            <div class="card" style="background-image: url('https://horizoncred.com/wp-content/uploads/2025/08/registry_office.jpg');"><div class="card-content"><h2><span class="highlight">Averbação</span></h2><p>Realizamos todo o processo para averbar a construção na matrícula do seu imóvel.</p><a>Saiba Mais</a></div></div>
+            <div class="card" style="background-image: url('https://horizoncred.com/wp-content/uploads/2025/08/new_house_certificate.jpg');"><div class="card-content"><h2><span class="highlight">Habite-se</span></h2><p>Conquiste o auto de conclusão da obra (Habite-se) para regularizar e utilizar seu imóvel.</p><a>Saiba Mais</a></div></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Garante que o script só afete os cards dentro do nosso widget
+            const widget = document.getElementById('horizon-servicos-widget');
+            if (widget) {
+                const cards = widget.querySelectorAll('.card');
+                const whatsappNumber = '5561991116565';
+                cards.forEach(card => {
+                    card.addEventListener('click', function() {
+                        const cardTitleElement = card.querySelector('h2');
+                        if (cardTitleElement) {
+                            const card_clicado = cardTitleElement.textContent.trim();
+                            const message = `Olá, HorizonCred! 👋\n\nVi conteúdo no site de vocês sobre ${card_clicado}.\n\nGostaria de mais informações!`;
+                            const encodedMessage = encodeURIComponent(message);
+                            const url = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+                            window.open(url, '_blank');
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</div>

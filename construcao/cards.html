@@ -1,0 +1,224 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+    /* --- Estilos para a seção de Condições de Financiamento --- */
+    #financing-conditions-section {
+        font-family: 'Roboto', sans-serif;
+        background-color: rgba(247, 247, 247, 0.75);
+        border-radius: 310px 120px 160px 120px;
+        padding: 60px 40px;
+        box-sizing: border-box;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        overflow: hidden;
+    }
+
+    /* Título principal */
+    #financing-conditions-section .main-title {
+        text-align: center;
+        margin-bottom: 60px;
+        font-size: 2.2rem;
+        color: #1c3959;
+        font-weight: 700;
+        position: relative;
+        padding-bottom: 25px;
+    }
+   
+    #financing-conditions-section .main-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 5px;
+        background: #ffbc00;
+        border-radius: 3px;
+    }
+
+    /* Regras para as linhas de cards */
+    #financing-conditions-section .conditions-grid-diff,
+    #financing-conditions-section .conditions-grid-same {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        max-width: 1100px;
+        margin: 0 auto 25px auto;
+    }
+
+    /* Estilo geral de cada card */
+    #financing-conditions-section .condition-card {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        padding: 25px 30px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 25px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #financing-conditions-section .condition-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    }
+   
+    #financing-conditions-section .card-icon {
+        font-size: 2.5rem;
+        color: #ffbc00;
+        margin-bottom: 0;
+    }
+
+    #financing-conditions-section .card-text-content {
+        display: flex;
+        flex-direction: column;
+    }
+    #financing-conditions-section .card-title {
+        font-size: 1.5em;
+        font-weight: 700;
+        color: #1c3959;
+        margin: 0 0 10px 0;
+    }
+    #financing-conditions-section .card-description {
+        font-size: 1.1em;
+        color: #5a697d;
+        line-height: 1.6;
+        margin: 0;
+    }
+    #financing-conditions-section .card-description ul {
+        list-style: none;
+        padding-left: 0;
+        margin-top: 10px;
+    }
+    #financing-conditions-section .card-description li {
+        margin-bottom: 8px;
+    }
+
+    /* Regras para telas grandes (Desktop) */
+    @media (min-width: 769px) {
+        #financing-conditions-section .conditions-grid-diff .condition-card {
+            flex: 1 1 45%;
+            max-width: 480px;
+        }
+       
+        #financing-conditions-section .conditions-grid-same .condition-card {
+            flex-basis: 100%;
+            max-width: 1000px;
+        }
+    }
+   
+    /* Regras para telas pequenas (Mobile) */
+    @media (max-width: 768px) {
+        #financing-conditions-section {
+            border-radius: 30px 3px 30px 3px;
+            padding: 40px 20px;
+        }
+        #financing-conditions-section .main-title {
+            font-size: 1.8rem;
+        }
+
+        /* --- AJUSTE DE RESPONSIVIDADE AQUI --- */
+        #financing-conditions-section .conditions-grid-diff,
+        #financing-conditions-section .conditions-grid-same {
+            flex-direction: column; /* Empilha os cards verticalmente */
+        }
+    }
+
+    /* Prepara o card para receber o fundo */
+    #financing-conditions-section .card-com-fundo-suave {
+       position: relative;
+       z-index: 1;
+    }
+
+    /* Cria o elemento de fundo que vai ler a imagem do HTML */
+    #financing-conditions-section .card-com-fundo-suave::before {
+       content: '';
+       position: absolute;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       background-image: var(--bg-image);         background-repeat: no-repeat;
+       background-position: center;
+       background-size: contain;
+       filter: grayscale(100%) opacity(0.08);
+       border-radius: 10px;
+       z-index: -1;
+    }
+</style>
+
+<div id="financing-conditions-section">
+    <h2 class="main-title">Condições do Financiamento</h2>
+
+    <div class="conditions-grid-diff">
+        <div class="condition-card card-com-fundo-suave" style="--bg-image: url('https://horizoncred.com/wp-content/uploads/2025/08/brb2-scaled.png');">
+            <div class="card-icon"><i class="fa-solid fa-building-columns"></i></div>
+            <div class="card-text-content">
+                <h3 class="card-title">BRB</h3>
+                <p class="card-description">Financia até 80% do valor do terreno e 80% da obra.</p>
+            </div>
+        </div>
+
+        <div class="condition-card card-com-fundo-suave" style="--bg-image: url('https://horizoncred.com/wp-content/uploads/2025/08/caixa2-scaled.png');">
+            <div class="card-icon"><i class="fa-solid fa-building-columns"></i></div>
+            <div class="card-text-content">
+                <h3 class="card-title">CAIXA</h3>
+                <p class="card-description">Até 80% do imóvel pronto (considerando o valor de mercado).</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="conditions-grid-same">
+        <div class="condition-card">
+            <div class="card-icon"><i class="fa-solid fa-calendar-days"></i></div>
+            <div class="card-text-content">
+                <h3 class="card-title">Prazo</h3>
+                <p class="card-description">Até 24 meses para a obra e até 420 meses para pagamento/amortização.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="conditions-grid-same">
+        <div class="condition-card card-com-fundo-duplo" style="--bg-image1: url('https://horizoncred.com/wp-content/uploads/2025/08/brb2-scaled.png'); --bg-image2: url('https://horizoncred.com/wp-content/uploads/2025/08/caixa2-scaled.png');">
+            <div class="card-icon"><i class="fa-solid fa-percent"></i></div>
+            <div class="card-text-content">
+                <h3 class="card-title">Juros</h3>
+                <p class="card-description">As taxas variam conforme o perfil de crédito e o relacionamento com o banco.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="conditions-grid-diff">
+
+        <div class="condition-card card-com-fundo-suave" style="--bg-image: url('https://horizoncred.com/wp-content/uploads/2025/08/brb2-scaled.png');">
+            <div class="card-icon"><i class="fa-solid fa-dollar-sign"></i></div>
+            <div class="card-text-content">
+                <h3 class="card-title">BRB</h3>
+                <div class="card-description">
+                    (Forma de pagamento das prestações):
+                    <ul>
+                        <li><strong>SAC:</strong> Parcelas decrescentes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="condition-card card-com-fundo-suave" style="--bg-image: url('https://horizoncred.com/wp-content/uploads/2025/08/caixa2-scaled.png');">
+            <div class="card-icon"><i class="fa-solid fa-dollar-sign"></i></div>
+            <div class="card-text-content">
+                <h3 class="card-title">CAIXA</h3>
+                <div class="card-description">
+                    (Forma de pagamento das prestações):
+                    <ul>
+                        <li><strong>SAC ou Price:</strong> Parcelas decrescentes ou constantes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

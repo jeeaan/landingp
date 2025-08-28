@@ -58,9 +58,9 @@
             <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
 
             <label for="cidade">Cidade</label>
-            <input type="text" id="cidade" name="cidade" placeholder="Digite a cidade do imóvel">
+            <input type="text" id="cidade" name="cidade" placeholder="Digite a cidade do Imóvel de Garantia">
 
-            <label for="valor_imovel">Valor do Imóvel que Servirá de Garantia(estimado)</label>
+            <label for="valor_imovel">Valor do Imóvel (estimado)</label>
             <input type="text" id="valor_imovel" name="valor_imovel" placeholder="R$ 300.000">
 
             <a href="#whatsapp" id="whatsapp-button" class="elementor-button">
@@ -74,10 +74,13 @@
           <p class="bank-logos-title">Bancos conveniados:</p>
           <div class="bank-logos-container">
               <img src="https://horizoncred.com/wp-content/uploads/2025/08/caixa2-scaled.png" alt="Caixa Econômica Federal">
-              <img src="https://horizoncred.com/wp-content/uploads/2025/08/brb2-scaled.png" alt="BRB Banco de Brasília">
               <img src="https://horizoncred.com/wp-content/uploads/2025/08/santander2.png" alt="Banco Santander">
               <img src="https://horizoncred.com/wp-content/uploads/2025/08/bradesco2.png" alt="Banco Bradesco">
               <img src="https://horizoncred.com/wp-content/uploads/2025/08/itau2.png" alt="Banco Itaú">
+              <img src="https://horizoncred.com/wp-content/uploads/2025/08/banco-do-brasil-logo.jpg" alt="Banco do Brasil">
+              <img src="https://horizoncred.com/wp-content/uploads/2025/08/banco-inter.webp" alt="Banco Inter">
+              <img src="https://horizoncred.com/wp-content/uploads/2025/08/banco-c6.jpg" alt="Banco C6">
+              <img src="https://horizoncred.com/wp-content/uploads/2025/08/banco-daycoval.png" alt="Banco Daycoval">
             </div>
           </div>
         </section>
@@ -96,7 +99,7 @@
             }
 
             const whatsappNumber = '5561991116565';
-            const message = `Olá, HorizonCred! 👋\n\nDesejo uma simulação de Crédito com Garantia de Imóvel.\n\n*Nome:* ${nome}\n*Valor do Imóvel de Garantia:* ${valorImovel}\n*Localização:* ${cidade}\n\nAguardo retorno. Obrigado!`;
+            const message = `Olá, HorizonCred! 👋\n\nDesejo uma simulação de Crédito com Garantia de Imóvel.\n\n*Nome:* ${nome}\n*Valor do Imóvel:* ${valorImovel}\n*Localização:* ${cidade}\n\nAguardo retorno. Obrigado!`;
             const encodedMessage = encodeURIComponent(message);
             const url = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
             window.open(url, '_blank');
@@ -131,13 +134,13 @@ body, html {
 body {
     background-image: 
         linear-gradient(to bottom, rgba(20, 20, 20, 0.7), rgba(0, 0, 0, 0.9)),
-        url('https://www.mouraleite.com.br/uploads/images/2022/12/financiamento-imobiliario-saiba-como-e-calculado-o-reajuste-das-parcelas-1670436491.jpeg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
-    overflow-x: hidden;
-    position: relative;
+        url('https://horizoncred.com/wp-content/uploads/2025/08/image2-4.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed;
+        overflow-x: hidden;
+        position: relative;
 }
 
 
@@ -145,9 +148,15 @@ body {
 /* Tablet (768px ou menos) */
 @media (max-width: 768px) {
     body {
-        background-attachment: scroll; /* Melhora performance */
-        background-size: cover;
-        background-position: top center; /* Evita espaços vazios */
+      background-image: 
+          linear-gradient(to bottom, rgba(20, 20, 20, 0.7), rgba(0, 0, 0, 0.9)),
+          url('https://horizoncred.com/wp-content/uploads/2025/08/image-5-z.png');
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center center;
+          background-attachment: fixed;
+          overflow-x: hidden;
+          position: relative;
     }
 }
 
@@ -163,8 +172,15 @@ body {
         min-height: 100vh;
         
         /* Otimização extra para dispositivos altos: */
-        background-image: 
-            url('https://horizoncred.com/wp-content/uploads/2025/08/gray-gradient-background.jpg');
+      background-image: 
+          linear-gradient(to bottom, rgba(20, 20, 20, 0.7), rgba(0, 0, 0, 0.9)),
+          url('https://horizoncred.com/wp-content/uploads/2025/08/image-5-z.png');
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center center;
+          background-attachment: fixed;
+          overflow-x: hidden;
+          position: relative;
     }
 
 
@@ -293,8 +309,8 @@ body {
       flex-wrap:wrap;
     }
     .bank-logos img {
-        height: 70px;
-        width: 70px; /* Corrigido o typo (de "witdh" para "width") */
+        height: 100px;
+        width: 100px;
         object-fit: cover; 
         border-radius: 8px;
         background-color: white;
@@ -361,6 +377,11 @@ body {
     transform: rotate(-45deg) translateY(-25%) scale(0.8);
     top: 165px;
   }
+    .bank-logos img {
+        height: 70px;
+        width: 70px;
+    }
+
 }
 
         </style>

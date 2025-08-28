@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Financiamento</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- ESTILOS GERAIS E DE CORPO --- */
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            background-color: #333;
+        }
+
+        /* Fundo da seção principal com imagem */
+        body {
+            background-image:
+              linear-gradient(to bottom, rgba(20, 20, 20, 0.7), rgba(0, 0, 0, 0.9)),
+              url('https://horizoncred.com/wp-content/uploads/2025/08/fundo_casa.jpeg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* --- SEÇÃO DO FORMULÁRIO E REQUISITOS --- */
+        .highlight {
+            color: #ffbc00 !important;
+            text-align: center;
+        }
+
+        .form-section {
+            padding: 100px 5%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        .left-content,
+        .form-container {
+            position: relative;
+            z-index: 2;
+            flex: 1;
+            min-width: 300px;
+            max-width: 600px;
+        }
+
+        .left-content h2 {
+            font-size: 2.5em;
+        }
+
+        /* --- CONTAINER DO FORMULÁRIO --- */
+        .form-container {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 40px 50px;
+            border-radius: 20px;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            font-size: 2em;
+            color: #ffbc00;
+        }
+
+        .form-container p {
+            font-size: 1.1em;
+            color: white !important;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .form-container label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: white;
+        }
+
+        .form-container input {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            box-sizing: border-box;
+        }
+
+        .form-container a.elementor-button {
+            width: 100%;
+            padding: 15px;
+            background-color: #ffbc00;
+            color: #000;
+            border-radius: 5px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            display: inline-block;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+
+        .form-container small {
+            font-size: 0.9em;
+            color: #ccc;
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        /* --- LOGOS DOS BANCOS --- */
+        .bank-logos {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .bank-logos .bank-logos-title { /* Tornando o seletor mais específico */
+            margin: 0 0 10px;
+            font: 600 18px/1.2 'Roboto', Arial, sans-serif;
+            color: #cfcfcf !important;
+            letter-spacing: .3px;
+        }
+
+        .bank-logos .bank-logos-container { /* Tornando o seletor mais específico */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+
+        .bank-logos img {
+            height: 150px;
+            width: 150px;
+            object-fit: contain;
+            border-radius: 8px;
+            background-color: white;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        /* --- CARDS DE REQUISITOS (BENEFITS) --- */
+        .benefits {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .benefits li {
+            background-color: rgba(198, 198, 198, 0.5);
+            border-radius: 8px;
+            box-shadow: 0px 40px 120px -40px rgba(0, 0, 0, 0.24);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 15px;
+            text-align: center;
+            flex-basis: 220px;
+            flex-grow: 1;
+            min-width: 150px;
+            max-width: 250px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: #fff;
+        }
+
+        .benefits li:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefits i {
+            font-size: 1.8rem;
+            color: #ffbc00;
+            margin-bottom: 10px;
+        }
+
+        .benefits span {
+            font-size: 1.1rem;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+        @media (max-width: 768px) {
+          body {
+            background-image:
+             linear-gradient(to bottom, rgba(20, 20, 20, 0.7), rgba(0, 0, 0, 0.9)),
+             url('https://horizoncred.com/wp-content/uploads/2025/08/fundo_casa.jpeg');
+
+                    /* Mantém o deslocamento que você já tinha definido */
+            background-position: 43.5% center;
+          }
+        }
+
+    </style>
+    </head>
+<body>
+
+    <main>
+        <section id="simulacao" class="form-section">
+
+            <div class="left-content">
+                <h2 class="highlight">Requisitos para financiar</h2>
+                <div class="benefits-container">
+                    <ul class="benefits">
+                        <li>
+                            <i class="fa-solid fa-user-check"></i>
+                            <span>Ter mais de 18 anos ou ser emancipado</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-percent"></i>
+                            <span>Ter renda compatível (parcela ≤ 30% da renda familiar)</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-id-card"></i>
+                            <span>Estar com o CPF sem restrições (nome limpo)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="form-container">
+                <h2>Simular o Financimento da Minha Construção</h2>
+                <p>Preencha os dados abaixo e entraremos em contato rapidamente.</p>
+
+                <label for="nome">Nome Completo</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
+
+                <label for="cidade">Cidade</label>
+                <input type="text" id="cidade" name="cidade" placeholder="Digite a cidade do imóvel">
+
+                <label for="valor_imovel">Valor do Imóvel (estimado)</label>
+                <input type="text" id="valor_imovel" name="valor_imovel" placeholder="R$ 300.000">
+
+                <a href="#whatsapp" id="whatsapp-button" class="elementor-button">
+                    Simular Agora!
+                </a>
+                <small>🔒 Seus dados estão protegidos — atendimento sem compromisso</small>
+            </div>
+        </section>
+
+        <section class="bank-logos" aria-label="Bancos conveniados">
+            <p class="bank-logos-title">Bancos conveniados:</p>
+            <div class="bank-logos-container">
+                <img src="https://horizoncred.com/wp-content/uploads/2025/08/caixa2-scaled.png" alt="Caixa Econômica Federal">
+                <img src="https://horizoncred.com/wp-content/uploads/2025/08/brb2-scaled.png" alt="BRB Banco de Brasília">
+            </div>
+        </section>
+    </main>
+    <script>
+        // Função para o botão do WhatsApp
+        document.getElementById('whatsapp-button').addEventListener('click', function(event) {
+            event.preventDefault();
+
+            const nome = document.getElementById('nome').value;
+            const valorImovel = document.getElementById('valor_imovel').value;
+            const cidade = document.getElementById('cidade').value;
+
+            if (!nome || !valorImovel || valorImovel === 'R$ 0,00' || !cidade) {
+                alert('Por favor, preencha os campos obrigatórios para continuar.');
+                return;
+            }
+
+            const whatsappNumber = '5561991116565';
+            const message = `Olá, HorizonCred! 👋\n\nDesejo uma simulação de Financiamento de Construção.\n\n*Nome:* ${nome}\n*Valor do Imóvel:* ${valorImovel}\n*Localização:* ${cidade}\n\nAguardo retorno. Obrigado!`;
+            const encodedMessage = encodeURIComponent(message);
+            const url = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+            window.open(url, '_blank');
+        });
+
+        // Função para formatar o campo de valor como moeda (R$)
+        const currencyInput = document.getElementById('valor_imovel');
+        currencyInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (!value) {
+                e.target.value = '';
+                return;
+            }
+            const numberValue = parseFloat(value) / 100;
+            const formattedValue = new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL',
+                minimumFractionDigits: 2
+            }).format(numberValue);
+
+            e.target.value = formattedValue;
+        });
+    </script>
+    </body>
+</html>
