@@ -1,0 +1,134 @@
+/* Força o transformamos sonhos ... em ocupar 100% da largura*/
+.elementor-element.elementor-element-a86f9cd {
+  width: 100vw;
+  max-width: 100vw; 
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -22px !important;
+}
+
+.elementor-2932 .elementor-element.elementor-element-a86f9cd.e-con {
+    top: -250px;
+}
+
+.ast-primary-header-bar {
+  background-color: transparent;
+}
+
+.ast-header-break-point .main-navigation .stack-on-mobile li {
+  width: 100%;
+  background: linear-gradient(135deg, #808080 0%, #a0a0a0 50%, #808080 100%);
+  /* Adicione estes extras para melhorar a aparência */
+  border-bottom: 1px solid #707070;
+  transition: all 0.3s ease;
+}
+
+.elementor-element-16653bc5 {
+  display: none;
+}
+
+/* Media Query para aplicar estilos apenas em telas de até 767px (celulares e tablets em modo retrato) */
+@media (max-width: 767px) {
+
+    /* --- 1. EMPILHAMENTO DAS COLUNAS PRINCIPAIS --- */
+    /* Assumindo que os containers .e-child estão dentro de um container pai com flex-direction: row,
+       vamos forçar cada coluna a ter 100% de largura para que se empilhem. */
+    .elementor-element-23696e8, /* Coluna da esquerda (texto) */
+    .elementor-element-57e443e { /* Coluna da direita (imagem) */
+        width: 100% !important;
+    }
+
+    /* Adiciona um espaço entre a coluna de texto e a de imagem quando empilhadas */
+    .elementor-element-23696e8 {
+        margin-bottom: 40px;
+    }
+
+    /* --- 2. AJUSTES NA COLUNA DA ESQUERDA (TEXTO) --- */
+
+    /* Centraliza o título principal */
+    .elementor-element-b62a4de .elementor-heading-title {
+        text-align: center;
+    }
+    
+    /* Centraliza o parágrafo de texto */
+    .elementor-element-0b85df3 {
+        text-align: center;
+    }
+
+    /* Empilha as duas caixas de ícone (Atendimento Gratuito e Simulação) */
+    .elementor-element-b7b93c0 {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Garante que as caixas de ícone tenham largura total e espaçamento */
+    .elementor-element-fccd028,
+    .elementor-element-2c198d6 {
+        width: 100%;
+        max-width: 350px;
+        margin-bottom: 20px;
+    }
+
+    /* Centraliza o botão "Simule sem compromisso" */
+    .elementor-element-0d050fd .elementor-button-wrapper {
+        text-align: center;
+    }
+
+    /* --- 3. AJUSTES NA COLUNA DA DIREITA (IMAGEM) --- */
+
+    /* PONTO-CHAVE: Remove o posicionamento absoluto da caixa de ícone sobre a imagem */
+    .elementor-element-79c6fde {
+        position: static !important;
+        width: 100%;
+        margin-top: 20px;
+        transform: none !important;
+    }
+    
+    /* Centraliza o conteúdo da caixa de ícone que estava sobre a imagem */
+    .elementor-element-79c6fde .elementor-icon-box-wrapper {
+        text-align: center;
+    }
+
+    /*Foto meninas*/
+    .elementor-element-4306f83,
+	.page-id-2932 .elementor-element-4306f83 {
+	    display: none !important;
+	}
+
+	/*Foto homem pensando*/
+	.elementor-element-df0b0e4, 
+	.page-id-2932 .elementor-element-df0b0e4 {
+	    display: none !important;
+	}
+
+	.elementor-widget-container {
+		position: static !important;
+        margin-top: 20px !important;  
+	}
+
+
+	/*Por que fazer um consorcio*/
+	.elementor-element-c6a75cc,
+	.elementor-2932 .elementor-element.elementor-element-c6a75cc {
+        position: static !important;
+        margin-top: 320px !important;
+    }
+
+    .elementor-element-57e443e {
+	    padding-bottom: 0px !important;
+	}
+
+	.elementor-element-92819d9 {
+        padding-bottom: 0px !important;
+    }
+
+    .ast-mobile-header-wrap .ast-button-wrap .menu-toggle.main-header-menu-toggle {
+    	background-color: transparent !important;
+    }
+
+    .elementor-element-4333f3a > div:nth-child(1) {
+        padding-top: 0px !important;
+    }
+
+}
