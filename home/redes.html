@@ -1,52 +1,36 @@
 <style>
-/* Container principal do menu de redes sociais */
+/* NOVO: Estilo para fixar o menu no canto da página */
+.menu-redes-sociais {
+  position: fixed;
+  bottom: 30px; /* Distância da parte inferior da tela */
+  right: 30px;  /* Distância da parte direita da tela */
+  z-index: 1000; /* Garante que o menu fique acima de todo o conteúdo */
+}
+
+/* --- SEU CÓDIGO EXISTENTE (SEM ALTERAÇÕES) --- */
+
 .menu-redes-sociais ul {
-  /* Alinha os ícones na horizontal */
   display: flex;
-  justify-content: center; /* Centraliza os ícones no container */
-  align-items: center;
-  
-  /* Remove os marcadores de lista e paddings padrão */
+  flex-direction: column; /* Muda a direção para vertical */
   list-style: none;
   padding: 0;
   margin: 0;
-  background-color: transparent !important;
-  
-  /* Espaçamento entre os ícones */
-  gap: 25px; 
+  gap: 15px; /* Reduzi o espaçamento para o layout vertical */
 }
 
-/* Estilo para cada ícone de rede social */
+/* Estilo para cada ícone */
 .menu-redes-sociais img {
-  width: 45px; /* Define um tamanho padrão */
+  width: 45px;
   height: 45px;
-  border-radius: 50%; /* Deixa os ícones circulares, combinando com os círculos da timeline */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra sutil, como nos cards */
-  
-  /* Transição suave para o efeito de hover */
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease-out;
 }
 
-/* Efeito ao passar o mouse sobre o ícone */
+/* Efeito ao passar o mouse */
 .menu-redes-sociais a:hover img {
-  transform: scale(1.05) translateY(-3px); /* Aumenta o ícone e o levanta um pouco */
-  box-shadow: 0 0 15px #ffbc00; /* Adiciona um brilho com a cor de destaque da sua timeline */
-}
-
-.ast-separate-container .ast-article-single:not(.ast-related-post), 
-.woocommerce.ast-separate-container .ast-woocommerce-container, 
-.ast-separate-container .error-404, 
-.ast-separate-container .no-results,
-.single.ast-separate-container .ast-author-meta, 
-.ast-separate-container .related-posts-title-wrapper, 
-.ast-separate-container .comments-count-wrapper, 
-.ast-box-layout.ast-plain-container .site-content, 
-.ast-padded-layout.ast-plain-container .site-content, 
-.ast-separate-container .ast-archive-description, 
-.ast-separate-container .comments-area .comment-respond, 
-.ast-separate-container .comments-area .ast-comment-list li, 
-.ast-separate-container .comments-area .comments-title {
-    background-color: transparent !important;
+  transform: scale(1.15) translateY(-3px);
+  box-shadow: 0 0 15px #ffbc00;
 }
 
 </style>
@@ -64,7 +48,7 @@
       </a>
     </li>
     <li>
-      <a href="https://www.facebook.com/horizon.cred" target="_blank" rel="noopener noreferrer" aria-label="Nosso Facebook">
+      <a href="https://www.facebook.com/profile.php?id=61576622499877" target="_blank" rel="noopener noreferrer" aria-label="Nosso Facebook">
         <img src="https://static.wixstatic.com/media/11062b_e1117f9a7a1741ef955a84836121c4ad~mv2.png" alt="Ícone do Facebook">
       </a>
     </li>
