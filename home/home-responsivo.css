@@ -132,3 +132,24 @@
     }
 
 }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    .elementor-element-79c6fde {
+        position: static !important;
+        width: 100%;
+        margin-top: -550px;
+        padding-bottom: 260px;
+    }
+
+    .elementor-element-c489602 {
+        position: static !important;
+        margin-top: -450px;
+        padding-bottom: 230px;
+    }
+
+    .ast-mobile-header-wrap .ast-button-wrap .menu-toggle.main-header-menu-toggle {
+    	background-color: transparent !important;
+    }
+
+}
