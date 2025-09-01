@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria de Imagens</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Reem+Kufi&display=swap");
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            letter-spacing: 0.2px;
+            width: 100vw;
+            position: relative;
+            scroll-behavior: smooth;
+            background-image: url('https://horizoncred.com/wp-content/uploads/2025/08/svg.png');
+        }
+
+        :root {
+            --col-1: #c8ddef;
+            --col-2: #ff3729fc;
+            --bg-1: white;
+        }
+  
+        section {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 2em;
+        }
+
+        .gallery {
+            width: 100%;
+            box-sizing: border-box;
+            background-color: transparent;
+        }
+
+        /* --- NOVOS ESTILOS PARA TÍTULO E PARÁGRAFO --- */
+        .gallery .elementor-heading-title {
+            text-align: center;
+            font-size: 2.8rem;
+            color: black;
+            margin-bottom: 1rem;
+        }
+        
+        .gallery .elementor-widget-container p {
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: black;
+            max-width: 800px; /* Melhora a legibilidade em telas grandes */
+            margin: 0 auto 40px auto; /* Centraliza o parágrafo e adiciona espaço abaixo */
+        }
+        /* --- FIM DOS NOVOS ESTILOS --- */
+
+        .gallery .row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .gallery .row .col {
+            max-width: 16.66%;
+            box-sizing: border-box;
+        }
+
+        .gallery .row .col .fluid-container {
+            width: 99.9999%;
+            float: left;
+            box-sizing: border-box;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin: 15px 0;
+            user-select: none;
+            transition: all 0.2s ease;
+            display: block;
+        }
+
+        @media screen and (max-width: 1200px) {
+            .gallery .row .col {
+                max-width: 25%;
+            }
+        }
+
+        @media screen and (max-width: 767px) {
+            .gallery .row .col {
+                max-width: 33.33%;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .gallery .row .col {
+                max-width: 50%;
+            }
+        }
+
+        .gallery .row .col .fluid-container .item {
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: zoom-in;
+            opacity: 0;
+            transition: all 0.4s ease-in-out;
+            overflow: hidden;
+        }
+
+        .gallery .row .col .fluid-container.inScreen .item {
+            opacity: 1;
+        }
+
+        .gallery .row .col .fluid-container .item .img {
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+            width: 225px;
+            height: 225px;
+            margin: 0 auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .gallery .row .col .fluid-container .item .img img {
+            border-radius: 16px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .gallery .row .col .fluid-container .item .img:hover img {
+            transform: scale(1.2);
+        }
+
+        .gallery .row .col .fluid-container .item .img:hover:before {
+            opacity: 1;
+        }
+
+        .gallery .row .col .fluid-container .item .info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.2em;
+            box-sizing: border-box;
+            transform: scale(0.9);
+            opacity: 0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .gallery .row .col .fluid-container .item:hover .info {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .gallery .row .col .fluid-container .item .info .title {
+            flex: 1;
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+        .overlayed {
+            overflow: hidden !important;
+        }
+
+        .overlay {
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            height: 100%;
+            width: 100%;
+            z-index: 999;
+            background-color: rgba(38, 38, 38, 0.544);
+            display: none;
+        }
+
+        .overlayed .overlay {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .overlay .viewer {
+            box-sizing: border-box;
+            user-select: none;
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            flex-direction: column;
+            padding: 60px;
+            position: relative;
+        }
+
+        .overlay .viewer div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .overlay .viewer div:first-child {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .overlay .viewer img {
+            max-height: 80vh;
+            max-width: 80vw;
+            border-radius: 8px;
+        }
+
+        .alt {
+            flex: 1;
+            color: white;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .close-gallery {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            height: 48px;
+            width: 48px;
+            background-color: #5a697d;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .close-gallery .close-icon {
+            font-size: 24px;
+            color: #fff;
+            line-height: 1;
+            font-weight: bold;
+        }
+
+        .close-gallery:hover {
+            background-color: #ffbc00;
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .close-gallery:hover .close-icon {
+            color: #fff;
+        }
+
+        .gallery::before {
+            content: '';
+            position: absolute;
+            bottom: 95px; /* CORREÇÃO: Adicionado 'px' para a unidade de medida */
+            left: 0;
+            width: 100%;
+            height: 150px;
+            
+            /* A linha visível é criada por esta borda, não pelo fundo */
+            border-bottom: 8px solid #FD9800;
+            
+            border-bottom-left-radius: 0% 100%;
+            border-bottom-right-radius: 50% 100%;
+            
+            transform: translateY(50%);
+            
+            box-shadow: 0 5px 0px rgba(0, 0, 0, 0.2)
+            
+            /* Z-index precisa estar abaixo do conteúdo da galeria, mas acima do fundo da galeria */
+            /* Se a galeria tiver z-index 0, este pode ser 1 e o conteúdo 2. Vou ajustar para um valor seguro. */
+            z-index: 0; 
+            
+            pointer-events: none;
+        }
+
+        /* Garante que o conteúdo da galeria (as fotos) fique por cima da linha */
+        .gallery .row {
+            position: relative;
+            z-index: 1;
+        }        
+    </style>
+</head>
+<body>
+
+    <section class="gallery">
+        
+        <h3 class="elementor-heading-title elementor-size-default">Conheça nosso escritório</h3>
+        <div class="elementor-widget-container">
+            <p>Nosso espaço foi planejado para oferecer conforto, modernidade e um atendimento diferenciado. Aqui, cada detalhe foi pensado para que você se sinta à vontade enquanto cuidamos do seu financiamento habitacional com total segurança e transparência.</p>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="fluid-container">
+                    <div class="item">
+                        <div class="img">
+                            <img src="https://horizoncred.com/wp-content/uploads/2025/08/escritorio1.jpeg">
+                        </div>
+                        <div class="info"><span class="title">Escritório - 1</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="fluid-container">
+                    <div class="item">
+                        <div class="img">
+                            <img src="https://horizoncred.com/wp-content/uploads/2025/08/escritorio2.jpeg">
+                        </div>
+                        <div class="info"><span class="title">Escritório - 2</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="fluid-container">
+                    <div class="item">
+                        <div class="img">
+                            <img src="https://horizoncred.com/wp-content/uploads/2025/08/escritorio3.jpeg">
+                        </div>
+                        <div class="info"><span class="title">Escritório - 3</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="fluid-container">
+                    <div class="item">
+                        <div class="img">
+                            <img src="https://horizoncred.com/wp-content/uploads/2025/08/escritorio4.jpeg">
+                        </div>
+                        <div class="info"><span class="title">Escritório - 4</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="fluid-container">
+                    <div class="item">
+                        <div class="img">
+                            <img src="https://horizoncred.com/wp-content/uploads/2025/08/escritorio6.jpeg">
+                        </div>
+                        <div class="info"><span class="title">Escritório - 6</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="fluid-container">
+                    <div class="item">
+                        <div class="img">
+                            <img src="https://horizoncred.com/wp-content/uploads/2025/08/escritorio7.jpeg">
+                        </div>
+                        <div class="info"><span class="title">Escritório - 7</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="overlay">
+        <div class="viewer">
+            <div>
+                <div class="alt">this image is ... </div>
+                <div class="close-gallery" role="button" aria-label="Fechar Galeria">
+                    <span class="close-icon">&#x2715;</span>
+                </div>
+            </div>
+            <div><img src=""></div>
+        </div>
+    </div>
+
+<script>
+    const body = document.querySelector("body");
+    const items = document.querySelectorAll(".item");
+    const overlay = document.querySelector(".overlay");
+    const viewerImg = document.querySelector(".viewer img");
+    const viewerAlt = document.querySelector(".viewer .alt");
+    const closeButton = document.querySelector(".viewer .close-gallery");
+
+    function closeGallery() {
+        body.classList.remove("overlayed");
+    }
+
+    function openGallery(item) {
+        const content = item.querySelector(".img img");
+        viewerImg.setAttribute("src", content.getAttribute("src"));
+        viewerAlt.innerHTML = item.querySelector(".title").innerHTML;
+        body.classList.add("overlayed");
+    }
+
+    items.forEach((item) => {
+        item.onclick = () => openGallery(item);
+    });
+
+    closeButton.onclick = closeGallery;
+
+    overlay.addEventListener('click', (event) => {
+        if (event.target === overlay) {
+            closeGallery();
+        }
+    });
+
+    window.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            closeGallery();
+        }
+    });
+
+    ["load", "scroll"].forEach((eventName) => {
+        window.addEventListener(eventName, (event) => {
+            document.querySelectorAll(".fluid-container").forEach((item) => {
+                if (isScrolledIntoView(item)) {
+                    item.classList.add("inScreen");
+                } else {
+                    item.classList.remove("inScreen");
+                }
+            });
+        });
+    });
+
+    function isScrolledIntoView(el) {
+        let rect = el.getBoundingClientRect();
+        let elemTop = rect.top;
+        let elemBottom = rect.bottom;
+        let isVisible = elemTop >= -300 && elemBottom <= screen.height + 300;
+        return isVisible;
+    }
+</script>
+</body>
+</html>

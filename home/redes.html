@@ -1,0 +1,56 @@
+<style>
+/* NOVO: Estilo para fixar o menu no canto da página */
+.menu-redes-sociais {
+  position: fixed;
+  bottom: 30px; /* Distância da parte inferior da tela */
+  right: 30px;  /* Distância da parte direita da tela */
+  z-index: 1000; /* Garante que o menu fique acima de todo o conteúdo */
+}
+
+/* --- SEU CÓDIGO EXISTENTE (SEM ALTERAÇÕES) --- */
+
+.menu-redes-sociais ul {
+  display: flex;
+  flex-direction: column; /* Muda a direção para vertical */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 15px; /* Reduzi o espaçamento para o layout vertical */
+}
+
+/* Estilo para cada ícone */
+.menu-redes-sociais img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease-out;
+}
+
+/* Efeito ao passar o mouse */
+.menu-redes-sociais a:hover img {
+  transform: scale(1.15) translateY(-3px);
+  box-shadow: 0 0 15px #ffbc00;
+}
+
+</style>
+
+<nav class="menu-redes-sociais" aria-label="Redes sociais">
+  <ul>
+    <li>
+      <a href="https://wa.me/5561991116565?text=Oi,%20estou%20entrando%20em%20contato%20a%20partir%20do%20portal%20horizoncred.com!" target="_blank" rel="noopener noreferrer" aria-label="Nosso Whatsapp">
+        <img src="https://static.wixstatic.com/media/11062b_708ed96dfeaf4cdb82d8a2299d7625dc~mv2.png" alt="Ícone do Whatsapp">
+      </a>
+    </li>
+    <li>
+      <a href="https://www.instagram.com/horizon.cred/" target="_blank" rel="noopener noreferrer" aria-label="Nosso Instagram">
+        <img src="https://static.wixstatic.com/media/11062b_94a6580a67244d17a4dc923b54b99fb4~mv2.png" alt="Ícone do Instagram">
+      </a>
+    </li>
+    <li>
+      <a href="https://www.facebook.com/profile.php?id=61576622499877" target="_blank" rel="noopener noreferrer" aria-label="Nosso Facebook">
+        <img src="https://static.wixstatic.com/media/11062b_e1117f9a7a1741ef955a84836121c4ad~mv2.png" alt="Ícone do Facebook">
+      </a>
+    </li>
+  </ul>
+</nav>
