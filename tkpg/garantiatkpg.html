@@ -1,0 +1,186 @@
+<div class="horizon-widget">
+   <div class="horizon-inner">
+      <header class="header">
+         <div class="countdown-text">
+            <p>Você está sendo redirecionado em</p>
+            <span id="countdown-timer" class="timer">5</span>
+            <p>segundos...</p>
+         </div>
+         <div class="avatar">
+            <img src="https://horizoncred.com/wp-content/uploads/2025/08/sobre_marcia.jpeg" alt="Avatar de especialista">
+         </div>
+      </header>
+      <main class="main-content">
+         <h2>Um de nossos especialistas está pronto para te atender com as melhores condições do mercado</h2>
+         <ul>
+            <li>Atendimento 100% online e gratuito</li>
+            <li>Parceria com todos os bancos</li>
+            <li>As menores taxas do mercado</li>
+         </ul>
+      </main>
+      <a href="#" id="whatsapp-button" class="cta-button">
+      <i class="fab fa-whatsapp"></i>
+      FALAR COM UM ESPECIALISTA AGORA
+      </a>
+      <footer class="footer">
+         <p>Na Horizon Cred, ampliamos horizontes e realizamos sonhos. Aguarde só alguns segundos...</p>
+      </footer>
+   </div>
+</div>
+<style>
+   .ast-primary-menu-enabled {
+   display: none !important;
+   }
+   .elementor-location-footer {
+   display: none !important;
+   }
+   .site-content {
+   background-color: black;
+   }
+   .horizon-widget {
+   display: flex !important;
+   justify-content: center !important;
+   align-items: center !important;
+   min-height: 100vh !important;
+   text-align: center !important;
+   font-family: 'Poppins', sans-serif !important;
+   background: linear-gradient(rgba(20,20,20,0.85), rgba(20,20,20,0.85)), 
+   url('https://horizoncred.com/wp-content/uploads/2025/09/celular.jpeg') center/cover no-repeat !important;
+   color: #ffffff !important;
+   padding: 20px !important;
+   box-sizing: border-box !important;
+   }
+   .horizon-inner {
+   max-width: 500px !important;
+   width: 100% !important;
+   }
+   .horizon-widget .header {
+   display: flex !important;
+   flex-direction: row !important; /* lado a lado */
+   justify-content: space-between !important;
+   align-items: center !important;
+   gap: 20px !important;
+   margin-bottom: 30px !important;
+   text-align: left !important; /* para o texto do countdown alinhar melhor */
+   }
+   .horizon-widget .countdown-text {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   }
+   .horizon-widget .countdown-text p {
+   margin: 0 !important;
+   font-size: 1.1rem !important;
+   color: #ffffff !important;
+   text-align: center;
+   }
+   .horizon-widget .countdown-text .timer {
+   font-size: 3rem !important;
+   font-weight: bold !important;
+   margin: 10px 0 !important;
+   color: #fde13d !important;
+   }
+   .horizon-widget .avatar {
+   width: 180px !important;
+   height: 180px !important;
+   border-radius: 40% !important;
+   overflow: hidden !important;
+   flex-shrink: 0 !important; /* não deixa a foto encolher */
+   }
+   .horizon-widget .avatar img {
+   width: 100% !important;
+   height: 100% !important;
+   object-fit: cover !important;
+   }
+   .horizon-widget .main-content h2 {
+   font-size: 1.2rem !important;
+   margin-bottom: 20px !important;
+   color: #ffffff !important;
+   }
+   .horizon-widget .main-content ul {
+   list-style: none !important;
+   padding: 0 !important;
+   margin: 0 0 30px 0 !important;
+   }
+   .horizon-widget .main-content ul li {
+   font-size: 1rem !important;
+   margin-bottom: 12px !important;
+   position: relative !important;
+   padding-left: 20px !important;
+   text-align: left !important;
+   color: #ffffff !important;
+   }
+   .horizon-widget .main-content ul li::before {
+   content: '' !important;
+   position: absolute !important;
+   left: 0 !important;
+   top: 8px !important;
+   width: 8px !important;
+   height: 8px !important;
+   background: #fde13d !important;
+   border-radius: 50% !important;
+   }
+   .horizon-widget .cta-button {
+   display: inline-flex !important;
+   align-items: center !important;
+   gap: 8px !important;
+   background: #fde13d !important;
+   color: #212121 !important;
+   text-decoration: none !important;
+   padding: 15px 20px !important;
+   border-radius: 10px !important;
+   font-weight: 700 !important;
+   font-size: 1rem !important;
+   transition: background 0.3s ease !important;
+   }
+   .horizon-widget .cta-button:hover {
+   background: #e8c92a !important;
+   }
+   .horizon-widget .cta-button i {
+   font-size: 1.3rem !important;
+   }
+   .horizon-widget .footer p {
+   font-size: 0.9rem !important;
+   color: #b0b0b0 !important;
+   }
+</style>
+<script>
+   function getUrlParams() {
+     const params = new URLSearchParams(window.location.search);
+     const data = {};
+     for (let [key, value] of params) {
+       data[key] = decodeURIComponent(value.replace(/\+/g, ' '));
+     }
+     return data;
+   }
+   
+   const urlData = getUrlParams();
+   const nome = urlData.nome || 'Não informado';
+   const valorImovel = urlData.valor_imovel || 'Não informado';
+   const cidade = urlData.cidade || 'Não informada';
+   
+   const whatsappNumber = '5561999215656';
+   
+   const message = `Olá, HorizonCred! 👋\n\nDesejo uma simulação de Consórcio.\n\n*Nome:* ${nome}\n*Valor do Bem:* ${valorImovel}\n*Localização:* ${cidade}\n\nAguardo retorno. Obrigado!`;
+   const encodedMessage = encodeURIComponent(message);
+   const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+   
+   const whatsappButton = document.getElementById('whatsapp-button');
+   if (whatsappButton) {
+     whatsappButton.href = whatsappURL;
+   }
+   
+   const timerElement = document.getElementById('countdown-timer');
+   let timeLeft = 5;
+   
+   const countdown = setInterval(() => {
+     timeLeft--;
+     timerElement.textContent = timeLeft;
+   
+     if (timeLeft <= 0) {
+       clearInterval(countdown);
+       timerElement.textContent = "0";
+       window.location.href = whatsappURL;
+     }
+   }, 1000);
+</script>
