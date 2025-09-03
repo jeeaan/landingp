@@ -86,17 +86,50 @@
         </section>
 
         <script>
-          document.getElementById('whatsapp-button').addEventListener('click', function (event) {
-            event.preventDefault();
+            document.getElementById('whatsapp-button').addEventListener('click', function (event) {
+                event.preventDefault();
 
-            const nome = document.getElementById('nome').value;
-            const valorImovel = document.getElementById('valor_imovel').value;
-            const cidade = document.getElementById('cidade').value;
+                const nome = document.getElementById('nome').value;
+                const valorImovel = document.getElementById('valor_imovel').value;
+                const cidade = document.getElementById('cidade').value;
 
-            if (!nome || !valorImovel || valorImovel === 'R$ 0,00' || !cidade) {
-              alert('Por favor, preencha os campos obrigatórios para continuar.');
-              return;
+                // Validação dos campos (mantida como estava)
+                if (!nome || !valorImovel || valorImovel === 'R$ 0,00' || !cidade) {
+                    alert('Por favor, preencha os campos obrigatórios para continuar.');
+                    return;
+                }
+
+                const baseUrl = 'https://horizoncred.com/garantiatkpg';
+
+                const finalUrl = `${baseUrl}?nome=${encodeURIComponent(nome)}&valor_imovel=${encodeURIComponent(valorImovel)}&cidade=${encodeURIComponent(cidade)}`;
+
+                // 3. Redirecionamos o usuário para a nova página
+                window.location.href = finalUrl;
+            });
+
+            // A parte de formatação de moeda foi mantida, pois continua útil para o campo 'valor_imovel'.
+            const currencyInput = document.getElementById('valor_imovel');
+            if (currencyInput) { // Adicionada uma verificação para evitar erros caso o campo não exista
+                currencyInput.addEventListener('input', function (e) {
+                    let value = e.target.value.replace(/\D/g, '');
+                    if (!value) {
+                        e.target.value = '';
+                        return;
+                    }
+                    const numberValue = parseFloat(value) / 100;
+                    const formattedValue = new Intl.NumberFormat('pt-BR', {
+                        style: 'currency',
+                        currency: 'BRL',
+                        minimumFractionDigits: 2
+                    }).format(numberValue);
+
+                    e.target.value = formattedValue;
+                });
             }
+        </script>          
+
+        <script>
+
 
             const whatsappNumber = '5561991116565';
             const message = `Olá, HorizonCred! 👋\n\nDesejo uma simulação de Crédito com Garantia de Imóvel.\n\n*Nome:* ${nome}\n*Valor do Imóvel:* ${valorImovel}\n*Localização:* ${cidade}\n\nAguardo retorno. Obrigado!`;
