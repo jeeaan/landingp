@@ -4,28 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador de Financiamento</title>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-
     <style>
         /* --- ESTILOS GERAIS E DE CORPO --- */
-        body,
-        html {
+        body, html {
             margin: 0;
             padding: 0;
             font-family: 'Roboto', Arial, sans-serif;
             background-color: #333;
         }
-
-        /* Fundo da seção principal com imagem */
         body {
             background-image:
-              linear-gradient(to bottom, rgba(20, 20, 20, 0.7), rgba(0, 0, 0, 0.9)),
-              url('https://horizoncred.com/wp-content/uploads/2025/08/fundo_casa.jpeg');
+                linear-gradient(to bottom, rgba(20, 20, 20, 0.7), rgba(0, 0, 0, 0.9)),
+                url('https://horizoncred.com/wp-content/uploads/2025/08/fundo_casa.jpeg');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center center;
@@ -33,13 +27,11 @@
             overflow-x: hidden;
             position: relative;
         }
-
         /* --- SEÇÃO DO FORMULÁRIO E REQUISITOS --- */
         .highlight {
             color: #ffbc00 !important;
             text-align: center;
         }
-
         .form-section {
             padding: 100px 5%;
             display: flex;
@@ -49,57 +41,91 @@
             align-items: center;
             color: #fff;
         }
-
-        .left-content,
-        .form-container {
+        .left-content, .form-container {
             position: relative;
             z-index: 2;
             flex: 1;
             min-width: 300px;
             max-width: 600px;
         }
-
         .left-content h2 {
             font-size: 2.5em;
         }
-
         /* --- CONTAINER DO FORMULÁRIO --- */
         .form-container {
             background-color: rgba(0, 0, 0, 0.6);
             padding: 40px 50px;
             border-radius: 20px;
         }
-
         .form-container h2 {
             text-align: center;
             font-size: 2em;
             color: #ffbc00;
         }
-
         .form-container p {
             font-size: 1.1em;
             color: white !important;
             margin-bottom: 30px;
             text-align: center;
+            line-height: 1.5;
         }
-
+        /* --- ESTILOS DO FORMULÁRIO (ATUALIZADOS) --- */
+        .form-group {
+            margin-bottom: 20px; /* Espaçamento consistente entre os grupos de campos */
+        }
         .form-container label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px; /* Aumentei um pouco a distância do label para o campo */
             font-weight: 500;
             color: white;
+            text-align: left; /* Garante alinhamento à esquerda */
         }
-
-        .form-container input {
-            width: 100%;
-            padding: 14px;
-            margin-bottom: 20px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.1em;
-            box-sizing: border-box;
+        .form-container input, .form-container select {
+            width: 100% !important;
+            padding: 14px !important;
+            border: 1px solid transparent !important; 
+            border-radius: 5px !important;
+            font-size: 1.1em !important;
+            box-sizing: border-box !important;
+            background-color: #222 !important;
+            color: #fff !important;
+            transition: all 0.3s ease !important;
         }
-
+        .form-container input:focus, .form-container select:focus {
+            outline: none;
+            border-color: #ffbc00;
+            box-shadow: 0 0 0 2px rgba(255, 188, 0, 0.2);
+        }
+        /* --- ESTILO DA MENSAGEM DE ERRO (CORRIGIDO) --- */
+        .error-message {
+            color: #ffbc00; /* Mudei para a cor de destaque amarela */
+            font-size: 0.9em;
+            text-align: left; /* Alinhamento à esquerda */
+            display: none; /* Escondido por padrão */
+            margin-top: 6px; /* Espaço entre o campo e a mensagem de erro */
+            font-weight: 500;
+        }
+        /* Estilização personalizada do dropdown */
+        .custom-select {
+            position: relative;
+        }
+        .custom-select select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            padding-right: 40px;
+        }
+        /* --- SETA DO DROPDOWN (AJUSTADA) --- */
+        .custom-select::after {
+            content: "▼";
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            color: #ffbc00;
+            pointer-events: none;
+            font-size: 12px;
+        }
         .form-container a.elementor-button {
             width: 100%;
             padding: 15px;
@@ -112,8 +138,9 @@
             display: inline-block;
             text-decoration: none;
             box-sizing: border-box;
+            cursor: pointer;
+            margin-top: 10px;
         }
-
         .form-container small {
             font-size: 0.9em;
             color: #ccc;
@@ -121,7 +148,6 @@
             text-align: center;
             margin-top: 10px;
         }
-
         /* --- LOGOS DOS BANCOS --- */
         .bank-logos {
             display: flex;
@@ -132,22 +158,19 @@
             margin: 0 auto;
             padding: 20px;
         }
-
-        .bank-logos .bank-logos-title { /* Tornando o seletor mais específico */
+        .bank-logos .bank-logos-title {
             margin: 0 0 10px;
             font: 600 18px/1.2 'Roboto', Arial, sans-serif;
             color: #cfcfcf !important;
             letter-spacing: .3px;
         }
-
-        .bank-logos .bank-logos-container { /* Tornando o seletor mais específico */
+        .bank-logos .bank-logos-container {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 28px;
             flex-wrap: wrap;
         }
-
         .bank-logos img {
             height: 150px;
             width: 150px;
@@ -157,7 +180,6 @@
             padding: 10px;
             box-sizing: border-box;
         }
-
         /* --- CARDS DE REQUISITOS (BENEFITS) --- */
         .benefits {
             list-style-type: none;
@@ -168,11 +190,10 @@
             justify-content: center;
             gap: 30px;
         }
-
         .benefits li {
-            background-color: rgba(198, 198, 198, 0.5);
-            border-radius: 8px;
-            box-shadow: 0px 40px 120px -40px rgba(0, 0, 0, 0.24);
+            background: linear-gradient(145deg, rgba(50, 50, 50, 0.7), rgba(35, 35, 35, 0.7));
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -186,43 +207,46 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             color: #fff;
         }
-
         .benefits li:hover {
             transform: translateY(-8px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 25px rgba(255, 188, 0, 0.2);
         }
-
         .benefits i {
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             color: #ffbc00;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-
         .benefits span {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 500;
-            line-height: 1.4;
+            line-height: 1.5;
         }
         @media (max-width: 768px) {
-          body {
-            background-image:
-             linear-gradient(to bottom, rgba(20, 20, 20, 0.7), rgba(0, 0, 0, 0.9)),
-             url('https://horizoncred.com/wp-content/uploads/2025/08/fundo_casa.jpeg');
-
-                    /* Mantém o deslocamento que você já tinha definido */
-            background-position: 43.5% center;
-          }
+            body {
+                background-position: 43.5% center;
+            }
+            .form-section {
+                padding-top: 50px;
+            }
+            .left-content h2 {
+                font-size: 2em;
+                text-align: center;
+            }
         }
-
     </style>
-    </head>
+</head>
 <body>
-
     <main>
         <section id="simulacao" class="form-section">
-
             <div class="left-content">
-                <h2 class="highlight">Requisitos para financiar</h2>
+                <h2 class="highlight">Financie e Construa sua casa dos Sonhos com a Horizon. Simulação, Aprovação, Projeto e Construção Tudo em um só Lugar. Saiba mais!</h2>
                 <div class="benefits-container">
                     <ul class="benefits">
                         <li>
@@ -242,19 +266,37 @@
             </div>
 
             <div class="form-container">
-                <h2>Simular o Financimento da Minha Construção</h2>
+                <h2>Serviço completo em um só lugar</h2>
                 <p>Preencha os dados abaixo e entraremos em contato rapidamente.</p>
 
-                <label for="nome">Nome Completo</label>
-                <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
+                <div class="form-group">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
+                    <div class="error-message" id="nome-error">Por favor, preencha seu nome.</div>
+                </div>
 
-                <label for="cidade">Cidade</label>
-                <input type="text" id="cidade" name="cidade" placeholder="Digite a cidade do imóvel">
+                <div class="form-group custom-select">
+                    <label for="possui_terreno">Você já possui um terreno?</label>
+                    <select id="possui_terreno" name="possui_terreno">
+                        <option value="" selected disabled>Selecione uma opção</option>
+                        <option value="sim">Sim, já tenho um terreno</option>
+                        <option value="nao">Não, ainda não tenho um terreno</option>
+                    </select>
+                </div>
 
-                <label for="valor_imovel">Valor do Imóvel (estimado)</label>
-                <input type="text" id="valor_imovel" name="valor_imovel" placeholder="R$ 300.000">
+                <div id="local_terreno_container" class="form-group" style="display: none;">
+                    <label for="cidade">Local do Terreno</label>
+                    <input type="text" id="cidade" name="cidade" placeholder="Digite a localidade">
+                    <div class="error-message" id="cidade-error">Por favor, informe a localização.</div>
+                </div>
 
-                <a href="#whatsapp" id="whatsapp-button" class="elementor-button">
+                <div class="form-group">
+                    <label for="valor_imovel">Valor Estimado do Imóvel</label>
+                    <input type="text" id="valor_imovel" name="valor_imovel" placeholder="R$ 300.000,00" inputmode="numeric">
+                    <div class="error-message" id="valor-error">Por favor, informe um valor.</div>
+                </div>
+
+                <a id="whatsapp-button" class="elementor-button">
                     Simular Agora!
                 </a>
                 <small>🔒 Seus dados estão protegidos — atendimento sem compromisso</small>
@@ -269,36 +311,39 @@
             </div>
         </section>
     </main>
-
     <script>
-        document.getElementById('whatsapp-button').addEventListener('click', function (event) {
-            event.preventDefault();
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- ELEMENTOS DO DOM ---
+            const possuiTerrenoSelect = document.getElementById('possui_terreno');
+            const localTerrenoContainer = document.getElementById('local_terreno_container');
+            const whatsappButton = document.getElementById('whatsapp-button');
+            const nomeInput = document.getElementById('nome');
+            const cidadeInput = document.getElementById('cidade');
+            const valorImovelInput = document.getElementById('valor_imovel');
+            
+            // Elementos de erro
+            const nomeError = document.getElementById('nome-error');
+            const cidadeError = document.getElementById('cidade-error');
+            const valorError = document.getElementById('valor-error');
 
-            const nome = document.getElementById('nome').value;
-            const valorImovel = document.getElementById('valor_imovel').value;
-            const cidade = document.getElementById('cidade').value;
+            // --- FUNÇÕES ---
 
-            // Validação dos campos (mantida como estava)
-            if (!nome || !valorImovel || valorImovel === 'R$ 0,00' || !cidade) {
-                alert('Por favor, preencha os campos obrigatórios para continuar.');
-                return;
+            // Mostra/oculta campo de localização do terreno
+            function toggleTerrenoField() {
+                if (possuiTerrenoSelect.value === 'sim') {
+                    localTerrenoContainer.style.display = 'block';
+                } else {
+                    localTerrenoContainer.style.display = 'none';
+                    cidadeInput.value = ''; // Limpa o campo ao ocultar
+                    cidadeError.style.display = 'none'; // Esconde o erro
+                }
             }
 
-            const baseUrl = 'https://horizoncred.com/construcaotkpg';
-
-            const finalUrl = `${baseUrl}?nome=${encodeURIComponent(nome)}&valor_imovel=${encodeURIComponent(valorImovel)}&cidade=${encodeURIComponent(cidade)}`;
-
-            // 3. Redirecionamos o usuário para a nova página
-            window.location.href = finalUrl;
-        });
-
-        // A parte de formatação de moeda foi mantida, pois continua útil para o campo 'valor_imovel'.
-        const currencyInput = document.getElementById('valor_imovel');
-        if (currencyInput) { // Adicionada uma verificação para evitar erros caso o campo não exista
-            currencyInput.addEventListener('input', function (e) {
-                let value = e.target.value.replace(/\D/g, '');
+            // Formatação do campo de valor como moeda (R$)
+            function formatCurrency(input) {
+                let value = input.value.replace(/\D/g, '');
                 if (!value) {
-                    e.target.value = '';
+                    input.value = '';
                     return;
                 }
                 const numberValue = parseFloat(value) / 100;
@@ -307,11 +352,91 @@
                     currency: 'BRL',
                     minimumFractionDigits: 2
                 }).format(numberValue);
+                input.value = formattedValue;
+            }
 
-                e.target.value = formattedValue;
+            // Validação do formulário
+            function validateForm() {
+                let isValid = true;
+                
+                // Validar nome
+                if (!nomeInput.value.trim()) {
+                    nomeError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    nomeError.style.display = 'none';
+                }
+                
+                // Validar terreno (se selecionou "Sim")
+                if (possuiTerrenoSelect.value === 'sim' && !cidadeInput.value.trim()) {
+                    cidadeError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    cidadeError.style.display = 'none';
+                }
+                
+                // Validar valor
+                if (!valorImovelInput.value.trim() || valorImovelInput.value === 'R$ 0,00') {
+                    valorError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    valorError.style.display = 'none';
+                }
+                
+                return isValid;
+            }
+
+            // --- EVENT LISTENERS ---
+
+
+            // Evento para o botão de simulação (agora redireciona)
+            whatsappButton.addEventListener('click', function(event) {
+                event.preventDefault();
+                
+                if (!validateForm()) {
+                    return; // Para a execução se o formulário for inválido
+                }
+
+                // 1. Coletamos todos os dados dos campos do formulário
+                const nome = nomeInput.value;
+                const valorImovel = valorImovelInput.value;
+                const possuiTerreno = possuiTerrenoSelect.value;
+                const cidade = cidadeInput.value; // Coletamos mesmo que esteja vazio
+
+                // 2. Definimos a URL base da página de destino
+                const baseUrl = 'https://horizoncred.com/construcaotkpg';
+
+                // 3. Criamos um objeto com os parâmetros para a URL
+                const params = {
+                    nome: nome,
+                    valor_imovel: valorImovel,
+                    possui_terreno: possuiTerreno,
+                };
+
+                // 4. Adicionamos o parâmetro 'cidade' apenas se o usuário tiver um terreno
+                if (possuiTerreno === 'sim' && cidade) {
+                    params.cidade = cidade;
+                }
+
+                // 5. Usamos URLSearchParams para criar a string de consulta de forma segura
+                // Isso já cuida do encode (ex: transformar espaços em %20)
+                const queryString = new URLSearchParams(params).toString();
+
+                // 6. Montamos a URL final
+                const finalUrl = `${baseUrl}?${queryString}`;
+
+                // 7. Redirecionamos o usuário para a nova página
+                window.location.href = finalUrl;
             });
-        }
-    </script>
 
-    </body>
+            // Evento para formatação do valor
+            valorImovelInput.addEventListener('input', function() {
+                formatCurrency(this);
+            });
+            
+            // Evento para mudança no select de terreno
+            possuiTerrenoSelect.addEventListener('change', toggleTerrenoField);
+        });
+    </script>
+</body>
 </html>
