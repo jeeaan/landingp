@@ -29,8 +29,8 @@
         }
         /* --- SEÇÃO DO FORMULÁRIO E REQUISITOS --- */
         .highlight {
-            color: #ffbc00 !important;
-            text-align: center;
+            color: #FFFFFF !important;
+            text-align: left-content;
         }
         .form-section {
             padding: 100px 5%;
@@ -49,7 +49,11 @@
             max-width: 600px;
         }
         .left-content h2 {
-            font-size: 2.5em;
+            font-size: 4.5em;
+            text-transform: none !important;
+        }
+        .left-content p {
+            text-align: left-content;
         }
         /* --- CONTAINER DO FORMULÁRIO --- */
         .form-container {
@@ -69,21 +73,21 @@
             text-align: center;
             line-height: 1.5;
         }
-        /* --- ESTILOS DO FORMULÁRIO (ATUALIZADOS) --- */
+        /* --- ESTILOS DO FORMULÁRIO --- */
         .form-group {
-            margin-bottom: 20px; /* Espaçamento consistente entre os grupos de campos */
+            margin-bottom: 20px;
         }
         .form-container label {
             display: block;
-            margin-bottom: 8px; /* Aumentei um pouco a distância do label para o campo */
+            margin-bottom: 8px;
             font-weight: 500;
             color: white;
-            text-align: left; /* Garante alinhamento à esquerda */
+            text-align: left;
         }
         .form-container input, .form-container select {
             width: 100% !important;
             padding: 14px !important;
-            border: 1px solid transparent !important; 
+            border: 1px solid transparent !important;
             border-radius: 5px !important;
             font-size: 1.1em !important;
             box-sizing: border-box !important;
@@ -96,16 +100,15 @@
             border-color: #ffbc00;
             box-shadow: 0 0 0 2px rgba(255, 188, 0, 0.2);
         }
-        /* --- ESTILO DA MENSAGEM DE ERRO (CORRIGIDO) --- */
+        /* --- ESTILO DA MENSAGEM DE ERRO --- */
         .error-message {
-            color: #ffbc00; /* Mudei para a cor de destaque amarela */
+            color: #ffbc00;
             font-size: 0.9em;
-            text-align: left; /* Alinhamento à esquerda */
-            display: none; /* Escondido por padrão */
-            margin-top: 6px; /* Espaço entre o campo e a mensagem de erro */
+            text-align: left;
+            display: none;
+            margin-top: 6px;
             font-weight: 500;
         }
-        /* Estilização personalizada do dropdown */
         .custom-select {
             position: relative;
         }
@@ -115,7 +118,7 @@
             -moz-appearance: none;
             padding-right: 40px;
         }
-        /* --- SETA DO DROPDOWN (AJUSTADA) --- */
+        /* --- SETA DO DROPDOWN --- */
         .custom-select::after {
             content: "▼";
             position: absolute;
@@ -180,54 +183,95 @@
             padding: 10px;
             box-sizing: border-box;
         }
-        /* --- CARDS DE REQUISITOS (BENEFITS) --- */
-        .benefits {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
+        /* --- BOTÃO SAIBA MAIS --- */
+        .saiba-mais-container {
+            text-align: center;
+            margin-top: 30px;
         }
-        .benefits li {
-            background: linear-gradient(145deg, rgba(50, 50, 50, 0.7), rgba(35, 35, 35, 0.7));
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        .saiba-mais-btn {
+            display: inline-block;
+            background-color: #ffbc00;
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+            color: #000000;
+        }
+        .saiba-mais-btn:hover {
+            box-shadow: 0 10px 25px rgba(255, 188, 0, 0.2);
+            color: #000000;
+        }
+        /* --- BOLINHAS DE PROCESSO --- */
+        .process-steps-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 20px 0;
+            gap: 10px;
+        }
+        .process-step {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            padding: 20px 15px;
             text-align: center;
-            flex-basis: 220px;
-            flex-grow: 1;
-            min-width: 150px;
-            max-width: 250px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            color: #fff;
+            max-width: 180px;
         }
-        .benefits li:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 25px rgba(255, 188, 0, 0.2);
-        }
-        .benefits i {
-            font-size: 2.2rem;
-            color: #ffbc00;
-            margin-bottom: 15px;
-            background: rgba(0, 0, 0, 0.3);
-            width: 60px;
-            height: 60px;
+        .step-icon-wrapper {
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
+            background-color: #ffbc00;
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
-        .benefits span {
-            font-size: 1rem;
-            font-weight: 500;
-            line-height: 1.5;
+        .step-icon-wrapper i {
+            font-size: 1.5rem;
+            color: #212121;
         }
+        .step-text {
+          font-size: 0.9rem;
+          font-weight: 600;
+          color: #ffffff;
+          margin: 0;
+          padding: 2px 15px;
+          border: 2px solid #ffffff;
+          border-radius: 30px;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        }
+
+        .menu-redes-sociais {
+          position: fixed;
+          bottom: 30px;
+          right: 30px; 
+          z-index: 1000;
+        }
+
+        .menu-redes-sociais ul {
+          display: flex;
+          flex-direction: column; 
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          gap: 15px;
+        }
+
+        .menu-redes-sociais img {
+          width: 45px;
+          height: 45px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+          transition: all 0.3s ease-out;
+        }
+
+        .menu-redes-sociais a:hover img {
+          transform: scale(1.15) translateY(-3px);
+        }
+
         @media (max-width: 768px) {
             body {
                 background-position: 43.5% center;
@@ -238,79 +282,126 @@
             .left-content h2 {
                 font-size: 2em;
                 text-align: center;
+                text-transform: none !important;
+            }
+            .process-steps-container {
+                gap: 20px;
+            }
+            .process-step {
+                max-width: 150px;
+            }
+            .step-icon-wrapper {
+                width: 100px;
+                height: 100px;
+            }
+            .step-icon-wrapper i {
+                font-size: 3rem;
+            }
+            .step-text {
+                font-size: 1rem;
+                padding: 8px 15px;
             }
         }
     </style>
 </head>
 <body>
-    <main>
-        <section id="simulacao" class="form-section">
-            <div class="left-content">
-                <h2 class="highlight">Financie e Construa sua casa dos Sonhos com a Horizon. Simulação, Aprovação, Projeto e Construção Tudo em um só Lugar. Saiba mais!</h2>
-                <div class="benefits-container">
-                    <ul class="benefits">
-                        <li>
-                            <i class="fa-solid fa-user-check"></i>
-                            <span>Ter mais de 18 anos ou ser emancipado</span>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-percent"></i>
-                            <span>Ter renda compatível (parcela ≤ 30% da renda familiar)</span>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-id-card"></i>
-                            <span>Estar com o CPF sem restrições (nome limpo)</span>
-                        </li>
-                    </ul>
+<main>
+    <section id="simulacao" class="form-section">
+        <div class="left-content">
+            <h2 class="highlight">Financie e Construa sua casa dos Sonhos com a Horizon.</h2>
+            
+            <div class="process-steps-container">
+                <div class="process-step">
+                    <div class="step-icon-wrapper">
+                        <i class="fa-solid fa-hand-holding-dollar"></i>
+                    </div>
+                    <p class="step-text">SIMULAÇÃO</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-icon-wrapper">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <p class="step-text">APROVAÇÃO</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-icon-wrapper">
+                        <i class="fa-solid fa-ruler-combined"></i>
+                    </div>
+                    <p class="step-text">PROJETO</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-icon-wrapper">
+                        <i class="fa-solid fa-helmet-safety"></i>
+                    </div>
+                    <p class="step-text">CONSTRUÇÃO</p>
                 </div>
             </div>
-
-            <div class="form-container">
-                <h2>Serviço completo em um só lugar</h2>
-                <p>Preencha os dados abaixo e entraremos em contato rapidamente.</p>
-
-                <div class="form-group">
-                    <label for="nome">Nome Completo</label>
-                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
-                    <div class="error-message" id="nome-error">Por favor, preencha seu nome.</div>
-                </div>
-
-                <div class="form-group custom-select">
-                    <label for="possui_terreno">Você já possui um terreno?</label>
-                    <select id="possui_terreno" name="possui_terreno">
-                        <option value="" selected disabled>Selecione uma opção</option>
-                        <option value="sim">Sim, já tenho um terreno</option>
-                        <option value="nao">Não, ainda não tenho um terreno</option>
-                    </select>
-                </div>
-
-                <div id="local_terreno_container" class="form-group" style="display: none;">
-                    <label for="cidade">Local do Terreno</label>
-                    <input type="text" id="cidade" name="cidade" placeholder="Digite a localidade">
-                    <div class="error-message" id="cidade-error">Por favor, informe a localização.</div>
-                </div>
-
-                <div class="form-group">
-                    <label for="valor_imovel">Valor Estimado do Imóvel</label>
-                    <input type="text" id="valor_imovel" name="valor_imovel" placeholder="R$ 300.000,00" inputmode="numeric">
-                    <div class="error-message" id="valor-error">Por favor, informe um valor.</div>
-                </div>
-
-                <a id="whatsapp-button" class="elementor-button">
-                    Simular Agora!
-                </a>
-                <small>🔒 Seus dados estão protegidos — atendimento sem compromisso</small>
+            <!-- <p>Tudo em um só lugar</p> -->
+            <div class="saiba-mais-container">
+                <a href="#financing-conditions-section" class="saiba-mais-btn">Saiba Mais!</a>
             </div>
-        </section>
+        </div>
 
-        <section class="bank-logos" aria-label="Bancos conveniados">
-            <p class="bank-logos-title">Bancos conveniados:</p>
-            <div class="bank-logos-container">
-                <img src="https://horizoncred.com/wp-content/uploads/2025/08/caixa2-scaled.png" alt="Caixa Econômica Federal">
-                <img src="https://horizoncred.com/wp-content/uploads/2025/08/brb2-scaled.png" alt="BRB Banco de Brasília">
+        <div class="form-container">
+            <h2>Serviço completo em um só lugar</h2>
+            <p>Preencha os dados abaixo e entraremos em contato rapidamente.</p>
+
+            <div class="form-group">
+                <label for="nome">Nome Completo</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
+                <div class="error-message" id="nome-error">Por favor, preencha seu nome.</div>
             </div>
-        </section>
-    </main>
+
+            <div class="form-group custom-select">
+                <label for="possui_terreno">Você já possui um terreno?</label>
+                <select id="possui_terreno" name="possui_terreno">
+                    <option value="" selected disabled>Selecione uma opção</option>
+                    <option value="sim">Sim, já tenho um terreno</option>
+                    <option value="nao">Não, ainda não tenho um terreno</option>
+                </select>
+            </div>
+
+            <div id="local_terreno_container" class="form-group" style="display: none;">
+                <label for="cidade">Local do Terreno</label>
+                <input type="text" id="cidade" name="cidade" placeholder="Digite a localidade">
+                <div class="error-message" id="cidade-error">Por favor, informe a localização.</div>
+            </div>
+
+            <div class="form-group">
+                <label for="valor_imovel">Valor Estimado do Imóvel</label>
+                <input type="text" id="valor_imovel" name="valor_imovel" placeholder="R$ 300.000,00" inputmode="numeric">
+                <div class="error-message" id="valor-error">Por favor, informe um valor.</div>
+            </div>
+
+            <a id="whatsapp-button" class="elementor-button">
+                Simular Agora!
+            </a>
+            <small>🔒 Seus dados estão protegidos — atendimento sem compromisso</small>
+        </div>
+    </section>
+
+    <section class="bank-logos" aria-label="Bancos conveniados">
+        <p class="bank-logos-title">Bancos conveniados:</p>
+        <div class="bank-logos-container">
+            <img src="https://horizoncred.com/wp-content/uploads/2025/08/caixa2-scaled.png" alt="Caixa Econômica Federal">
+            <img src="https://horizoncred.com/wp-content/uploads/2025/08/brb2-scaled.png" alt="BRB Banco de Brasília">
+        </div>
+    </section>
+
+    <nav class="menu-redes-sociais" aria-label="Redes sociais">
+      <ul>
+        <li>
+          <a href="https://wa.me/5561993035105?text=Olá!%20Estou%20entrando%20em%20contato%20a%20partir%20do%20portal%20horizoncred.com!" target="_blank" rel="noopener noreferrer" aria-label="Nosso Whatsapp">
+            <img src="https://horizoncred.com/wp-content/uploads/2025/06/zap-icon.svg" alt="Ícone do Whatsapp">
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+</main>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // --- ELEMENTOS DO DOM ---
@@ -388,8 +479,7 @@
 
             // --- EVENT LISTENERS ---
 
-
-            // Evento para o botão de simulação (agora redireciona)
+            // Evento para o botão de simulação (redireciona)
             whatsappButton.addEventListener('click', function(event) {
                 event.preventDefault();
                 
@@ -397,35 +487,22 @@
                     return; // Para a execução se o formulário for inválido
                 }
 
-                // 1. Coletamos todos os dados dos campos do formulário
                 const nome = nomeInput.value;
                 const valorImovel = valorImovelInput.value;
                 const possuiTerreno = possuiTerrenoSelect.value;
-                const cidade = cidadeInput.value; // Coletamos mesmo que esteja vazio
+                const cidade = cidadeInput.value;
 
-                // 2. Definimos a URL base da página de destino
                 const baseUrl = 'https://horizoncred.com/construcaotkpg';
-
-                // 3. Criamos um objeto com os parâmetros para a URL
                 const params = {
                     nome: nome,
                     valor_imovel: valorImovel,
                     possui_terreno: possuiTerreno,
                 };
-
-                // 4. Adicionamos o parâmetro 'cidade' apenas se o usuário tiver um terreno
                 if (possuiTerreno === 'sim' && cidade) {
                     params.cidade = cidade;
                 }
-
-                // 5. Usamos URLSearchParams para criar a string de consulta de forma segura
-                // Isso já cuida do encode (ex: transformar espaços em %20)
                 const queryString = new URLSearchParams(params).toString();
-
-                // 6. Montamos a URL final
                 const finalUrl = `${baseUrl}?${queryString}`;
-
-                // 7. Redirecionamos o usuário para a nova página
                 window.location.href = finalUrl;
             });
 
